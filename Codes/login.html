@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Web designer: Infinite Leaner, Owner: Promise, Type of Ecommerce: Shoe">
+  <title>Log-in/Registration Page</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="login.css">
+  <link rel="icon" type="image/png" href="/Promise Feats/Images/Logo/PF.web_and_app_icons-removebg-preview.png">
+  <script defer src="login.js"></script>
+</head>
+
+<body>
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="/Promise Feats/background music Pf/Aurora - Runaway _ 8D Audio 🎧 __ Dawn of Music __(480P).mp4" type="audio/mp4">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="container">
+    <div class="curved-shape"></div>
+    <div class="curved-shape2"></div>
+    <!-- Login Form -->
+    <div class="form-box login">
+      <h2 class="animation" style="--D:0">Login</h2>
+      <form action="#">
+        <div class="input-box animation" style="--D:1">
+          <input type="text" id="login-username" required>
+          <label>Username</label>
+          <i><img src="/Promise Feats/Icons/bx-search-alt.png" alt=""></i>
+        </div>
+
+        <div class="input-box animation" style="--D:2">
+          <input type="password" id="login-password" required>
+          <label>Password</label>
+          <i><img src="/Promise Feats/Icons/safe-3-fill.png" alt=""></i>
+        </div>
+
+        <!-- Checkboxes -->
+        <div class="checkbox-row">
+          <div class="checkbox-group">
+            <input type="checkbox" id="show-password">
+            <label for="show-password">Show Password</label>
+          </div>
+        </div>
+
+        <div class="input-box animation" style="--D:3">
+          <button class="btn" type="submit">Login</button>
+        </div>
+
+        <div class="regi-link animation" style="--D:4 ">
+          <p>Don't have an account? <a href="#" class="sign-up-link">Sign up</a></p>
+        </div>
+      </form>
+    </div>
+    <!-- Right-side Welcome Text -->
+    <div class="info-content Login">
+      <h2 class="animation" style="--D:0">Welcome To Promise-Feats!</h2>
+      <p class="animation" style="--D:1">Please enter your details .Tips:it is not</p>
+    </div>
+
+
+    <!-- Register Form -->
+    <div class="form-box register">
+      <h2 class="animation" style="--li:17;" >Register</h2>
+      <form action="#">
+        <div class="input-box animation" style="--li:18;">
+          <input type="text" required>
+          <label>Username</label>
+          <i ></i>
+        </div>
+        <div class="input-box animation">
+          <input type="text" required>
+          <label>Email</label>
+          <i><img src="/Promise Feats/Icons/bx-envelope.png" alt=""></i>
+        </div>
+        <div class="input-box animation" style="--li:19;">
+          <input type="password" required>
+          <label>Password</label>
+          <i><img src="/Promise Feats/Icons/safe-3-fill.png" alt=""></i>
+        </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="show-password">
+            <label for="show-password">Show Password</label>
+          </div>
+
+        <div class="input-box animation" style="--li:20;">
+          <button class="btn" type="submit">Register</button>
+        </div>
+
+        <div class="regi-link animation" style="--li:21;">
+          <p>Already have an account? <a href="#" class="sign-in-link">Sign in</a></p>
+        </div>
+      </form>
+    </div>
+
+    <!-- Right-side Welcome Text -->
+    <div class="info-content">
+      <h2 class="animation" style="--li:22;">Welcome Back!</h2>
+      <p class="animation" style="--li:23;">Please enter your details .Tips:it is not</p>
+    </div>
+  </div>
+</body>
+</html>

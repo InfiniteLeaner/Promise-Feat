@@ -1,0 +1,28 @@
+
+body{
+    background-color: rgb(250, 250, 250);
+    margin: auto;
+}
+
+nav{
+    color: rgba(0, 0, 0, 0.438);
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+
+.navbar li{
+    position: relative;
+    padding: 20px 10px;
+    align-items: center;
+    list-style: none;
+}
+
+.search{
+    position: relative;
+}
+
+.srch-btn{
+    color: rgb(209, 92, 50);
+}
