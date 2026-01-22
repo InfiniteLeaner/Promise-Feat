@@ -4,39 +4,61 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Promise Feats</title>
-  <link rel="stylesheet" href="/Codes/Promise-feat.css" />
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/Codes/css/Promise-feat.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="/Images/Logo/PF.web_and_app_icons-removebg-preview.png"/>
 </head>
 
 <body>
-  <!-- Music -->
-  <audio autoplay loop>
+
+  <!-- Background Music (muted for browser compatibility) -->
+  <audio autoplay loop muted>
     <source src="/Website/Promise Feats/background music Pf/Relaxing Piano Music_ Romantic Music_ Beautiful Relaxing Music_ Sleep Music_ Stress Relief ★122(MP3_160K).mp3" type="audio/mp3">
   </audio>
 
-  <!-- Header & Navbar -->
-  <header>
-  <div class="time"></div>
-  <div class="container">
-    <i class="bx bx-menu" id="menu-toggle"></i>
-    
-    <nav class="navbar" id="navbar">
-      <ul class="nav-links">
-        <li><a href="/Website/Promise Feats/Web pages/PF ( Home Page ).html">Home</a></li>
-        <li><a href="/Website/Promise Feats/Web pages/Store.html">Stores</a></li>
-        <li><a href="/Website/Promise Feats/Web pages/Design.html">Design</a></li>
-        <li><a href="/Website/Promise Feats/Web pages/About-Us.html">About Us</a></li>
-      </ul>
+  <!-- HEADER & NAVBAR -->
+  <header class="site-header">
+    <div class="time"></div>
 
-      <div class="nav-actions">
+    <nav class="navbar" id="navbar">
+
+      <!-- LEFT -->
+      <div class="nav-left">
+        <i class="bx bx-menu" id="menu-toggle"></i>
+
+        <ul class="nav-links">
+          <li><a href="/Codes/Promise feat-Home-page.html">Home</a></li>
+          <li><a href="/Codes/Store.html">Stores</a></li>
+          <li><a href="/Codes/Design.html">Design</a></li>
+          <li><a href="/Codes/About-Us.html">About Us</a></li>
+        </ul>
+      </div>
+
+      <!-- CENTER -->
+      <div class="nav-center">
         <div class="search">
           <input class="srch" type="search" placeholder="Type here" />
-          <button class="srch-btn">Search <i class="bx bx-search-alt-2"></i></button>
+          <button class="srch-btn">
+            Search <i class="bx bx-search-alt-2"></i>
+          </button>
         </div>
+      </div>
 
-        <a href="/Website/Promise Feats/Web pages/Store.html"><button class="buynow-btn">Buy Now</button></a>
-        <a href="/Website/Promise Feats/Web pages/login.html"><button class="login-btn">Login</button></a>
+      <!-- RIGHT -->
+      <div class="nav-right">
+        <a href="/Codes/login.html" class="login-btn">Login</a>
+        <a href="/Codes/Store.html" class="buynow-btn">Buy Now</a>
 
         <div class="icon-cart">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
@@ -46,22 +68,22 @@
           <span>0</span>
         </div>
       </div>
+
     </nav>
-  </div>
   </header>
 
-
-  <!-- Video Advertisement -->
+  <!-- VIDEO ADVERTISEMENT -->
   <section class="ads-section">
     <a href="https://www.instagram.com/promisefeat/" target="_blank">
-      <video class="Ads" autoplay loop muted playsinline width="100%" height="auto">
-        <source src="/Ads" type="video/mp4">
+      <video class="Ads" autoplay loop muted playsinline width="100%">
+        <source src="/Ads/Ads videos/Shoes/Shoe ads.2.mp4" type="video/mp4">
       </video>
     </a>
   </section>
 
-  <!-- Carousel + Thumbnail fixed -->
+  <!-- CAROUSEL -->
   <section class="carousel">
+
     <div class="list">
       <div class="item">
         <img src="/Images/Background images/Promise Feats Background Golden text.png" alt="Banner 1"/>
@@ -92,10 +114,10 @@
       </div>
     </div>
 
-    <!-- Thumbnails moved inside .carousel -->
+    <!-- THUMBNAILS -->
     <div class="thumbnail">
       <div class="item">
-        <img src="/Promise Feats ( Foot Wears )/Black leather shoes/Black leather img.1.webp Feats/Promise Feats" alt="Black Shoe 1"/>
+        <img src="/Promise Feats ( Foot Wears )/Black leather shoes/Black leather img.1.webp" alt="Black Shoe"/>
         <div class="content">
           <div class="title">Black Shoe</div>
           <div class="description">Black Leathered shoe for formal events</div>
@@ -103,7 +125,7 @@
       </div>
 
       <div class="item">
-        <img src="/Promise Feats ( Foot Wears )/Brown leather shoes/Brown leather img.1.webp" alt="Brown Shoe 1"/>
+        <img src="/Promise Feats ( Foot Wears )/Brown leather shoes/Brown leather img.1.webp" alt="Brown Shoe"/>
         <div class="content">
           <div class="title">Brown Shoe</div>
           <div class="description">Brown Leathered shoe for formal events</div>
@@ -111,7 +133,7 @@
       </div>
 
       <div class="item">
-        <img src="/Promise Feats ( Foot Wears )/Black leather shoes/Black leather img.3.webp" alt="Black Shoe 2"/>
+        <img src="/Promise Feats ( Foot Wears )/Black leather shoes/Black leather img.3.webp" alt="Black Shoe"/>
         <div class="content">
           <div class="title">Black Shoe</div>
           <div class="description">Black Leathered shoe for formal events</div>
@@ -119,86 +141,33 @@
       </div>
 
       <div class="item">
-        <img src="/Promise Feats ( Foot Wears )/Brown leather shoes/Brown leather img.2.webp" alt="Brown Shoe 2"/>
+        <img src="/Promise Feats ( Foot Wears )/Brown leather shoes/Brown leather img.2.webp" alt="Brown Shoe"/>
         <div class="content">
           <div class="title">Brown Shoe</div>
           <div class="description">Brown Leathered shoe for formal events</div>
         </div>
       </div>
     </div>
+
   </section>
 
-  <!-- Carousel Controls -->
+  <!-- CAROUSEL CONTROLS -->
   <div class="arrows">
-    <button id="prev"><</button>
-    <button id="next">></button>
+    <button id="prev">&lt;</button>
+    <button id="next">&gt;</button>
   </div>
 
-  <!-- Social Media link -->
+  <!-- SOCIAL MEDIA -->
   <div class="social_media_links">
     <a href="#"><i class="bx bxl-facebook"></i></a>
     <a href="https://www.instagram.com/promisefeat/"><i class="bx bxl-instagram"></i></a>
     <a href="#"><i class="bx bxl-whatsapp"></i></a>
     <a href="#"><i class="bx bxl-twitter"></i></a>
-    <a><i class='bx bxl-telegram'></i></a>
+    <a href="#"><i class='bx bxl-telegram'></i></a>
   </div>
 
+  <!-- JAVASCRIPT -->
+  <script src="/Codes/js/Promise Feats.js"></script>
 
-  <!-- JavaScript -->
-  <script>
-    // Step 1: Get DOM
-    let nextDom = document.getElementById('next');
-    let prevDom = document.getElementById('prev');
-
-    let carouselDom = document.querySelector('.carousel');
-    let SliderDom = carouselDom.querySelector('.carousel .list');
-    let thumbnailBorderDom = document.querySelector('.carousel .thumbnail');
-    let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
-    let timeDom = document.querySelector('.carousel .time');
-
-    thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
-    let timeRunning = 3000;
-    let timeAutoNext = 7000;
-
-    nextDom.onclick = function () {
-      showSlider('next');
-    }
-
-    prevDom.onclick = function () {
-      showSlider('prev');
-    }
-
-    let runTimeOut;
-    let runNextAuto = setTimeout(() => {
-      next.click();
-    }, timeAutoNext)
-
-    function showSlider(type) {
-      let SliderItemsDom = SliderDom.querySelectorAll('.carousel .list .item');
-      let thumbnailItemsDom = document.querySelectorAll('.carousel .thumbnail .item');
-
-      if (type === 'next') {
-        SliderDom.appendChild(SliderItemsDom[0]);
-        thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
-        carouselDom.classList.add('next');
-      } else {
-        SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
-        thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
-        carouselDom.classList.add('prev');
-      }
-
-      clearTimeout(runTimeOut);
-      runTimeOut = setTimeout(() => {
-        carouselDom.classList.remove('next');
-        carouselDom.classList.remove('prev');
-      }, timeRunning);
-
-      clearTimeout(runNextAuto);
-      runNextAuto = setTimeout(() => {
-        next.click();
-      }, timeAutoNext)
-    }
-  </script>
 </body>
 </html>
-
