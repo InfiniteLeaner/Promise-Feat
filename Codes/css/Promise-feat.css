@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(250, 250, 250);
+  margin: 0;
+  font-family: 'Balsamiq Sans', cursive;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 2rem;
+  background: #7a7272;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* MENU ICON */
+#menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #f1f1f1;
+  font-size: 18px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ff7a00;
+  text-shadow: 0 4px 10px rgba(255, 122, 0, 0.7);
+}
+
+/* NAV ACTIONS */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* SEARCH */
+.search input {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+.srch-btn {
+  padding: 6px 12px;
+  border: none;
+  background: #ff7a00;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* BUTTONS */
+.buynow-btn,
+.login-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #333;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.buynow-btn:hover,
+.login-btn:hover {
+  background: #ff7a00;
+}
+
+/* CART */
+.icon-cart {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  #menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #7a7272;
+    flex-direction: column;
+    padding: 1rem 0;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-actions {
+    display: none;
+  }
+}
