@@ -132,3 +132,419 @@
 
 </body>
 </html>
+
+<stlye>
+  @import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Lexend+Deca:wght@100..900&display=swap');
+
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lexend Deca', sans-serif;
+    background: #353535;
+    color: #353535;
+    overflow-x: hidden;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* ================= HEADER ================= */
+header {
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    background: #524c4c;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* ================= CONTAINER ================= */
+.container {
+    display: flex;
+    align-items: center;
+    padding: 15px 2%;
+}
+
+/* ================= MENU ICON ================= */
+#menu-toggle {
+    font-size: 28px;
+    padding: 0% 5% 0% 0%;
+    cursor: pointer;
+    display: none;
+}
+
+/* ================= NAV ================= */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #d15c32;
+}
+
+/* ================= NAV ACTIONS ================= */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* SEARCH */
+.search {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.srch {
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.srch-btn {
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: none;
+    background: #d15c32;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* BUTTONS */
+.buynow-btn {
+    background: #000;
+    color: #fff;
+    border-radius: 20px;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.login-btn {
+    background: transparent;
+    border: 1px solid #000;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+/* DARK MODE BUTTON */
+.dark-btn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* CART */
+.icon-cart {
+    position: relative;
+    cursor: pointer;
+}
+
+.icon-cart svg {
+    width: 26px;
+}
+
+.icon-cart span {
+    position: absolute;
+    top: 12px;
+    right: -13px;
+    background: rgb(94, 92, 92);
+    color: #fff;
+    font-size: 11px;
+    padding: 5px 2px 2px 5px;
+    border-radius: 50%;
+}
+
+/* ================= ADS ================= */
+.ads-section {
+    padding-left: 85%;
+    background: #9c8f8f;
+}
+
+.Ads {
+    position: fixed;
+    top: 13%;
+    width: 9rem;
+    height: 240px;
+    max-height: 450px;
+    object-fit: cover;
+    align-items: center;
+    background: #333333;
+    z-index: 100;
+}
+
+/* ================= CAROUSEL ================= */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 120vh;
+    background: #353535;
+    overflow: hidden;
+}
+
+/* SLIDER */
+.carousel .list {
+    display: flex;
+    height: 100%;
+    transition: transform 0.8s ease-in-out;
+}
+
+.carousel .item {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel img {
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+}
+
+/* CONTENT */
+.carousel .content {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-40%);
+    color: #fff;
+    max-width: 500px;
+}
+
+.carousel .author {
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+.carousel .title {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.carousel .topic {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.carousel .des {
+    margin-bottom: 20px;
+}
+
+.carousel .buttons button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.See-more {
+    background: #d15c32;
+    color: #fff;
+}
+
+.Subscribe {
+    background: transparent;
+    border: 1px solid #ecebeb;
+}
+
+/* ================= THUMBNAILS ================= */
+.thumbnail {
+    position: absolute;
+    bottom: 20%;
+    right: 20%;
+    display: flex;
+}
+
+.thumbnail .item {
+    width: 40px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.thumbnail img {
+    width: 150px;
+    height: 170px;
+    border-radius: 10%;
+    object-fit: fill;
+    z-index: 100;
+}
+
+/* ================= ARROWS ================= */
+.arrows {
+    position: absolute;
+    top: 80%;
+    left: 10%;
+    display: flex;
+    pointer-events: none;
+}
+
+.arrows button {
+    pointer-events: auto;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    font-size: 12px;
+    padding: 5px 10px;
+    margin-right: 90%;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.arrows button:active {
+    color: #b39b9b;
+    background-color: #fff;
+}
+
+/* ================= SOCIAL ================= */
+.social_media_links {
+    position: fixed;
+    right: 15px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social_media_links a {
+    background: transparent;
+    color: #202020;
+    text-align: center;
+}
+
+/* ================= DARK MODE ================= */
+body.dark {
+    background: #121212;
+    color: #f1f1f1;
+}
+
+body.dark header {
+    background: #1e1e1e;
+}
+
+body.dark .nav-links a {
+    color: #f1f1f1;
+}
+
+body.dark .srch {
+    background: #2a2a2a;
+    color: #fff;
+    border-color: #444;
+}
+
+body.dark .login-btn {
+    border-color: #fff;
+    color: #fff;
+}
+
+body.dark .buynow-btn {
+    background: #fff;
+    color: #000;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    #menu-toggle {
+        display: inline-flex;
+        z-index: 1100;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    /* ================= MOBILE MENU MODIFICATION ================= */
+    .nav-links {
+        position: fixed;       /* full screen menu container */
+        top: 0;
+        left: 0;
+        width: 60%;            /* menu occupies left 60% */
+        height: 100vh;
+        flex-direction: column;
+        background: #524c4c;
+        display: none;         /* hidden by default */
+        z-index: 1050;
+        padding-top: 60px;     /* space for header */
+        gap: 20px;             /* spacing between links */
+    }
+
+    .nav-links.nav-open {
+        display: flex;         /* show menu */
+    }
+
+    .nav-links li a {
+        color: #fff;
+        font-size: 20px;
+        padding-left: 20px;
+    }
+
+    /* ================= NAV ACTIONS FIXED ================= */
+    .nav-actions {
+        position: fixed;       /* stay pinned to right edge */
+        top: 15px;             /* align with header */
+        right: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 1100;
+    }
+
+    .carousel .title {
+        font-size: 32px;
+    }
+
+    .thumbnail {
+        display: none;
+    }
+
+    .ads-section {
+        padding-left: 79%;
+        background: #9c8f8f;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px 15px;
+    }
+
+    .search {
+        display: none;
+    }
+
+    .carousel .content {
+        left: 5%;
+        max-width: 90%;
+    }
+
+    .carousel .title {
+        font-size: 24px;
+    }
+
+    .carousel .topic {
+        font-size: 18px;
+    }
+}
+
+</stlye>
