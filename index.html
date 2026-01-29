@@ -6,15 +6,15 @@
   <title>Promise Feats</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/Promise-Feats/Codes/css/Promise-feat.css" />
+  <link rel="stylesheet" href="/Codes/css/Promise-feat.css" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
 
   <!-- Icons -->
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/Images/Logo/PF.web_and_app_icons-removebg-preview.png"/>
@@ -22,375 +22,113 @@
 
 <body>
 
-  <!-- Background Music (muted for browser compatibility) -->
-  <audio autoplay loop muted>
-    <source src="/Website/Promise Feats/background music Pf/Relaxing Piano Music_ Romantic Music_ Beautiful Relaxing Music_ Sleep Music_ Stress Relief ★122(MP3_160K).mp3" type="audio/mp3">
-  </audio>
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="container">
+    <i class="bx bx-menu" id="menu-toggle"></i>
 
-  <!-- HEADER & NAVBAR -->
-  <header class="site-header">
-    <div class="time"></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/Codes/Promise feat-Home-page.html">Home</a></li>
+        <li><a href="/Codes/Store.html">Stores</a></li>
+        <li><a href="/Codes/Design.html">Design</a></li>
+        <li><a href="/Codes/About-Us.html">About Us</a></li>
+      </ul>
 
-    <nav class="navbar" id="navbar">
-
-      <!-- LEFT -->
-      <div class="nav-left">
-        <i class="bx bx-menu" id="menu-toggle"></i>
-
-        <ul class="nav-links">
-          <li><a href="/Codes/Promise feat-Home-page.html">Home</a></li>
-          <li><a href="/Codes/Store.html">Stores</a></li>
-          <li><a href="/Codes/Design.html">Design</a></li>
-          <li><a href="/Codes/About-Us.html">About Us</a></li>
-        </ul>
-      </div>
-
-      <!-- CENTER -->
-      <div class="nav-center">
+      <div class="nav-actions">
         <div class="search">
-          <input class="srch" type="search" placeholder="Type here" />
+          <input class="srch" type="search" placeholder="Type here">
           <button class="srch-btn">
             Search <i class="bx bx-search-alt-2"></i>
           </button>
         </div>
-      </div>
 
-      <!-- RIGHT -->
-      <div class="nav-right">
-        <a href="/Codes/login.html" class="login-btn">Login</a>
-        <a href="/Codes/Store.html" class="buynow-btn">Buy Now</a>
+        <button id="darkModeToggle" class="dark-btn">
+          <i class="bx bx-moon"></i>
+        </button>
+
+        <a href="/Codes/Store.html"><button class="buynow-btn">Buy Now</button></a>
+        <a href="/Codes/login.html"><button class="login-btn">Login</button></a>
 
         <div class="icon-cart">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"/>
+            <path stroke="currentColor" stroke-width="2"
+              d="M6 15a2 2 0 1 0 0 4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4Zm-9-4h10l2-7H3"/>
           </svg>
-          <span>0</span>
+          <span id="cart-count">0</span>
         </div>
       </div>
-
     </nav>
-  </header>
+  </div>
+</header>
 
-  <!-- VIDEO ADVERTISEMENT -->
-  <section class="ads-section">
-    <a href="https://www.instagram.com/promisefeat/" target="_blank">
-      <video class="Ads" autoplay loop muted playsinline width="100%">
-        <source src="/Ads/Ads videos/Shoes/Shoe ads.2.mp4" type="video/mp4">
-      </video>
-    </a>
-  </section>
+<!-- ================= ADS ================= -->
+<section class="ads-section">
+  <a href="https://www.instagram.com/promisefeat/" target="_blank">
+    <video class="Ads" autoplay loop muted playsinline>
+      <source src="/Ads/Ads videos/Shoes/Shoe ads.2.mp4" type="video/mp4">
+    </video>
+  </a>
+</section>
 
-  <!-- CAROUSEL -->
-  <section class="carousel">
+<!-- ================= CAROUSEL ================= -->
+<section class="carousel">
 
-    <div class="list">
-      <div class="item">
-        <img src="/Images/Background images/Promise Feats Background Golden text.png" alt="Banner 1"/>
-        <div class="content">
-          <div class="author">KC.Prince</div>
-          <div class="title">Promise Feats</div>
-          <div class="topic">Foot Wears</div>
-          <div class="des">Best Outfits, Quality and Trustworthy</div>
-          <div class="buttons">
-            <button class="See-more">SEE MORE</button>
-            <button class="Subscribe">SUBSCRIBE</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="/Images/Background images/Promise Feats black text.webp" alt="Banner 2"/>
-        <div class="content">
-          <div class="author">KC.Prince</div>
-          <div class="title">Promise Feats</div>
-          <div class="topic">Foot Wears</div>
-          <div class="des">Best Outfits, Quality and Trustworthy</div>
-          <div class="buttons">
-            <button class="See-more">SEE MORE</button>
-            <button class="Subscribe">SUBSCRIBE</button>
-          </div>
+  <div class="list">
+    <div class="item">
+      <img src="/Images/Background images/Promise Feats login background.webp" alt="">
+      <div class="content">
+        <div class="author">KC.Prince</div>
+        <div class="title">Promise Feats</div>
+        <div class="topic">Foot Wears</div>
+        <div class="des">Best Outfits, Quality and Trustworthy</div>
+        <div class="buttons">
+          <button class="See-more">SEE MORE</button>
+          <button class="Subscribe">SUBSCRIBE</button>
         </div>
       </div>
     </div>
 
-    <!-- THUMBNAILS -->
-    <div class="thumbnail">
-      <div class="item">
-        <img src="/Promise Feats ( Foot Wears )/Black leather shoes/Black leather img.1.webp" alt="Black Shoe"/>
-        <div class="content">
-          <div class="title">Black Shoe</div>
-          <div class="description">Black Leathered shoe for formal events</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="/Promise Feats ( Foot Wears )/Brown leather shoes/Brown leather img.1.webp" alt="Brown Shoe"/>
-        <div class="content">
-          <div class="title">Brown Shoe</div>
-          <div class="description">Brown Leathered shoe for formal events</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="/Promise Feats ( Foot Wears )/Black leather shoes/Black leather img.3.webp" alt="Black Shoe"/>
-        <div class="content">
-          <div class="title">Black Shoe</div>
-          <div class="description">Black Leathered shoe for formal events</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="/Promise Feats ( Foot Wears )/Brown leather shoes/Brown leather img.2.webp" alt="Brown Shoe"/>
-        <div class="content">
-          <div class="title">Brown Shoe</div>
-          <div class="description">Brown Leathered shoe for formal events</div>
+    <div class="item">
+      <img src="/Images/Background images/Promise Feats Background Golden text.png" alt="">
+      <div class="content">
+        <div class="author">KC.Prince</div>
+        <div class="title">Promise Feats</div>
+        <div class="topic">Foot Wears</div>
+        <div class="des">Best Outfits, Quality and Trustworthy</div>
+        <div class="buttons">
+          <button class="See-more">SEE MORE</button>
+          <button class="Subscribe">SUBSCRIBE</button>
         </div>
       </div>
     </div>
+  </div>
 
-  </section>
+  <div class="thumbnail">
+    <div class="item"><img src="/Promise Feats ( Foot Wears )/Black leather shoes/Black leather img.1.webp"></div>
+    <div class="item"><img src="/Promise Feats ( Foot Wears )/Brown leather shoes/Brown leather img.2.webp"></div>
+    <div class="item"><img src="/Promise Feats ( Foot Wears )/Black leather shoes/Black leather img.3.webp"></div>
+    <div class="item"><img src="/Promise Feats ( Foot Wears )/Brown leather shoes/Brown leather img.1.webp"></div>
+  </div>
 
-  <!-- CAROUSEL CONTROLS -->
   <div class="arrows">
-    <button id="prev">&lt;</button>
-    <button id="next">&gt;</button>
+    <button id="prev">&#10094;</button>
+    <button id="next">&#10095;</button>
   </div>
 
-  <!-- SOCIAL MEDIA -->
-  <div class="social_media_links">
-    <a href="#"><i class="bx bxl-facebook"></i></a>
-    <a href="https://www.instagram.com/promisefeat/"><i class="bx bxl-instagram"></i></a>
-    <a href="#"><i class="bx bxl-whatsapp"></i></a>
-    <a href="#"><i class="bx bxl-twitter"></i></a>
-    <a href="#"><i class='bx bxl-telegram'></i></a>
-  </div>
+</section>
 
-  <!-- JAVASCRIPT -->
-  <stlye>
-        @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap');
-* {
-  box-sizing: border-box;
-}
+<!-- ================= SOCIAL ================= -->
+<div class="social_media_links">
+  <a href="#"><i class="bx bxl-facebook"></i></a>
+  <a href="https://www.instagram.com/promisefeat/"><i class="bx bxl-instagram"></i></a>
+  <a href="#"><i class="bx bxl-whatsapp"></i></a>
+  <a href="#"><i class="bx bxl-twitter"></i></a>
+  <a href="#"><i class="bx bxl-telegram"></i></a>
+</div>
 
-body {
-  background-color: rgb(250, 250, 250);
-  margin: 0;
-  font-family: 'Balsamiq Sans', cursive;
-}
-
-/* ===== NAVBAR ===== */
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.8rem 2rem;
-  background: #7a7272;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-/* MENU ICON */
-#menu-toggle {
-  display: none;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* NAV LINKS */
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
-.nav-links li {
-  list-style: none;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #f1f1f1;
-  font-size: 18px;
-  font-weight: 600;
-  white-space: nowrap;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #ff7a00;
-  text-shadow: 0 4px 10px rgba(255, 122, 0, 0.7);
-}
-
-/* NAV ACTIONS */
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* SEARCH */
-.search input {
-  padding: 6px 10px;
-  border-radius: 6px;
-  border: none;
-  outline: none;
-}
-
-.srch-btn {
-  padding: 6px 12px;
-  border: none;
-  background: #ff7a00;
-  color: #fff;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-/* BUTTONS */
-.buynow-btn,
-.login-btn {
-  padding: 6px 14px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background: #333;
-  color: #fff;
-  transition:
-  0.3s ease;
-}
-
-.buynow-btn:hover,
-.login-btn:hover {
-  background: #ff7a00;
-}
-
-/* CART */
-.icon-cart {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* ===== MOBILE ===== */
-@media (max-width: 768px) {
-  #menu-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #7a7272;
-    flex-direction: column;
-    padding: 1rem 0;
-    display: none;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-actions {
-    display: none;
-  }
-}
-  </stlye>
-  <script src="/Codes/js/Promise Feats.js">
-    // =======================
-// CAROUSEL
-// =======================
-
-// Step 1: Get DOM
-const nextDom = document.getElementById('next');
-const prevDom = document.getElementById('prev');
-
-const carouselDom = document.querySelector('.carousel');
-const sliderDom = carouselDom.querySelector('.list');
-const thumbnailBorderDom = carouselDom.querySelector('.thumbnail');
-let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
-
-thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
-
-const timeRunning = 3000;
-const timeAutoNext = 7000;
-
-nextDom.onclick = () => showSlider('next');
-prevDom.onclick = () => showSlider('prev');
-
-let runTimeOut;
-let runNextAuto = setTimeout(() => {
-  nextDom.click();
-}, timeAutoNext);
-
-function showSlider(type) {
-  const sliderItemsDom = sliderDom.querySelectorAll('.item');
-  thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
-
-  if (type === 'next') {
-    sliderDom.appendChild(sliderItemsDom[0]);
-    thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
-    carouselDom.classList.add('next');
-  } else {
-    sliderDom.prepend(sliderItemsDom[sliderItemsDom.length - 1]);
-    thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
-    carouselDom.classList.add('prev');
-  }
-
-  clearTimeout(runTimeOut);
-  runTimeOut = setTimeout(() => {
-    carouselDom.classList.remove('next', 'prev');
-  }, timeRunning);
-
-  clearTimeout(runNextAuto);
-  runNextAuto = setTimeout(() => {
-    nextDom.click();
-  }, timeAutoNext);
-}
-
-// =======================
-// BACKGROUND AUDIO
-// =======================
-
-const audio = document.getElementById("bg-music");
-const volumeSlider = document.getElementById("volume-slider");
-
-if (audio) {
-  audio.volume = 0.5;
-
-  const playAudio = () => {
-    audio.play().catch(() => {});
-    document.removeEventListener('click', playAudio);
-    document.removeEventListener('scroll', playAudio);
-  };
-
-  document.addEventListener('click', playAudio);
-  document.addEventListener('scroll', playAudio);
-}
-
-if (volumeSlider && audio) {
-  volumeSlider.addEventListener("input", () => {
-    audio.volume = volumeSlider.value;
-  });
-}
-
-// =======================
-// RESPONSIVE NAVBAR
-// =======================
-
-const menuToggle = document.getElementById('menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
-
-  </script>
+<!-- ================= JS ================= -->
+<script src="/Codes/js/Promise Feats.js"></script>
 
 </body>
 </html>
