@@ -5,19 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Promise Feats</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="/Codes/css/Promise-feat.css" />
-
   <!-- Google Fonts -->
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
 
-  <!-- Icons -->
+  <!-- Boxicons -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/Images/Logo/PF.web_and_app_icons-removebg-preview.png"/>
+  <link rel="icon" type="image/png" href="Images/Logo/PF.web_and_app_icons-removebg-preview.png"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="Codes/css/Promise-feat.css" />
 </head>
 
 <body>
@@ -29,26 +27,21 @@
 
     <nav>
       <ul class="nav-links">
-        <li><a href="/Codes/Promise feat-Home-page.html">Home</a></li>
-        <li><a href="/Codes/Store.html">Stores</a></li>
-        <li><a href="/Codes/Design.html">Design</a></li>
-        <li><a href="/Codes/About-Us.html">About Us</a></li>
+        <li><a href="Codes/Promise feat-Home-page.html">Home</a></li>
+        <li><a href="Codes/Store.html">Stores</a></li>
+        <li><a href="Codes/Design.html">Design</a></li>
+        <li><a href="Codes/About-Us.html">About Us</a></li>
       </ul>
 
       <div class="nav-actions">
         <div class="search">
           <input class="srch" type="search" placeholder="Type here">
-          <button class="srch-btn">
-            Search <i class="bx bx-search-alt-2"></i>
-          </button>
+          <button class="srch-btn">Search <i class="bx bx-search-alt-2"></i></button>
         </div>
 
-        <button id="darkModeToggle" class="dark-btn">
-          <i class="bx bx-moon"></i>
-        </button>
-
-        <a href="/Codes/Store.html"><button class="buynow-btn">Buy Now</button></a>
-        <a href="/Codes/login.html"><button class="login-btn">Login</button></a>
+        <button id="darkModeToggle" class="dark-btn"><i class="bx bx-moon"></i></button>
+        <a href="Codes/Store.html"><button class="buynow-btn">Buy Now</button></a>
+        <a href="Codes/login.html"><button class="login-btn">Login</button></a>
 
         <div class="icon-cart">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
@@ -66,17 +59,16 @@
 <section class="ads-section">
   <a href="https://www.instagram.com/promisefeat/" target="_blank">
     <video class="Ads" autoplay loop muted playsinline>
-      <source src="/Ads/Ads videos/Shoes/Shoe ads.2.mp4" type="video/mp4">
+      <source src="Ads/Ads videos/Shoes/Shoe ads.2.mp4" type="video/mp4">
     </video>
   </a>
 </section>
 
 <!-- ================= CAROUSEL ================= -->
 <section class="carousel">
-
   <div class="list">
     <div class="item">
-      <img src="/Images/Background images/Promise Feats login background.webp" alt="">
+      <img src="Images/Background images/Promise Feats login background.webp" alt="">
       <div class="content">
         <div class="author">KC.Prince</div>
         <div class="title">Promise Feats</div>
@@ -90,7 +82,7 @@
     </div>
 
     <div class="item">
-      <img src="/Images/Background images/Promise Feats Background Golden text.png" alt="">
+      <img src="Images/Background images/Promise Feats Background Golden text.png" alt="">
       <div class="content">
         <div class="author">KC.Prince</div>
         <div class="title">Promise Feats</div>
@@ -105,17 +97,16 @@
   </div>
 
   <div class="thumbnail">
-    <div class="item"><img src="/Promise Feats ( Foot Wears )/Black leather shoes/Black leather img.1.webp"></div>
-    <div class="item"><img src="/Promise Feats ( Foot Wears )/Brown leather shoes/Brown leather img.2.webp"></div>
-    <div class="item"><img src="/Promise Feats ( Foot Wears )/Black leather shoes/Black leather img.3.webp"></div>
-    <div class="item"><img src="/Promise Feats ( Foot Wears )/Brown leather shoes/Brown leather img.1.webp"></div>
+    <div class="item"><img src="Promise Feats ( Foot Wears )/Black leather shoes/Black leather img.1.webp"></div>
+    <div class="item"><img src="Promise Feats ( Foot Wears )/Brown leather shoes/Brown leather img.2.webp"></div>
+    <div class="item"><img src="Promise Feats ( Foot Wears )/Black leather shoes/Black leather img.3.webp"></div>
+    <div class="item"><img src="Promise Feats ( Foot Wears )/Brown leather shoes/Brown leather img.1.webp"></div>
   </div>
 
   <div class="arrows">
     <button id="prev">&#10094;</button>
     <button id="next">&#10095;</button>
   </div>
-
 </section>
 
 <!-- ================= SOCIAL ================= -->
@@ -128,423 +119,97 @@
 </div>
 
 <!-- ================= JS ================= -->
-<script src="/Codes/js/Promise Feats.js"></script>
+<script>
+  // ================= CAROUSEL =================
+  const nextDom = document.getElementById('next');
+  const prevDom = document.getElementById('prev');
+  const carouselDom = document.querySelector('.carousel');
+  const slider = carouselDom.querySelector('.list');
+
+  let slides = slider.querySelectorAll('.item');
+  let index = 0;
+  let slideWidth = slides[0].offsetWidth;
+
+  slider.style.transition = 'transform 0.8s ease-in-out';
+
+  function updateSlider() {
+      slider.style.transform = `translateX(-${index * slideWidth}px)`;
+  }
+
+  nextDom.addEventListener('click', () => {
+      index = (index + 1) % slides.length;
+      updateSlider();
+  });
+
+  prevDom.addEventListener('click', () => {
+      index = (index - 1 + slides.length) % slides.length;
+      updateSlider();
+  });
+
+  window.addEventListener('resize', () => {
+      slides = slider.querySelectorAll('.item');
+      slideWidth = slides[0].offsetWidth;
+      updateSlider();
+  });
+
+  // Auto slide
+  let autoSlide = setInterval(() => { nextDom.click(); }, 7000);
+
+  // Pause on hover
+  carouselDom.addEventListener('mouseenter', () => clearInterval(autoSlide));
+  carouselDom.addEventListener('mouseleave', () => {
+      autoSlide = setInterval(() => nextDom.click(), 7000);
+  });
+
+  // ================= CART =================
+  let cartCount = 0;
+  const cartCounter = document.getElementById('cart-count');
+
+  document.addEventListener('click', e => {
+      if (e.target.classList.contains('add-to-cart')) {
+          cartCount++;
+          cartCounter.textContent = cartCount;
+      }
+  });
+
+  // ================= DARK MODE =================
+  const darkToggle = document.getElementById('darkModeToggle');
+
+  if (localStorage.getItem('darkMode') === 'enabled') {
+      document.body.classList.add('dark');
+  }
+
+  darkToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      localStorage.setItem(
+          'darkMode',
+          document.body.classList.contains('dark') ? 'enabled' : 'disabled'
+      );
+  });
+
+  // ================= MOBILE NAVBAR =================
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+          navLinks.classList.toggle("nav-open");
+          if (navLinks.classList.contains("nav-open")) {
+              menuToggle.classList.replace("bx-menu", "bx-x");
+          } else {
+              menuToggle.classList.replace("bx-x", "bx-menu");
+          }
+      });
+
+      // Close menu when link is clicked
+      document.querySelectorAll(".nav-links a").forEach(link => {
+          link.addEventListener("click", () => {
+              navLinks.classList.remove("nav-open");
+              menuToggle.classList.replace("bx-x", "bx-menu");
+          });
+      });
+  }
+</script>
 
 </body>
 </html>
-
-<stlye>
-  @import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Lexend+Deca:wght@100..900&display=swap');
-
-/* ================= RESET ================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Lexend Deca', sans-serif;
-    background: #353535;
-    color: #353535;
-    overflow-x: hidden;
-    transition: background 0.3s, color 0.3s;
-}
-
-/* ================= HEADER ================= */
-header {
-    position: fixed;
-    top: 0%;
-    width: 100%;
-    background: #524c4c;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-/* ================= CONTAINER ================= */
-.container {
-    display: flex;
-    align-items: center;
-    padding: 15px 2%;
-}
-
-/* ================= MENU ICON ================= */
-#menu-toggle {
-    font-size: 28px;
-    padding: 0% 5% 0% 0%;
-    cursor: pointer;
-    display: none;
-}
-
-/* ================= NAV ================= */
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: #222;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.nav-links li a:hover {
-    color: #d15c32;
-}
-
-/* ================= NAV ACTIONS ================= */
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-/* SEARCH */
-.search {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.srch {
-    padding: 8px 14px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    outline: none;
-}
-
-.srch-btn {
-    padding: 8px 14px;
-    border-radius: 20px;
-    border: none;
-    background: #d15c32;
-    color: #fff;
-    cursor: pointer;
-}
-
-/* BUTTONS */
-.buynow-btn {
-    background: #000;
-    color: #fff;
-    border-radius: 20px;
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
-}
-
-.login-btn {
-    background: transparent;
-    border: 1px solid #000;
-    border-radius: 20px;
-    padding: 8px 16px;
-    cursor: pointer;
-}
-
-/* DARK MODE BUTTON */
-.dark-btn {
-    background: none;
-    border: none;
-    font-size: 22px;
-    cursor: pointer;
-}
-
-/* CART */
-.icon-cart {
-    position: relative;
-    cursor: pointer;
-}
-
-.icon-cart svg {
-    width: 26px;
-}
-
-.icon-cart span {
-    position: absolute;
-    top: 12px;
-    right: -13px;
-    background: rgb(94, 92, 92);
-    color: #fff;
-    font-size: 11px;
-    padding: 5px 2px 2px 5px;
-    border-radius: 50%;
-}
-
-/* ================= ADS ================= */
-.ads-section {
-    padding-left: 85%;
-    background: #9c8f8f;
-}
-
-.Ads {
-    position: fixed;
-    top: 13%;
-    width: 9rem;
-    height: 240px;
-    max-height: 450px;
-    object-fit: cover;
-    align-items: center;
-    background: #333333;
-    z-index: 100;
-}
-
-/* ================= CAROUSEL ================= */
-.carousel {
-    position: relative;
-    width: 100%;
-    height: 120vh;
-    background: #353535;
-    overflow: hidden;
-}
-
-/* SLIDER */
-.carousel .list {
-    display: flex;
-    height: 100%;
-    transition: transform 0.8s ease-in-out;
-}
-
-.carousel .item {
-    min-width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.carousel img {
-    width: 100%;
-    height: 90%;
-    object-fit: cover;
-}
-
-/* CONTENT */
-.carousel .content {
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    transform: translateY(-40%);
-    color: #fff;
-    max-width: 500px;
-}
-
-.carousel .author {
-    opacity: 0.8;
-    font-size: 14px;
-}
-
-.carousel .title {
-    font-size: 48px;
-    font-weight: bold;
-}
-
-.carousel .topic {
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-
-.carousel .des {
-    margin-bottom: 20px;
-}
-
-.carousel .buttons button {
-    padding: 10px 20px;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-.See-more {
-    background: #d15c32;
-    color: #fff;
-}
-
-.Subscribe {
-    background: transparent;
-    border: 1px solid #ecebeb;
-}
-
-/* ================= THUMBNAILS ================= */
-.thumbnail {
-    position: absolute;
-    bottom: 20%;
-    right: 20%;
-    display: flex;
-}
-
-.thumbnail .item {
-    width: 40px;
-    height: 100%;
-    cursor: pointer;
-}
-
-.thumbnail img {
-    width: 150px;
-    height: 170px;
-    border-radius: 10%;
-    object-fit: fill;
-    z-index: 100;
-}
-
-/* ================= ARROWS ================= */
-.arrows {
-    position: absolute;
-    top: 80%;
-    left: 10%;
-    display: flex;
-    pointer-events: none;
-}
-
-.arrows button {
-    pointer-events: auto;
-    background: rgba(0,0,0,0.5);
-    color: #fff;
-    border: none;
-    font-size: 12px;
-    padding: 5px 10px;
-    margin-right: 90%;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-.arrows button:active {
-    color: #b39b9b;
-    background-color: #fff;
-}
-
-/* ================= SOCIAL ================= */
-.social_media_links {
-    position: fixed;
-    right: 15px;
-    bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.social_media_links a {
-    background: transparent;
-    color: #202020;
-    text-align: center;
-}
-
-/* ================= DARK MODE ================= */
-body.dark {
-    background: #121212;
-    color: #f1f1f1;
-}
-
-body.dark header {
-    background: #1e1e1e;
-}
-
-body.dark .nav-links a {
-    color: #f1f1f1;
-}
-
-body.dark .srch {
-    background: #2a2a2a;
-    color: #fff;
-    border-color: #444;
-}
-
-body.dark .login-btn {
-    border-color: #fff;
-    color: #fff;
-}
-
-body.dark .buynow-btn {
-    background: #fff;
-    color: #000;
-}
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 900px) {
-    #menu-toggle {
-        display: inline-flex;
-        z-index: 1100;
-        padding: 0;
-        cursor: pointer;
-    }
-
-    /* ================= MOBILE MENU MODIFICATION ================= */
-    .nav-links {
-        position: fixed;       /* full screen menu container */
-        top: 0;
-        left: 0;
-        width: 60%;            /* menu occupies left 60% */
-        height: 100vh;
-        flex-direction: column;
-        background: #524c4c;
-        display: none;         /* hidden by default */
-        z-index: 1050;
-        padding-top: 60px;     /* space for header */
-        gap: 20px;             /* spacing between links */
-    }
-
-    .nav-links.nav-open {
-        display: flex;         /* show menu */
-    }
-
-    .nav-links li a {
-        color: #fff;
-        font-size: 20px;
-        padding-left: 20px;
-    }
-
-    /* ================= NAV ACTIONS FIXED ================= */
-    .nav-actions {
-        position: fixed;       /* stay pinned to right edge */
-        top: 15px;             /* align with header */
-        right: 10px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        z-index: 1100;
-    }
-
-    .carousel .title {
-        font-size: 32px;
-    }
-
-    .thumbnail {
-        display: none;
-    }
-
-    .ads-section {
-        padding-left: 79%;
-        background: #9c8f8f;
-    }
-}
-
-@media (max-width: 600px) {
-    .container {
-        padding: 10px 15px;
-    }
-
-    .search {
-        display: none;
-    }
-
-    .carousel .content {
-        left: 5%;
-        max-width: 90%;
-    }
-
-    .carousel .title {
-        font-size: 24px;
-    }
-
-    .carousel .topic {
-        font-size: 18px;
-    }
-}
-
-</stlye>
