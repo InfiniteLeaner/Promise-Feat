@@ -41,6 +41,7 @@ carouselDom.addEventListener('mouseleave', () => {
     autoSlide = setInterval(() => nextDom.click(), 7000);
 });
 
+
 // ================= CART =================
 let cartCount = 0;
 const cartCounter = document.getElementById('cart-count');
@@ -52,41 +53,55 @@ document.addEventListener('click', e => {
     }
 });
 
-// ================= DARK MODE =================
-const darkToggle = document.getElementById('darkModeToggle');
-
-if (localStorage.getItem('darkMode') === 'enabled') {
-    document.body.classList.add('dark');
-}
-
-darkToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    localStorage.setItem(
-        'darkMode',
-        document.body.classList.contains('dark') ? 'enabled' : 'disabled'
-    );
-});
 
 // ================= MOBILE NAVBAR =================
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
 if (menuToggle && navLinks) {
-    menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("nav-open");
 
+    function openMenu() {
+        navLinks.classList.add("nav-open");
+        menuToggle.classList.remove("bx-menu");
+        menuToggle.classList.add("bx-x");
+        document.body.style.overflow = "hidden"; // prevent scroll
+    }
+
+    function closeMenu() {
+        navLinks.classList.remove("nav-open");
+        menuToggle.classList.remove("bx-x");
+        menuToggle.classList.add("bx-menu");
+        document.body.style.overflow = "auto";
+    }
+
+    menuToggle.addEventListener("click", () => {
         if (navLinks.classList.contains("nav-open")) {
-            menuToggle.classList.replace("bx-menu", "bx-x");
+            closeMenu();
         } else {
-            menuToggle.classList.replace("bx-x", "bx-menu");
+            openMenu();
         }
     });
 
     // Close menu when link is clicked
     document.querySelectorAll(".nav-links a").forEach(link => {
-        link.addEventListener("click", () => {
-            navLinks.classList.remove("nav-open");
-            menuToggle.classList.replace("bx-x", "bx-menu");
-        });
+        link.addEventListener("click", closeMenu);
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+        if (
+            navLinks.classList.contains("nav-open") &&
+            !navLinks.contains(e.target) &&
+            !menuToggle.contains(e.target)
+        ) {
+            closeMenu();
+        }
+    });
+
+    // Close menu on resize (when switching to desktop)
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) {
+            closeMenu();
+        }
     });
 }
