@@ -35,6 +35,7 @@ header {
 /* ================= MENU ICON ================= */
 #menu-toggle {
     font-size: 28px;
+    padding: 10px 0px;
     cursor: pointer;
     display: none;
     z-index: 100;
@@ -53,6 +54,10 @@ nav {
     display: flex;
     list-style: none;
     gap: 25px;
+}
+
+.nav-mobile-actions {
+    display: none;
 }
 
 .nav-links li a {
@@ -330,8 +335,8 @@ nav {
 }
 
 .thumbnail .item {
-    width: 2.5vw;
-    height: 35vh;
+    width: 36px;
+    height: 200px;
     cursor: pointer;
     transition: transform 3s ease, box-shadow 0.3s ease;
     border-radius: 10%;
@@ -346,6 +351,8 @@ nav {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    align-items: center;
+    justify-content: center;
     border-radius: 10%;
     transition: opacity 3s ease;
 }
@@ -442,18 +449,12 @@ body.dark .buynow-btn {
 
 /* ================= RESPONSIVE ================= */
 
-@media screen and (max-width: 1024px) {
-    .nav-mobile-actions{
-        display: none;
-    }
-}
-
 @media screen and (max-width: 768px) {
     #menu-toggle {
         position: absolute;
         display: block;
         z-index: 100;
-        margin: 10px 10px;
+        padding: 10px 10px;
         cursor: pointer;
     }
 
@@ -501,13 +502,6 @@ body.dark .buynow-btn {
         font-size: 32px;
     }
 
-    .ads-section {
-        padding-left: 79%;
-    }
-    .thumbnail .item {
-        width: 3.2vw;
-        height: 34vh;
-    }
 }
 
 @media screen and (max-width: 425px) {
@@ -515,15 +509,17 @@ body.dark .buynow-btn {
         position: absolute;
         display: block;
         z-index: 100;
-        margin: 0px 0 0 5px;
+        padding: 0px 0 0 5px;
         cursor: pointer;
     }
 
     .nav-actions {
         display: flex;
-        align-items: end;
+        align-items: flex-end;
         justify-content: end;
         gap: 9px;
+        padding-right: 3%;
+        margin-left: auto;
     }
 
     .nav-links.nav-open {
@@ -533,11 +529,11 @@ body.dark .buynow-btn {
         z-index: 100;
     }
 
-    .thumbnail .item {
-        width: 4vw;
-        height: 32vh;
+    .thumbnail .item{
+        width: 6vw;
+        height: 180px;
     }
-     
+
     .desktop-only{
         display: none;
     }
@@ -548,7 +544,7 @@ body.dark .buynow-btn {
         position: absolute;
         display: block;
         z-index: 100;
-        margin: 0px 0 0 5px;
+        padding: 0px 20px 0px 0px;
         cursor: pointer;
     }
 
@@ -567,10 +563,6 @@ body.dark .buynow-btn {
         z-index: 100;
     }
 
-    .thumbnail .item {
-        width: 6vw;
-        height: 32vh;
-    }
 
     /* ================= SEARCH ================= */
     .search {
@@ -650,13 +642,18 @@ body.dark .buynow-btn {
     .login-btn {
         display: none;
     }
+    
+    .thumbnail .item{
+        width: 6vw;
+        height: 32vh;
+    }
 }
 
 @media screen and (max-width: 320px) {
     #menu-toggle {
         position: absolute;
         display: block;
-        margin: 0px 0 0 5px;
+        padding: 0px 0 0 5px;
         cursor: pointer;
         z-index: 100;
     }
@@ -666,7 +663,6 @@ body.dark .buynow-btn {
         align-items: flex-end;
         justify-content: end;
         gap: 9px;
-        padding-right: 7px;
         margin-left: auto;
     }
 
@@ -734,21 +730,10 @@ body.dark .buynow-btn {
         transform: scale(1.05);
     }
 
-
-    .thumbnail {
-        position: absolute;
-        display: flex;
-        gap: 10px;
-        padding-left: auto;
-        transform: translateX(100%); /* ✅ Fixed case */
-        animation: thumbnailsFade 4s forwards 0.5s;
-    }
-
     .thumbnail .item {
-        width: 5vw;
-        height: 32vh;
+        width: 36px;
+        height: 140px;
     }
-
     /* ================= SEARCH ================= */
     .search {
         align-items: center;
