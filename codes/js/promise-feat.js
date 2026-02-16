@@ -67,7 +67,7 @@ if (menuToggle && navLinks) {
         }
     });
 
-    // Close menu when link is clicked
+    // Close menu when a link inside menu is clicked
     document.querySelectorAll(".nav-links a").forEach(link => {
         link.addEventListener("click", () => {
             navLinks.classList.remove("nav-open");
@@ -76,6 +76,4 @@ if (menuToggle && navLinks) {
     });
 }
 
-// ✅ KEY CHANGE:
-// The carousel JS DOES NOT interact with nav-links or menuToggle anymore.
-// Menu will stay open even when carousel slides automatically.
+// ✅ Menu now stays open regardless of carousel sliding
