@@ -41,7 +41,6 @@ carouselDom.addEventListener('mouseleave', () => {
     autoSlide = setInterval(() => nextDom.click(), 7000);
 });
 
-
 // ================= CART =================
 let cartCount = 0;
 const cartCounter = document.getElementById('cart-count');
@@ -53,55 +52,30 @@ document.addEventListener('click', e => {
     }
 });
 
-
 // ================= MOBILE NAVBAR =================
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
 if (menuToggle && navLinks) {
-
-    function openMenu() {
-        navLinks.classList.add("nav-open");
-        menuToggle.classList.remove("bx-menu");
-        menuToggle.classList.add("bx-x");
-        document.body.style.overflow = "hidden"; // prevent scroll
-    }
-
-    function closeMenu() {
-        navLinks.classList.remove("nav-open");
-        menuToggle.classList.remove("bx-x");
-        menuToggle.classList.add("bx-menu");
-        document.body.style.overflow = "auto";
-    }
-
     menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("nav-open");
+
         if (navLinks.classList.contains("nav-open")) {
-            closeMenu();
+            menuToggle.classList.replace("bx-menu", "bx-x");
         } else {
-            openMenu();
+            menuToggle.classList.replace("bx-x", "bx-menu");
         }
     });
 
     // Close menu when link is clicked
     document.querySelectorAll(".nav-links a").forEach(link => {
-        link.addEventListener("click", closeMenu);
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener("click", (e) => {
-        if (
-            navLinks.classList.contains("nav-open") &&
-            !navLinks.contains(e.target) &&
-            !menuToggle.contains(e.target)
-        ) {
-            closeMenu();
-        }
-    });
-
-    // Close menu on resize (when switching to desktop)
-    window.addEventListener("resize", () => {
-        if (window.innerWidth > 768) {
-            closeMenu();
-        }
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("nav-open");
+            menuToggle.classList.replace("bx-x", "bx-menu");
+        });
     });
 }
+
+// ✅ KEY CHANGE:
+// The carousel JS DOES NOT interact with nav-links or menuToggle anymore.
+// Menu will stay open even when carousel slides automatically.
