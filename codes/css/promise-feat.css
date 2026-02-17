@@ -351,11 +351,11 @@ nav {
     align-items: center;
     justify-content: center;
     border-radius: 10%;
-    transition: opacity 3s ease;
 }
 
-.thumbnail img:hover {
+.thumbnail img:active {
     opacity: 0.7;
+    transition: opacity 3s ease;
 }
 
 @keyframes thumbnailsFade {
@@ -412,36 +412,6 @@ nav {
     background: transparent;
     color: #202020;
     text-align: center;
-}
-
-/* ================= DARK MODE ================= */
-body.dark {
-    background: #121212;
-    color: #f1f1f1;
-}
-
-body.dark header {
-    background: #1e1e1e;
-}
-
-body.dark .nav-links a {
-    color: #f1f1f1;
-}
-
-body.dark .srch {
-    background: #2a2a2a;
-    color: #fff;
-    border-color: #444;
-}
-
-body.dark .login-btn {
-    border-color: #fff;
-    color: #fff;
-}
-
-body.dark .buynow-btn {
-    background: #fff;
-    color: #000;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -760,7 +730,6 @@ body.dark .buynow-btn {
         align-items: center;
         justify-content: center;
         border-radius: 10%;
-        transition: opacity 3s ease;
     }
 
     .thumbnail img:hover {
@@ -769,8 +738,9 @@ body.dark .buynow-btn {
         box-shadow: none;
     }
 
-    .thumbnail img:active {
-        opacity: 0.7;
+    .thumbnail .item:active {
+        transition: opacity 3s ease;
+        opacity: 0.5;
     }
 
     /* ================= SEARCH ================= */
@@ -792,10 +762,6 @@ body.dark .buynow-btn {
     
     .search :hover{
         border-color: #d15c32;
-
-    }
-
-    .search :active{
 
     }
 
@@ -862,24 +828,5 @@ body.dark .buynow-btn {
 /* Remove tap highlight on mobile */
 * {
     -webkit-tap-highlight-color: transparent;
-}
-
-/* Remove focus outline and box shadow after click */
-a:focus,
-button:focus,
-input:focus,
-textarea:focus,
-select:focus {
-    outline: none;
-    box-shadow: none;
-}
-
-/* Optional: prevent active state from sticking */
-a:active,
-button:active {
-    outline: none;
-    box-shadow: none;
-    background: inherit; /* keeps background unchanged */
-    color: inherit;      /* keeps text color unchanged */
 }
 
