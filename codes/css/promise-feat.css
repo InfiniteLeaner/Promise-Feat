@@ -187,7 +187,7 @@ nav {
 /* ================= CAROUSEL ================= */
 .carousel {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: calc(100vh - 0px);
     background: #353535;
     overflow: hidden;
@@ -203,7 +203,7 @@ nav {
     min-width: 100%;
     height: 100%;
     position: relative;
-    opacity: 0;
+    inset: 0 0 0 0;
     transform: translateY(30px);
     animation: fadeInUp 1s forwards;
 }
@@ -219,7 +219,6 @@ nav {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    background: #353535;
 }
 
 /* ================= CAROUSEL CONTENT + BUTTONS ANIMATION ================= */
@@ -227,13 +226,11 @@ nav {
     position: absolute;
     top: 50%;
     left: 10%;
+    max-width: 80%;
     transform: translateX(-1px) translateY(-50%);
-    color: #751b1b;
-    max-width: 500px;
 }
 
 /* Text animations */
-
 .carousel .author {
     font-size: 18px;
     margin-bottom: 10px;
@@ -710,6 +707,10 @@ body.dark .buynow-btn {
     }
     
     .carousel .See-more:hover {
+        background: rgb(65, 64, 64);
+    }
+
+    .carousel .See-more:active{
         transform: scale(1.02);
         background: rgba(71, 66, 66, 0.877);
     }
@@ -722,18 +723,56 @@ body.dark .buynow-btn {
         border-radius: 20px;
         padding: 8px 13px;
         cursor: pointer;
-        animation: buttonSlideIn 0.5s forwards 1.3s;
+        animation: buttonSlideIn 2.5s forwards 1.3s;
+        transition: all 0.3s ease;
     }
     
     .carousel .Subscribe:hover {
+        background: #9c2d04f6;
+    }
+
+    .carousel .Subscribe:active {
         background: #d15c32;
-        transform: scale(1.05);
+        transform: scale(1.05) ease;
     }
 
     .thumbnail .item {
-        width: 36px;
+        width: 20px;
         height: 140px;
+        cursor: pointer;
+        transition: transform 3s ease, box-shadow 0.3s ease;
     }
+
+    .thumbnail .item:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .thumbnail .item:active {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px #d15c32;
+    }
+
+    .thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10%;
+        transition: opacity 3s ease;
+    }
+
+    .thumbnail img:hover {
+        opacity: 1;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .thumbnail img:active {
+        opacity: 0.7;
+    }
+
     /* ================= SEARCH ================= */
     .search {
         align-items: center;
@@ -751,10 +790,15 @@ body.dark .buynow-btn {
         transition: all 0.3s ease;
     }
     
-    .srch:focus {
+    .search :hover{
         border-color: #d15c32;
+
     }
-    
+
+    .search :active{
+
+    }
+
     .srch-btn {
         padding: 6px 10px;
         border-radius: 15px;
@@ -766,11 +810,14 @@ body.dark .buynow-btn {
     }
     
     .srch-btn:hover {
+        transform: none;
+        background: #eb5620e3;
+        border: 1px solid #ffffff;
+    }
+
+    .srch-btn:active {
         transform: scale(1.05);
         background: #ff6424;
-    }
-    
-    .srch-btn:active {
         border-bottom: 2px solid #ffffff;
     }
 
@@ -810,24 +857,14 @@ body.dark .buynow-btn {
 }
 
 
-/* ================= REMOVE BLUE CLICK / TAP HIGHLIGHT ================= */
+/* ================= REMOVE CLICK/FOCUS HIGHLIGHT ================= */
 
-/* Remove blue tap highlight on mobile */
+/* Remove tap highlight on mobile */
 * {
     -webkit-tap-highlight-color: transparent;
 }
 
-/* Remove blue focus outline */
-a,
-button,
-input,
-textarea,
-select {
-    outline: none;
-    border: none;
-}
-
-/* Remove focus ring on click */
+/* Remove focus outline and box shadow after click */
 a:focus,
 button:focus,
 input:focus,
@@ -837,9 +874,12 @@ select:focus {
     box-shadow: none;
 }
 
-/* Optional: Add custom smooth focus style (clean and professional) */
-a:focus-visible,
-button:focus-visible {
-    outline: 2px solid #ffffff;
-    outline-offset: 3px;
+/* Optional: prevent active state from sticking */
+a:active,
+button:active {
+    outline: none;
+    box-shadow: none;
+    background: inherit; /* keeps background unchanged */
+    color: inherit;      /* keeps text color unchanged */
 }
+
