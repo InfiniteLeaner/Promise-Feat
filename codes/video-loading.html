@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Web designer: Infinite Leaner, Owner: Promise, Type of Eccomerce: Shoe ">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise Feats</title>
+  <link rel="icon" type="image/jpg" href="/Website/Promise Feats/Images/Logo/PF.web_and_app_icons-removebg-preview.png">
+  <link rel="stylesheet" href="/Website/Promise Feats/Web pages/Video-Loading.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <img href="https://www.instagram.com/promisefeat/?utm_source=ig_web_button_share_sheet" class="Logo" src="/Promise Feats/Images/Logo/PF.web_and_app_icons-removebg-preview.png" alt="">
+        <ul>
+          <li><a href="/Website/Promise Feats/Web pages/PF ( Home Page ).html">HOME</a></li>
+          <li><a href="/Website/Promise Feats/Web pages/Design.html">DESIGN</a></li>
+          <li><a href="/Website/Promise Feats/Web pages/Store.html">STORE</a></li>
+          <li><a href="/Website/Promise Feats/Web pages/About-Us.html">ABOUT US</a></li>
+          <li><a href="/Website/Promise Feats/Web pages/Contact Us.html">CONTACT US</a></li>
+        </ul>
+        
+        <div class="menu">
+          <label for="chk1">
+            <ion-icon name="grid-outlne"></ion-icon>
+          </label>
+        </div>
+    </nav>
+  </header>
+  
+    <video id="bgVideo" class="background-video" track="" {kind="captions"} src="/Website/Promise Feats/Background loading files/Background Loading video.mp4"
+       autoplay loop unmuted plays-inline type=mp4>
+      <source type="vidoe/mp4" src="/Website/Promise Feats/Background loading files/Background Loading video.mp4">
+      <track src="captions-en.vtt" kind="captions" srclarg="en" label="english-captions"></track>
+      <track src="captions-es.vtt" kind="captions" srclarg="es" label="spanish-captions"></track>
+    </video>
+
+      <div class="content">
+          <h1 class="Text-1"> Welcome To Promise Feats </h1>
+          <a href="/Website/Promise Feats/Web pages/login.html">
+            <button class="login-btn" src="/Website/Promise Feats/Web pages/login.html">
+              Login / Register
+            </button>
+          </a>
+      </div>
+</body>
+</html>
+
+<script>const video = document.getElementById('bgVideo');
+  let loopCount = 0;
+  
+  video.muted = false;
+  
+  video.addEventListener('ended', (bgVideo) => {
+    loopCount++;
+    
+    if (loopCount === 1) {
+      video.muted = true;
+    }
+  
+    video.currentTime = 0;
+    video.play();
+  });
+  
+</script>
