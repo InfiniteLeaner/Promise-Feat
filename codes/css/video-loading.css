@@ -1,11 +1,9 @@
 
 *{
   margin: 0;
-  font-family: "poppins, Arial";
+  font-family: 'Poppins', Arial, sans-serif;
   box-sizing: border-box;
   padding: 0;
-  transition: all 2s ease-in-out;
-  display: "inline-flexbox";
 }
 
 body{
@@ -13,8 +11,24 @@ body{
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  height: auto;
+  overflow: visible;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
 }
 
 header{
@@ -36,7 +50,7 @@ header{
   cursor: pointer;
 }
 
-.Logo{
+.logo{
   position: fixed;
   top: 20px;
   flex: 1;
@@ -44,9 +58,10 @@ header{
   width: 80px;
   height: 80px;
   border-radius: 50%;
+  transition: box-shadow 2s ease-in-out;
 }
 
-.Logo:hover{
+.logo:hover{
     box-shadow: 5px 5px 9px #f1683a;
     cursor: pointer;
     transition-duration: 2s;
@@ -62,11 +77,11 @@ nav{
   justify-content: space-between;
 }
 
-nav ul{
+.nav-links{
   position: fixed;
   flex: 2;
-  top: 20px;
-  right: 100px;
+  top: 10px;
+  right: 60px;
   align-items: flex-end;
   justify-content: space-evenly;
   display: flex;
@@ -75,28 +90,31 @@ nav ul{
   display: flex;
 }
 
-nav ul li{
+.nav-links li{
   list-style: none;
 }
 
-nav ul li a{
+.nav-links li a{
   color: wheat;
   font-size: 18px;
-  font-weight: 500;
-  text-transform: uppercase;
+  font-weight: bold;
+  font-style: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   text-decoration: none;
   padding: 10px 30px;
   margin: 12px 0px 0px 0px;
   font-weight: uppercase;
+  transition: all 0.5s ease-in-out;
 }
 
-nav ul li a:hover{
+.nav-links li a:hover{
    position: relative;
-    text-shadow: 0 10px 10px #ec6436;
+   text-shadow: 0 10px 10px #ec6436;
    color: #da8671;
    cursor: pointer;
-   border-bottom: 3px solid #da8671 ease-in-out;
-   animation:ease-in-out;
+}
+
+.bx-menu {
+  display: flex;
 }
 
 .nav-links li a:active{
@@ -104,52 +122,71 @@ nav ul li a:hover{
     transition-duration: 5s;
 }
 
-.content{
+.nav-links.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px 0;
+}
+
+.nav-links.active li {
+  margin: 10px 0;
+}
+
+.nav-links.active li a {
+  padding: 10px 20px;
+  display: block;
+}
+
+.hero-content{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
+  z-index: 10;
+  color: #fff;
 }
 
-.content h1{
-  margin:-32% 0px 0px 28%;
-  padding: 0px 0px;
-  width: 700px;
-  height: 30px;
+.hero-title{
   font-size: 60px;
-  color: #ffffffbb;
-  display: "inline-flex-box";
-  text-shadow: 4px 4px 4px #79fec2;
-  font-weight: bold;
   font-weight: 600;
-  z-index: 100;
-  position: relative;
-  border-radius: 50px;
-  transition: 0.5s;
+  text-shadow: 4px 4px 4px #79fec2;
+  margin-bottom: 20px;
+  transition: all 0.8s ease-in-out;
+  display: inline-block;
 }
 
-.content h1:hover{
+.hero-title:hover{
   -webkit-text-stroke: 1.5px #ffffff;
   color: transparent;
   text-shadow: 2px 5px solid;
   cursor: pointer;
- }
-
-@media (min-aspect-ratio: 16/9){
-     .background-video{
-        width: 100%;
-        height: auto;
-        transition: 2s ease-in-out;
-     }
 }
 
-@media (max-aspect-ratio: 16/9){
-     .background-video{
-        width: auto;
-        height: 100%;
-        transition: 2s ease-in-out;
-     }
+.hero-subtitle{
+  font-size: 18px;
+  margin-bottom: 30px;
+  opacity: 0.9;
 }
 
+.background-video{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  object-fit: cover;
+  transform: scale();
+  transform-origin: center;
+}
 
-.login-btn{
+.login-btn {
   position: relative;
   border-bottom-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -161,26 +198,119 @@ nav ul li a:hover{
   justify-content: space-between;
   padding: 13px 40px;
   background-color: #5e5d5d8c;
-  background-image : url(/Promise\ Feats/Images/Logo/PF.web_and_app_icons-removebg-preview.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  margin-top: 5%;
+  margin-top: 50%;
+  font-weight: 20px;
   transition: all 2s ease-in-out;
+  text-decoration: none;
+  color: wheat;
 }
 
 .login-btn:hover {
     cursor: pointer;  
-    animation: rainbowShadow 4s infinite  linear;
-    cursor: pointer;
     background-color: rgb(244, 106, 1);
     box-shadow: 0 0 25px #ff2770;
     transition-delay: 0.1s;
     transition-duration: 1.5s;
-    color: whitesmoke;
+    color: rgb(130, 115, 115);
 }
 
 .login-btn:active {
   color: #000;
   font-weight: bold;
+}
+
+.login-btn a{
+  text-decoration: none;
+  color: wheat;
+}
+
+/* Footer */
+footer {
+  position: relative;
+  margin-top: 100vh;
+  text-align: center;
+  justify-content: flex-end;
+  background: transparent;
+  color: #fff;
+  z-index: 10;
+}
+
+footer .social-icons {
+  margin-bottom: 10px;
+}
+
+footer .social-icons a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 24px;
+  transition: color 0.5s ease-in-out;
+}
+
+footer .social-icons a:hover {
+  color: #f1683a;
+}
+
+/* Responsive Design */
+
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 50px;
+  }
+  .hero-subtitle {
+    font-size: 16px;
+  }
+  .login-btn {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .menu {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 101;
+  }
+  .logo {
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+  }
+  .hero-title {
+    font-size: 30px;
+  }
+  .hero-subtitle {
+    font-size: 14px;
+  }
+  .login-btn {
+    font-size: 14px;
+    padding: 12px 25px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+  }
+  .hero-title {
+    font-size: 24px;
+  }
+  .hero-subtitle {
+    font-size: 12px;
+  }
+  .login-btn {
+    font-size: 12px;
+    padding: 10px 20px;
+    margin-top: 20px;
+  }
 }
