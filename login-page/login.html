@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- META -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Login or register on Promise Feats to access quality products and services.">
+
+  <title>Promise Feats | Login / Register</title>
+
+  <!-- ICON -->
+  <link rel="icon" href="/images/logo/PF.png" type="image/png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/login.css">
+
+  <!-- ICONS -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+  <!-- OPTIONAL BACKGROUND AUDIO (Better: control via JS) -->
+  <audio id="bg-audio" loop>
+    <source src="/audio/runaway.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container">
+
+    <!-- SHAPES -->
+    <div class="curved-shape"></div>
+    <div class="curved-shape2"></div>
+
+    <!-- ================= LOGIN ================= -->
+    <section class="form-box login">
+
+      <h2>Login</h2>
+
+      <form id="login-form">
+
+        <!-- USERNAME -->
+        <div class="input-box">
+          <input type="text" id="login-username" name="username" required autocomplete="username">
+          <label for="login-username">Username</label>
+          <i class="bx bx-user"></i>
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="input-box">
+          <input type="password" id="login-password" name="password" required autocomplete="current-password">
+          <label for="login-password">Password</label>
+          <i class="bx bx-lock-alt"></i>
+        </div>
+
+        <!-- OPTIONS -->
+        <div class="checkbox-row">
+          <label>
+            <input type="checkbox" id="toggle-login-password">
+            Show Password
+          </label>
+        </div>
+
+        <!-- BUTTON -->
+        <button class="btn" type="submit">Login</button>
+
+        <!-- SWITCH -->
+        <p class="switch-link">
+          Don't have an account?
+          <a href="#" id="go-to-register">Sign up</a>
+        </p>
+
+      </form>
+    </section>
+
+    <!-- LOGIN SIDE TEXT -->
+    <section class="info-content login">
+      <h2>Welcome to Promise Feats</h2>
+      <p>Access your account and explore quality products and services.</p>
+    </section>
+
+
+    <!-- ================= REGISTER ================= -->
+    <section class="form-box register">
+
+      <h2>Register</h2>
+
+      <form id="register-form">
+
+        <!-- USERNAME -->
+        <div class="input-box">
+          <input type="text" name="username" required autocomplete="username">
+          <label>Username</label>
+          <i class="bx bx-user"></i>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="input-box">
+          <input type="email" name="email" required autocomplete="email">
+          <label>Email</label>
+          <i class="bx bx-envelope"></i>
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="input-box">
+          <input type="password" id="register-password" name="password" required autocomplete="new-password">
+          <label>Password</label>
+          <i class="bx bx-lock-alt"></i>
+        </div>
+
+        <!-- OPTIONS -->
+        <div class="checkbox-row">
+          <label>
+            <input type="checkbox" id="toggle-register-password">
+            Show Password
+          </label>
+        </div>
+
+        <!-- BUTTON -->
+        <button class="btn" type="submit">Register</button>
+
+        <!-- SWITCH -->
+        <p class="switch-link">
+          Already have an account?
+          <a href="#" id="go-to-login">Sign in</a>
+        </p>
+
+      </form>
+    </section>
+
+    <!-- REGISTER SIDE TEXT -->
+    <section class="info-content register">
+      <h2>Welcome Back!</h2>
+      <p>Create an account and start your journey with us.</p>
+    </section>
+
+  </main>
+
+  <!-- JS -->
+  <script src="../js/login.js"></script>
+
+</body>
+</html>
