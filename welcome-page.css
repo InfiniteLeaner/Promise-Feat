@@ -76,11 +76,7 @@ nav {
 
 /* MENU BUTTON */
 #menu-toggle {
-    font-size: 28px;
-    padding: 10px 0px;
-    cursor: pointer;
     display: none;
-    z-index: 100;
 }
 
 /* ===========================
@@ -239,7 +235,6 @@ footer {
     position: absolute;
     display: block;
     z-index: 100;
-    padding: 10px 10px;
     cursor: pointer;
   }
 
@@ -262,7 +257,6 @@ footer {
     position: absolute;
     display: block;
     z-index: 100;
-    padding: 0px 0 0 5px;
     cursor: pointer;
   }
 
@@ -281,20 +275,22 @@ footer {
 }
 
 @media (max-width: 375px) {
-      #menu-toggle {
-        position: absolute;
-        display: block;
-        z-index: 100;
-        padding: 0px 20px 0px 0px;
-        cursor: pointer;
-    }
+  #menu-toggle {
+    position: absolute;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    cursor: pointer;
+  }
 }
 
 @media (max-width: 320px) {
   #menu-toggle {
     position: absolute;
     display: block;
-    padding: 0px 0 0 5px;
+    right: 5%;
+    font-size: 25px;
     cursor: pointer;
     z-index: 100;
   }
@@ -307,7 +303,7 @@ footer {
     top: 50px;
     border-radius: 5px;
     width: 200px;
-    display: flex;
+    display: none;
     width: 60%;
     height: 45%;
     z-index: 100;
@@ -318,4 +314,57 @@ footer {
   .nav-links li a {
     font-size: 13px;
   }
+
+  .hero-content{
+    justify-content: center;
+  }
+
+  .hero-title{
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    margin: 0 auto;
+  }
+
+  .hero-subtitle{
+    justify-content: center;
+  }
+
+  .fab-options {
+    gap: 8px;
+  }
+  
+  /* ICON BUTTONS */
+  .fab-options a {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+  }
+  
+  .fab-container {
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    z-index: 1000;
+  }
+  
+  #fab-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 30px;
+    font-size: 20px;
+  }
+  
+  .login-btn {
+  padding: 9px 20px;
+  margin-top: 25px;
+  font-size: 12px;
+  }
+  
+  .login-btn:hover {
+    transform: scale(0.80);
+    box-shadow: 0 0 20px #ff2770;
+    background: linear-gradient(45deg, #ff6b6b, #f1683a);
+  }
+  
 }
