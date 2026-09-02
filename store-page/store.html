@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Promise Feats | Collection</title>
+
+    <link rel="icon"
+        href="../media/images/logo/PF.icon-remove.bg.png"
+        type="image/png">
+
+    <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./store.css">
+</head>
+
+<body>
+
+    <!-- ======================================
+         HEADER
+    ======================================= -->
+    <header>
+      <div class="container">
+        <i class="bx bx-menu" id="menu-toggle"></i>
+  
+        <a href="../index.html" class="logo-link">
+          <img class="logo-img" src="../media/images/logo/PF.icon-remove.bg.png" alt="Promise Feats">
+        </a>
+  
+        <nav>
+          <ul class="nav-links">
+            <li><a href="../home-page/home-page.html">Home</a></li>
+            <li><a href="../store-page/store.html">Store</a></li>
+            <li><a href="../design-page/design.html">Design</a></li>
+            <li><a href="../about-us-page/about-us.html">About-Us</a></li>
+            <li class="nav-mobile-actions">
+              <a href="../store-page/store.html"><button class="buynow-btn">Buy Now</button></a>
+              <a href="../login-page/login.html"><button class="login-btn">Login</button></a>
+            </li>
+          </ul>
+          <div class="nav-actions">
+            <div class="search">
+              <input class="srch" type="search" placeholder="Type here">
+              <button class="srch-btn">Search <i class="bx bx-search-alt-2"></i></button>
+            </div>
+            <a href="../store-page/store.html" class="desktop-only">
+              <button class="buynow-btn">Buy Now</button>
+            </a>
+            <a href="../login-page/login.html" class="desktop-only">
+              <button class="login-btn">Login</button>
+            </a>
+            <div class="icon-cart">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                <path stroke="currentColor" stroke-width="2" d="M6 15a2 2 0 1 0 0 4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4Zm-9-4h10l2-7H3"></path>
+              </svg>
+              <span id="cart-count">0</span>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <!-- ======================================
+         HERO
+    ======================================= -->
+
+    <section class="store-hero">
+
+        <div class="hero-bg">
+            <img
+                src="../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.1.webp"
+                alt="Promise Feats Collection">
+
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+
+            <p class="hero-eyebrow">
+                Promise Feats — SS 2026
+            </p>
+
+            <h1 class="hero-title">
+                The Collection
+            </h1>
+
+            <p class="hero-sub">
+                Handcrafted leather footwear for those who walk with purpose.
+            </p>
+
+            <a href="#catalog" class="hero-cta">
+                Explore Now
+                <i class="bx bx-right-arrow-alt"></i>
+            </a>
+
+        </div>
+
+        <div class="hero-scroll">
+            <span></span>
+        </div>
+
+    </section>
+
+    <!-- ======================================
+         PRODUCT CATALOG
+    ======================================= -->
+
+    <section class="catalog" id="catalog">
+
+        <div class="catalog-header">
+
+            <div class="catalog-title-block">
+
+                <h2 class="catalog-title">
+                    Our Footwear Collection
+                </h2>
+
+                <p class="catalog-subtitle">
+                    <span id="product-count">0</span>
+                    handcrafted pieces
+                </p>
+
+            </div>
+
+            <!-- Filters -->
+
+            <div class="filter-tabs">
+
+                <button
+                    class="filter-tab active"
+                    data-filter="all">
+                    All
+                </button>
+
+                <button
+                    class="filter-tab"
+                    data-filter="black">
+                    Black Leather
+                </button>
+
+                <button
+                    class="filter-tab"
+                    data-filter="brown">
+                    Brown Leather
+                </button>
+
+            </div>
+
+            <!-- Sorting -->
+
+            <div class="sort-wrap">
+
+                <select
+                    id="sort-select"
+                    class="sort-select"
+                    aria-label="Sort Products">
+
+                    <option value="default">
+                        Featured
+                    </option>
+
+                    <option value="price-asc">
+                        Price: Low → High
+                    </option>
+
+                    <option value="price-desc">
+                        Price: High → Low
+                    </option>
+
+                    <option value="name">
+                        Name A–Z
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- Products Rendered By JavaScript -->
+
+        <div
+            id="product-grid"
+            class="product-grid">
+
+            <div class="loading-products">
+                Loading Products...
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ======================================
+         CART DRAWER
+    ======================================= -->
+
+    <aside
+        class="cart-drawer"
+        id="cart-drawer">
+
+        <div class="cart-header">
+
+            <h2>Your Cart</h2>
+
+            <button
+                class="cart-close"
+                id="cart-close">
+
+                <i class="bx bx-x"></i>
+
+            </button>
+
+        </div>
+
+        <div
+            class="cart-items"
+            id="cart-items">
+
+            <p class="cart-empty">
+                Your cart is empty.
+            </p>
+
+        </div>
+
+        <div class="cart-footer">
+
+            <div class="cart-total">
+
+                <span>Total</span>
+
+                <strong id="cart-total">
+                    ₦0
+                </strong>
+
+            </div>
+
+            <button class="checkout-btn">
+
+                Checkout
+
+                <i class="bx bx-right-arrow-alt"></i>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+    <div
+        class="cart-overlay"
+        id="cart-overlay">
+    </div>
+
+    <!-- ======================================
+         FOOTER
+    ======================================= -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <img
+                src="../media/images/logo/PF.icon-remove.bg.png"
+                alt="Promise Feats"
+                class="footer-logo">
+
+            <p>
+                © 2026 Promise Feats.
+                All rights reserved.
+            </p>
+
+            <div class="footer-socials">
+
+                <a
+                    href="https://web.facebook.com/profile.php?id=100070929678953"
+                    target="_blank">
+                    <i class="bx bxl-facebook"></i>
+                </a>
+
+                <a
+                    href="https://www.instagram.com/promisefeat/"
+                    target="_blank">
+                    <i class="bx bxl-instagram"></i>
+                </a>
+
+                <a href="https://x.com/promisefeat" target="_blank">
+                  <i class="bx bxl-twitter"></i>
+                </a>
+
+                <a href="https://t.co/CE7tc7u11G" target="_blank">
+                  <i class="bx bxl-whatsapp"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="./store.js"></script>
+
+</body>
+</html>

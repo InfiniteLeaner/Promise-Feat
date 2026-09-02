@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promise Feats</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./home-page.css" />
+  <link rel="icon" href="../media/images/logo/PF.icon-remove.bg.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="container">
+
+    <i class="bx bx-menu" id="menu-toggle"></i>
+
+    <a href="../home-page/home-page.html" class="logo-link">
+      <img class="logo-img" src="../media/images/logo/PF.icon-remove.bg.png" alt="Promise Feats Logo">
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+
+        <li><a href="../home-page/home-page.html">Home</a></li>
+        <li><a href="../store-page/store.html">Store</a></li>
+        <li><a href="../design-page/design.html">Design</a></li>
+        <li><a href="../about-us-page/about-us.html">About-Us</a></li>
+
+        <li class="nav-mobile-actions">
+          <a href="../store-page/store.html"><button class="buynow-btn">Buy Now</button></a>
+          <a href="../login-page/login.html"><button class="login-btn">Login</button></a>
+        </li>
+
+      </ul>
+
+      <div class="nav-actions">
+
+        <div class="search">
+          <input class="srch" type="search" placeholder="Type here">
+          <button class="srch-btn">
+            Search <i class="bx bx-search-alt-2"></i>
+          </button>
+        </div>
+
+        <a href="../store-page/store.html" class="desktop-only">
+          <button class="buynow-btn">Buy Now</button>
+        </a>
+
+        <a href="../login-page/login.html" class="desktop-only">
+          <button class="login-btn">Login</button>
+        </a>
+
+        <!-- FIXED: added ID -->
+        <div class="icon-cart">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+            <path stroke="currentColor" stroke-width="2" d="M6 15a2 2 0 1 0 0 4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4Zm-9-4h10l2-7H3"></path>
+          </svg>
+          <span id="cart-count">0</span>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="nav-overlay" id="nav-overlay"></div>
+
+<!-- ================= CAROUSEL ================= -->
+<section class="carousel">
+
+  <div class="list">
+
+    <div class="item">
+      <img src="../media/images/background images/promise-feat-white-background.webp" alt="White Background Hero">
+      <div class="content">
+        <div class="author">KC.Prince</div>
+        <div class="title">Promise Feats</div>
+        <div class="topic">Foot Wears</div>
+        <div class="des">Best Outfits, Quality and Trustworthy</div>
+        <div class="buttons">
+          <button class="See-more">SEE MORE</button>
+          <button class="Subscribe">SUBSCRIBE</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="../media/images/background images/promise-feat-black-background.webp" alt="Black Background Hero">
+      <div class="content">
+        <div class="author">KC.Prince</div>
+        <div class="title">Promise Feats</div>
+        <div class="topic">Foot Wears</div>
+        <div class="des">Best Outfits, Quality and Trustworthy</div>
+        <div class="buttons">
+          <button class="See-more">SEE MORE</button>
+          <button class="Subscribe">SUBSCRIBE</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- THUMBNAILS -->
+  <div class="thumbnail">
+
+    <div class="item"><img src="../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.14.jpg" alt="Black Shoe 1"></div>
+    <div class="item"><img src="../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.14.webp" alt="Brown Shoe 1"></div>
+    <div class="item"><img src="../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.13.jpg" alt="Black Shoe 2"></div>
+    <div class="item"><img src="../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.13.webp" alt="Brown Shoe 2"></div>
+
+  </div>
+
+  <!-- ARROWS -->
+  <div class="arrows">
+    <button id="prev">❮</button>
+    <button id="next">❯</button>
+  </div>
+
+</section>
+
+<!-- ================= SOCIAL FAB ================= -->
+    <footer>
+
+        <div class="footer-inner">
+
+            <img
+                src="../media/images/logo/PF.icon-remove.bg.png"
+                alt="Promise Feats"
+                class="footer-logo">
+
+            <p>
+                © 2026 Promise Feats.
+                All rights reserved.
+            </p>
+
+            <div class="footer-socials">
+
+                <a
+                    href="https://web.facebook.com/profile.php?id=100070929678953"
+                    target="_blank">
+                    <i class="bx bxl-facebook"></i>
+                </a>
+
+                <a
+                    href="https://www.instagram.com/promisefeat/"
+                    target="_blank">
+                    <i class="bx bxl-instagram"></i>
+                </a>
+
+                <a href="https://x.com/promisefeat" target="_blank">
+                  <i class="bx bxl-twitter"></i>
+                </a>
+
+                <a href="https://t.co/CE7tc7u11G" target="_blank">
+                  <ion-icon name="logo-whatsapp"></ion-icon>
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+<!-- JS -->
+<script src="./home-page.js"></script>
+
+</body>
+</html>

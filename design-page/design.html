@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promise Feats | Design Studio</title>
+  <link rel="stylesheet" href="../shared-ui.css" />
+  <link rel="stylesheet" href="./design.css" />
+  <link rel="icon" href="../media/images/logo/PF.icon-remove.bg.png" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+
+    <header>
+      <div class="container">
+        <i class="bx bx-menu" id="menu-toggle"></i>
+  
+        <a href="../index.html" class="logo-link">
+          <img class="logo-img" src="../media/images/logo/PF.icon-remove.bg.png" alt="Promise Feats">
+        </a>
+  
+        <nav>
+          <ul class="nav-links">
+            <li><a href="../home-page/home-page.html">Home</a></li>
+            <li><a href="../store-page/store.html">Store</a></li>
+            <li><a href="../design-page/design.html">Design</a></li>
+            <li><a href="../about-us-page/about-us.html">About-Us</a></li>
+            <li class="nav-mobile-actions">
+              <a href="../store-page/store.html"><button class="buynow-btn">Buy Now</button></a>
+              <a href="../login-page/login.html"><button class="login-btn">Login</button></a>
+            </li>
+          </ul>
+          <div class="nav-actions">
+            <div class="search">
+              <input class="srch" type="search" placeholder="Type here">
+              <button class="srch-btn">Search <i class="bx bx-search-alt-2"></i></button>
+            </div>
+            <a href="../store-page/store.html" class="desktop-only">
+              <button class="buynow-btn">Buy Now</button>
+            </a>
+            <a href="../login-page/login.html" class="desktop-only">
+              <button class="login-btn">Login</button>
+            </a>
+            <div class="icon-cart">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                <path stroke="currentColor" stroke-width="2" d="M6 15a2 2 0 1 0 0 4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4Zm-9-4h10l2-7H3"></path>
+              </svg>
+              <span id="cart-count">0</span>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+  <main>
+    <section class="hero-text">
+      <h1>Design Your Own Shoe</h1>
+      <p>
+        Create your custom premium shoe with real-time 3D preview,
+        colors, sizes, and styling options.
+      </p>
+    </section>
+
+    <section class="designer">
+      <div class="viewer-container">
+        <model-viewer
+          id="shoe-viewer"
+          src="../media/3d-models/mens_slacks_and_shoes.glb"
+          alt="3D Shoe"
+          camera-controls
+          auto-rotate
+          environment-image="neutral"
+          tone-mapping="commerce"
+          shadow-intensity="1"
+          exposure="1"
+          loading="eager"
+          ar
+          ar-modes="scene-viewer webxr quick-look"
+        ></model-viewer>
+      </div>
+
+      <aside class="controls">
+        <div class="row">
+          <div>
+            <h3>Shoe Name</h3>
+            <input type="text" id="shoe-name" placeholder="Enter shoe name" />
+          </div>
+
+          <div>
+            <h3>Quantity</h3>
+            <input type="number" id="qty" value="1" min="1" />
+          </div>
+        </div>
+
+        <h3>Parts</h3>
+        <div class="parts">
+          <button class="part-btn active" data-part="body">Body</button>
+          <button class="part-btn" data-part="laces">Laces</button>
+          <button class="part-btn" data-part="sole">Sole</button>
+          <button class="part-btn" data-part="tongue">Tongue</button>
+        </div>
+
+        <h3>Colors</h3>
+        <div class="colors">
+          <button class="color-btn active" data-color="#000000"></button>
+          <button class="color-btn" data-color="#d33"></button>
+          <button class="color-btn" data-color="#3366ff"></button>
+          <button class="color-btn" data-color="#ffffff"></button>
+        </div>
+
+        <h3>Sizes</h3>
+        <div class="sizes">
+          <button class="size-btn" data-size="38">38</button>
+          <button class="size-btn" data-size="39">39</button>
+          <button class="size-btn active" data-size="40">40</button>
+          <button class="size-btn" data-size="41">41</button>
+          <button class="size-btn" data-size="42">42</button>
+        </div>
+
+        <div class="actions">
+          <div class="selected-info">
+            Selected Size: <span id="selected-size">40</span>
+          </div>
+          <button class="add-btn" id="add-to-cart">Add To Cart</button>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="fab-container">
+      <div class="fab-options" id="fab-options">
+        <a target="_blank" href="https://web.facebook.com/profile.php?id=100070929678953" class="fab-item" aria-label="Facebook">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <a target="_blank" href="https://x.com/promisefeat" class="fab-item" aria-label="Twitter">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a target="_blank" href="https://www.instagram.com/promisefeat/" class="fab-item" aria-label="Instagram">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a target="_blank" href="https://t.co/CE7tc7u11G" title="WhatsApp">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+        </a>
+      </div>
+      <button id="fab-btn" aria-label="Open Social Menu">
+        <i class="bx bx-plus"></i>
+      </button>
+    </div>
+  </footer>
+
+  <script src="./design.js"></script>
+  <script src="../welcome-page.js"></script>
+</body>
+</html>

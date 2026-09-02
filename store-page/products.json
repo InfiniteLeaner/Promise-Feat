@@ -1,0 +1,255 @@
+[
+  {
+    "id": "black-oxford-1",
+    "name": "Black Corporate Luxury Oxford",
+    "description": "Premium black leather oxford crafted for executive and formal occasions.",
+    "price": "30000",
+    "category": "black",
+    "keywords": ["corporate", "luxury", "oxford", "black leather", "dress", "formal", "executive"],
+    "image": "../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.1.webp"
+  },
+  {
+    "id": "brown-brogue-9",
+    "name": "Brown Burnished Brogue",
+    "description": "Elegant brown burnished brogue with timeless heritage styling.",
+    "price": "25000",
+    "category": "brown",
+    "keywords": ["brogue", "brown", "heritage", "dress"],
+    "image": "../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.1.webp"
+  },
+  {
+    "id": "black-derby-2",
+    "name": "Black Executive Leather Derby",
+    "description": "Comfortable executive derby shoe designed for business versatility.",
+    "price": "38000",
+    "category": "black",
+    "keywords": ["executive", "derby", "black leather", "business", "comfort", "versatile"],
+    "image": "../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.2.webp"
+  },
+  {
+    "id": "brown-chelsea-7",
+    "name": "Brown Modern Chelsea",
+    "description": "Modern brown Chelsea boot with sleek everyday sophistication.",
+    "price": "26000",
+    "category": "brown",
+    "keywords": ["chelsea", "brown", "boots", "modern"],
+    "image": "../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.2.webp"
+  },
+  {
+    "id": "black-loafer-3",
+    "name": "Black Classic Leather Loafer",
+    "description": "Classic black loafer offering effortless comfort and timeless appeal.",
+    "price": "40000",
+    "category": "black",
+    "keywords": ["loafer", "black", "casual", "classic", "comfortable"],
+    "image": "../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.3.webp"
+  },
+  {
+    "id": "brown-derby-6",
+    "name": "Brown Derby Classic",
+    "description": "Traditional brown derby crafted for formal and semi-casual wear.",
+    "price": "28000",
+    "category": "brown",
+    "keywords": ["derby", "brown", "classic", "dress"],
+    "image": "../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.3.webp"
+  },
+  {
+    "id": "black-monk-4",
+    "name": "Black Modern Monk Strap",
+    "description": "Sophisticated monk strap shoe with premium black leather finish.",
+    "price": "39000",
+    "category": "black",
+    "keywords": ["monk strap", "black", "formal", "modern", "leather"],
+    "image": "../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.4.webp"
+  },
+  {
+    "id": "brown-moccasin-5",
+    "name": "Brown Suede Moccasin",
+    "description": "Relaxed suede moccasin ideal for smart casual comfort.",
+    "price": "20000",
+    "category": "brown",
+    "keywords": ["suede", "moccasin", "brown", "casual"],
+    "image": "../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.4.webp"
+  },
+  {
+    "id": "black-slipon-5",
+    "name": "Black Slip-On Comfort",
+    "description": "Lightweight black slip-on shoe built for all-day comfort.",
+    "price": "35000",
+    "category": "black",
+    "keywords": ["slip-on", "black", "comfort", "casual", "everyday"],
+    "image": "../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.5.webp"
+  },
+  {
+    "id": "brown-loafer-4",
+    "name": "Brown Casual Loafer",
+    "description": "Versatile brown loafer perfect for relaxed everyday styling.",
+    "price": "40000",
+    "category": "brown",
+    "keywords": ["loafer", "brown", "casual", "comfort"],
+    "image": "../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.5.webp"
+  },
+  {
+    "id": "black-trainer-6",
+    "name": "Black Performance Trainer",
+    "description": "Sport-inspired black trainer blending comfort with leather luxury.",
+    "price": "23000",
+    "category": "black",
+    "keywords": ["trainer", "black", "performance", "casual", "leather"],
+    "image": "../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.6.webp"
+  },
+  {
+    "id": "brown-brogue-8",
+    "name": "Brown Burnished Brogue",
+    "description": "Stylish burnished brogue designed with refined heritage detailing.",
+    "price": "47000",
+    "category": "brown",
+    "keywords": ["brogue", "brown", "heritage", "dress"],
+    "image": "../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.6.jpg"
+  },
+  {
+    "id": "black-captoe-7",
+    "name": "Black Formal Cap-Toe",
+    "description": "Elegant cap-toe shoe tailored for formal and executive occasions.",
+    "price": "26000",
+    "category": "black",
+    "keywords": ["cap-toe", "formal", "black", "dress"],
+    "image": "../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.7.webp"
+  },
+  {
+    "id": "brown-chukka-3",
+    "name": "Brown Rustic Chukka",
+    "description": "Rugged brown chukka boot with casual outdoor versatility.",
+    "price": "29000",
+    "category": "brown",
+    "keywords": ["chukka", "brown", "boots", "casual", "rugged"],
+    "image": "../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.7.jpg"
+  },
+  {
+    "id": "black-lace-8",
+    "name": "Black Casual Lace",
+    "description": "Simple and stylish lace-up shoe for everyday casual comfort.",
+    "price": "38000",
+    "category": "black",
+    "keywords": ["lace-up", "black", "casual", "comfort"],
+    "image": "../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.8.webp"
+  },
+  {
+    "id": "brown-wingtip-1",
+    "name": "Brown Heritage Wingtip Brogue",
+    "description": "Classic wingtip brogue featuring rich brown leather craftsmanship.",
+    "price": "45000",
+    "category": "brown",
+    "keywords": ["brown", "wingtip", "brogue", "heritage", "casual", "dress", "leather"],
+    "image": "../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.8.jpg"
+  },
+  {
+    "id": "black-chelsea-9",
+    "name": "Black Premium Chelsea",
+    "description": "Premium Chelsea boot with a sleek black leather finish.",
+    "price": "43000",
+    "category": "black",
+    "keywords": ["chelsea", "black", "premium", "boots"],
+    "image": "../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.9.webp"
+  },
+  {
+    "id": "brown-casual-2",
+    "name": "Brown Casual Leather Shoe",
+    "description": "Refined casual leather shoe designed for everyday confidence.",
+    "price": "31000",
+    "category": "brown",
+    "keywords": ["brown", "casual", "everyday", "leather"],
+    "image": "../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.9.webp"
+  },
+  {
+    "id": "black-brogue-10",
+    "name": "Black Dress Brogue",
+    "description": "Classic black brogue tailored for polished dress styling.",
+    "price": "29000",
+    "category": "black",
+    "keywords": ["brogue", "black", "dress", "classic"],
+    "image": "../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.10.webp"
+  },
+  {
+    "id": "brown-casual-2",
+    "name": "Brown Casual Leather Shoe",
+    "description": "Refined casual leather shoe designed for everyday confidence.",
+    "price": "37000",
+    "category": "brown",
+    "keywords": ["brown", "casual", "everyday", "leather"],
+    "image": "../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.10.webp"
+  },
+  {
+    "id": "black-sneaker-11",
+    "name": "Black Minimalist Sneaker",
+    "description": "Minimalist black sneaker combining comfort with modern simplicity.",
+    "price": "46000",
+    "category": "black",
+    "keywords": ["sneaker", "black", "minimal", "casual"],
+    "image": "../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.11.webp"
+  },
+  {
+    "id": "brown-casual-2",
+    "name": "Brown Casual Leather Shoe",
+    "description": "Refined casual leather shoe designed for everyday confidence.",
+    "price": "24000",
+    "category": "brown",
+    "keywords": ["brown", "casual", "everyday", "leather"],
+    "image": "../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.11.webp"
+  },
+  {
+    "id": "black-sneaker-11",
+    "name": "Black Minimalist Sneaker",
+    "description": "Minimalist black sneaker combining comfort with modern simplicity.",
+    "price": "46000",
+    "category": "black",
+    "keywords": ["sneaker", "black", "minimal", "casual"],
+    "image": "../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.12.jpg"
+  },
+  {
+    "id": "brown-casual-2",
+    "name": "Brown Casual Leather Shoe",
+    "description": "Refined casual leather shoe designed for everyday confidence.",
+    "price": "36000",
+    "category": "brown",
+    "keywords": ["brown", "casual", "everyday", "leather"],
+    "image": "../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.12.webp"
+  },
+  {
+    "id": "black-sneaker-11",
+    "name": "Black Minimalist Sneaker",
+    "description": "Minimalist black sneaker combining comfort with modern simplicity.",
+    "price": "20000",
+    "category": "black",
+    "keywords": ["sneaker", "black", "minimal", "casual"],
+    "image": "../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.13.jpg"
+  },
+  {
+    "id": "brown-casual-2",
+    "name": "Brown Casual Leather Shoe",
+    "description": "Refined casual leather shoe designed for everyday confidence.",
+    "price": "49000",
+    "category": "brown",
+    "keywords": ["brown", "casual", "everyday", "leather"],
+    "image": "../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.13.webp"
+  },
+  {
+    "id": "black-sneaker-11",
+    "name": "Black Minimalist Sneaker",
+    "description": "Minimalist black sneaker combining comfort with modern simplicity.",
+    "price": "50000",
+    "category": "black",
+    "keywords": ["sneaker", "black", "minimal", "casual"],
+    "image": "../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.14.jpg"
+  },
+  {
+    "id": "brown-casual-2",
+    "name": "Brown Casual Leather Shoe",
+    "description": "Refined casual leather shoe designed for everyday confidence.",
+    "price": "34000",
+    "category": "brown",
+    "keywords": ["brown", "casual", "everyday", "leather"],
+    "image": "../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.14.webp"
+  }
+
+]

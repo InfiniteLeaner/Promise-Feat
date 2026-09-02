@@ -1,0 +1,643 @@
+/* ===================================
+   GLOBAL RESET
+=================================== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+html,
+body,
+#root{
+  min-height:100%;
+}
+
+body{
+  margin:0;
+  overflow-x:hidden;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.welcome-page{
+  font-family:'Poppins', Arial, sans-serif;
+  background:#000;
+  color:#fff;
+  min-height:100vh;
+  overflow-x:hidden;
+  line-height:1.5;
+  -webkit-tap-highlight-color:transparent;
+}
+
+/* Prevent overflow */
+img,
+video{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+/* ===================================
+   ROOT COLORS
+=================================== */
+:root{
+  --primary:#f1683a;
+  --secondary:#ff2770;
+  --light:wheat;
+  --dark:#111;
+  --glass:rgba(255,255,255,0.08);
+
+  --shadow:
+    0 8px 25px rgba(0,0,0,0.35);
+
+  --transition:0.3s ease;
+}
+
+/* ===================================
+   BACKGROUND VIDEO
+=================================== */
+.background-video{
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100vh;
+  object-fit:cover;
+  z-index:0;
+  pointer-events:none;
+  will-change:transform;
+}
+
+/* ===================================
+   DARK OVERLAY
+=================================== */
+.welcome-page::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  z-index:1;
+  pointer-events:none;
+  overflow: hidden;
+}
+
+/* ===================================
+   MAIN
+=================================== */
+.welcome-page main{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  padding:0;
+  overflow:hidden;
+}
+
+/* ===================================
+   HEADER
+=================================== */
+.welcome-page header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  padding:14px 1.2rem;
+  background:linear-gradient(180deg, rgba(0,0,0,0.68), rgba(0,0,0,0));
+}
+
+.welcome-page footer{
+  position:relative;
+  z-index:2;
+}
+
+/* ===================================
+   NAVIGATION
+=================================== */
+.welcome-page nav{
+  max-width:1300px;
+  margin:auto;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+
+/* ===================================
+   LOGO
+=================================== */
+.welcome-page .logo-link{
+  display:inline-flex;
+  align-items:center;
+  gap:0.7rem;
+  min-width:0;
+  color:#fff;
+  text-decoration:none;
+}
+
+.welcome-page .logo{
+  width:clamp(54px, 6vw, 76px);
+  aspect-ratio:1;
+  object-fit:contain;
+  cursor:pointer;
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,0.45));
+}
+
+.welcome-page .brand-name{
+  font-size:clamp(1rem, 2vw, 1.3rem);
+  font-weight:800;
+  color:#fff;
+  text-shadow:0 2px 12px rgba(0,0,0,0.65);
+  white-space:nowrap;
+}
+
+/* ===================================
+   NAV LINKS
+=================================== */
+.welcome-page .nav-links{
+  display:flex;
+  align-items:center;
+  gap:1.3rem;
+  padding:8px;
+  border-radius:999px;
+}
+
+.welcome-page .nav-links li{
+  list-style:none;
+}
+
+.welcome-page .nav-links a{
+  text-decoration:none;
+  color:var(--light);
+  font-size: 15px;
+  font-weight:bold;
+  letter-spacing:0.4px;
+  text-transform:uppercase;
+  padding: 7px 14px;
+  border-radius:8px;
+
+  transition:var(--transition);
+}
+
+.welcome-page .nav-links a:hover{
+  color:rgba(245, 86, 29, 0.825);
+  text-shadow:5px 6px 9px rgba(245, 86, 29, 0.825);
+}
+
+/* ===================================
+   MENU TOGGLE
+=================================== */
+.welcome-page #menu-toggle{
+  display:none;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  height:44px;
+  border:0;
+  background:transparent;
+  font-size:26px;
+  color:#fff;
+  cursor:pointer;
+  z-index: 0;
+  transition:var(--transition);
+}
+
+/* ===================================
+   HERO SECTION
+=================================== */
+@keyframes welcomeFadeUp {
+  from { opacity:0; transform:translateY(22px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.welcome-page .hero-content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  width:100%;
+  max-width:800px;
+}
+
+.welcome-page .hero-title{
+  font-size:clamp(2rem, 7vw, 4.5rem);
+  font-weight:700;
+  max-width:768px;
+  line-height:1.15;
+  text-shadow:0 0 20px rgba(121,254,194,0.45);
+  opacity:0;
+  animation:welcomeFadeUp 0.8s forwards 0.7s;
+  transition:var(--transition);
+}
+
+.welcome-page .hero-title:hover{
+  color:transparent;
+  -webkit-text-stroke:1px #fff;
+}
+
+.welcome-page .hero-subtitle{
+  margin-top:14px;
+
+  font-size:clamp(0.95rem, 2vw, 1.15rem);
+
+  max-width:700px;
+
+  opacity:0;
+  animation:welcomeFadeUp 0.8s forwards 0.9s;
+}
+
+/* ===================================
+   LOGIN BUTTON
+=================================== */
+.welcome-page .login-btn{
+  margin-top:28px;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  text-decoration:none;
+  color:#fff;
+  font-weight:600;
+
+  padding:14px 30px;
+
+  border-radius:999px;
+
+  background:var(--glass);
+  backdrop-filter:blur(10px);
+
+  box-shadow:var(--shadow);
+
+  opacity:0;
+  animation:welcomeFadeUp 0.6s forwards 1s;
+
+  transition:var(--transition);
+}
+
+.welcome-page .login-btn:hover{
+  transform:translateY(-3px) scale(1.04);
+
+  background:
+    linear-gradient(
+      45deg,
+      var(--secondary),
+      var(--primary)
+    );
+
+  box-shadow:
+    0 0 15px rgba(255,39,112,0.5),
+    0 0 25px rgba(241,104,58,0.4);
+}
+
+/* ===================================
+   FOOTER
+=================================== */
+.welcome-page footer{
+  width:100%;
+
+  text-align:center;
+
+  padding:10px;
+
+  font-size:14px;
+  opacity:0.85;
+}
+
+/* ===================================
+   FLOATING ACTION BUTTON
+=================================== */
+.welcome-page .fab-container{
+  position:fixed;
+
+  right:18px;
+  bottom:24px;
+
+  z-index:1200;
+}
+
+.welcome-page #fab-btn{
+  width:48px;
+  height:48px;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  border:none;
+  border-radius:50%;
+
+  cursor:pointer;
+
+  font-size:24px;
+  color:#fff;
+
+  background:var(--dark);
+
+  box-shadow:var(--shadow);
+
+  transition:var(--transition);
+}
+
+.welcome-page #fab-btn.active{
+  transform:rotate(45deg) scale(1.08);
+  background:var(--primary);
+}
+
+.welcome-page .fab-options{
+  position:absolute;
+
+  right:4px;
+  bottom:58px;
+
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+
+  opacity:0;
+  pointer-events:none;
+
+  transform:translateY(15px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.welcome-page .fab-options.active{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
+}
+
+.welcome-page .fab-options a{
+  width:40px;
+  height:40px;
+
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  text-decoration:none;
+
+  color:#fff;
+  font-size:18px;
+
+  background:rgba(0,0,0,0.82);
+
+  transition:var(--transition);
+}
+
+.welcome-page .fab-options a:hover{
+  background:var(--primary);
+  transform:translateX(-6px);
+}
+
+/* ===================================
+   TABLET
+=================================== */
+
+@media screen and (max-width:768px){
+
+  .welcome-page .logo{
+    width: 70px;
+  }
+
+  .welcome-page #menu-toggle{
+    display: flex;
+    font-size: 26px;
+    z-index: 1001;
+  }
+
+  .welcome-page header{
+    padding: 6px 1rem;
+  }
+
+  .welcome-page .nav-links{
+    position:fixed;
+    top:0;
+    right:0;
+    height:100vh;
+    width:72vw;
+    max-width:360px;
+    padding:84px 20px 20px 24px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    background:linear-gradient(180deg, rgba(0,0,0,0.96), rgba(0,0,0,0.94));
+    box-shadow:var(--shadow);
+    border-radius:0 0 0 20px;
+    transform:translateX(110%);
+    transition:transform 360ms cubic-bezier(0.22,1,0.36,1), opacity 220ms ease;
+    opacity:0;
+    pointer-events:none;
+    will-change:transform, opacity;
+  }
+
+  .welcome-page .nav-links.nav-open{
+    transform:translateX(0);
+    opacity:1;
+    pointer-events:auto;
+  }
+
+  .welcome-page .nav-links a{
+    width:100%;
+    padding:10px 12px;
+  }
+
+  .welcome-page .nav-links li{
+    transform:translateX(8px);
+    opacity:0;
+    transition:transform 300ms cubic-bezier(0.22,1,0.36,1), opacity 240ms ease;
+  }
+
+  .welcome-page .nav-links.nav-open li{
+    transform:translateX(0);
+    opacity:1;
+  }
+
+  .welcome-page .nav-links.nav-open li:nth-child(1){ transition-delay:0.06s; }
+  .welcome-page .nav-links.nav-open li:nth-child(2){ transition-delay:0.12s; }
+  .welcome-page .nav-links.nav-open li:nth-child(3){ transition-delay:0.18s; }
+  .welcome-page .nav-links.nav-open li:nth-child(4){ transition-delay:0.24s; }
+  .welcome-page .nav-links.nav-open li:nth-child(5){ transition-delay:0.30s; }
+
+  .welcome-page #menu-toggle{
+    transition:transform 200ms ease, color 200ms ease;
+  }
+
+  .welcome-page #menu-toggle[aria-expanded="true"]{
+    transform:rotate(90deg) scale(1.02);
+  }
+
+  .welcome-page .hero-content{
+    max-width:300px;
+  }
+
+  .welcome-page .login-btn{
+    padding: 11px 24px;
+    font-size: 15px;
+  }
+  
+}
+
+/* ===================================
+   MOBILE
+=================================== */
+@media screen and (max-width:425px){
+
+  .welcome-page header{
+    padding: 10px;
+  }
+
+  .welcome-page main{
+    padding:0 16px;
+  }
+
+  .welcome-page nav{
+    height:68px;
+  }
+
+  .welcome-page .nav-links.nav-open{
+    top: 5px;
+    background-color: #ff2770;
+  }
+
+  .welcome-page .brand-name{
+    font-size:0.95rem;
+  }
+
+  .welcome-page .logo{
+    width: 60px;
+  }
+
+  .welcome-page .hero-content{
+    padding:20px 10px;
+  }
+
+  .welcome-page .hero-title{
+    font-size:1.9rem;
+    width:100%;
+    max-width:300px;
+    line-height:1.25;
+  }
+
+  .welcome-page .hero-subtitle{
+    font-size:0.9rem;
+    width:100%;
+    max-width:90%;
+  }
+
+  .welcome-page .login-btn{
+    padding: 22px 24px;
+    font-size:14px;
+  }
+
+  .welcome-page #fab-btn{
+    width:42px;
+    height:42px;
+    font-size:21px;
+  }
+
+  .welcome-page .fab-options a{
+    width:36px;
+    height:36px;
+    font-size:16px;
+  }
+}
+
+/* ===================================
+   SMALL DEVICES
+=================================== */
+@media screen and (max-width:375px){
+
+  .welcome-page .logo{
+    width: 50px;
+    padding: 4px;
+  }
+
+  .welcome-page header{
+    margin: 0px 0px;
+  }
+
+  .welcome-page #menu-toggle{
+    font-size:26px;
+  }
+
+  .welcome-page .brand-name{
+    display:none;
+  }
+
+  .welcome-page .hero-content{
+    max-width:390px;
+    padding:20px;
+  }
+
+  .welcome-page .hero-title{
+    font-size:1.6rem;
+
+    width:100%;
+    max-width:20ch;
+
+    line-height:1.22;
+
+    padding-inline:0.35rem;
+  }
+
+  .welcome-page .hero-subtitle{
+    font-size:0.85rem;
+  }
+
+  .welcome-page .login-btn{
+    width:100%;
+    padding: 15px;
+  }
+
+  .welcome-page .nav-links{
+    width:200px;
+  }
+}
+
+/* ===================================
+   EXTRA SMALL DEVICES
+=================================== */
+@media screen and (max-width:320px){
+
+  .welcome-page .logo{
+    width: 65px;
+    padding: 4px;
+  }
+
+  .welcome-page header{
+    padding: 6px 15px;
+  }
+
+  .welcome-page .hero-content{
+    padding:20px 10px;
+  }
+
+  .welcome-page .hero-title{
+    font-size:1.45rem;
+    max-width:16ch;
+    padding-inline:0.2rem;
+  }
+
+  .welcome-page .hero-subtitle{
+    font-size:0.8rem;
+  }
+
+  .welcome-page .login-btn{
+    width:100%;
+    padding: 15px;
+  }
+}

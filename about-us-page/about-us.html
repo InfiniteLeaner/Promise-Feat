@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promise Feats | About Us</title>
+  <link rel="stylesheet" href="../shared-ui.css" />
+  <link rel="stylesheet" href="./about-us.css" />
+  <link rel="icon" href="../media/images/logo/PF.icon-remove.bg.png" type="image/png" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <header>
+      <div class="container">
+        <i class="bx bx-menu" id="menu-toggle"></i>
+  
+        <a href="../index.html" class="logo-link">
+          <img class="logo-img" src="../media/images/logo/PF.icon-remove.bg.png" alt="Promise Feats">
+        </a>
+  
+        <nav>
+          <ul class="nav-links">
+            <li><a href="../home-page/home-page.html">Home</a></li>
+            <li><a href="../store-page/store.html">Store</a></li>
+            <li><a href="../design-page/design.html">Design</a></li>
+            <li><a href="../about-us-page/about-us.html">About-Us</a></li>
+            <li class="nav-mobile-actions">
+              <a href="../store-page/store.html"><button class="buynow-btn">Buy Now</button></a>
+              <a href="../login-page/login.html"><button class="login-btn">Login</button></a>
+            </li>
+          </ul>
+          <div class="nav-actions">
+            <div class="search">
+              <input class="srch" type="search" placeholder="Type here">
+              <button class="srch-btn">Search <i class="bx bx-search-alt-2"></i></button>
+            </div>
+            <a href="../store-page/store.html" class="desktop-only">
+              <button class="buynow-btn">Buy Now</button>
+            </a>
+            <a href="../login-page/login.html" class="desktop-only">
+              <button class="login-btn">Login</button>
+            </a>
+            <div class="icon-cart">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                <path stroke="currentColor" stroke-width="2" d="M6 15a2 2 0 1 0 0 4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4Zm-9-4h10l2-7H3"></path>
+              </svg>
+              <span id="cart-count">0</span>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+  <main class="about-page">
+    <section class="hero">
+      <p class="eyebrow">Our Story,</p>
+      <h1>Built around quality footwear, bold design, and a brand people can trust.</h1>
+      <p class="intro">
+        Promise Feats brings together craftsmanship, style, and digital experience in one connected brand.
+        From custom shoe design to a polished storefront, every page now flows through the same project.
+      </p>
+    </section>
+
+    <section class="team-grid" aria-label="Team members">
+      <article class="profile-card">
+        <img class="profile-img" src="../media/images/profile-pics/ceo-of promise-feat.jpg" alt="Promise KC, founder and CEO of Promise Feats" />
+        <div class="profile-copy">
+          <p class="role">Founder and CEO</p>
+          <h2>Promise KC</h2>
+          <p>
+            The vision behind Promise Feats, focused on premium footwear, confident styling, and building a brand
+            that feels distinct from the ordinary.
+          </p>
+        </div>
+      </article>
+
+      <article class="profile-card2">
+        <img class="profile-img2" src="../media/images/profile-pics/my-profile-pic.jpg" alt="Lead developer for Promise Feats" />
+        <div class="profile-copy">
+          <p class="role">Lead Developer</p>
+          <h2>Digital Experience</h2>
+          <p>
+            The web side of Promise Feats, shaping the responsive storefront, landing pages, and custom design flow
+            into one connected experience.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="quick-links" aria-label="Explore Promise Feats">
+      <a class="login-link" href="../login-page/login.html">Join the Brand</a>
+    </section>
+  </main>
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <img
+                src="../media/images/logo/PF.icon-remove.bg.png"
+                alt="Promise Feats"
+                class="footer-logo">
+
+            <p>
+                © 2026 Promise Feats.
+                All rights reserved.
+            </p>
+
+            <div class="footer-socials">
+
+                <a
+                    href="https://web.facebook.com/profile.php?id=100070929678953"
+                    target="_blank">
+                    <i class="bx bxl-facebook"></i>
+                </a>
+
+                <a
+                    href="https://www.instagram.com/promisefeat/"
+                    target="_blank">
+                    <i class="bx bxl-instagram"></i>
+                </a>
+
+                <a href="https://x.com/promisefeat" target="_blank">
+                  <i class="bx bxl-twitter"></i>
+                </a>
+
+                <a href="https://t.co/CE7tc7u11G" target="_blank">
+                  <ion-icon name="logo-whatsapp"></ion-icon>
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+  <script src="./about-us.js"></script>
+</body>
+</html>
