@@ -124,6 +124,12 @@ video{
   min-width:0;
   color:#fff;
   text-decoration:none;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.welcome-page .logo-link:active{
+  opacity:0.8;
 }
 
 .welcome-page .logo{
@@ -166,12 +172,26 @@ video{
   text-transform:uppercase;
   padding:7px 14px;
   border-radius:8px;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
   transition:var(--transition);
 }
 
-.welcome-page .nav-links a:hover{
-  color:rgba(245, 86, 29, 0.825);
-  text-shadow:5px 6px 9px rgba(245, 86, 29, 0.825);
+.welcome-page .nav-links a:active{
+  transform:scale(0.95);
+  opacity:0.8;
+}
+
+.welcome-page .nav-links a:focus-visible{
+  outline:2px solid var(--primary);
+  outline-offset:2px;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .welcome-page .nav-links a:hover{
+    color:rgba(245, 86, 29, 0.825);
+    text-shadow:5px 6px 9px rgba(245, 86, 29, 0.825);
+  }
 }
 
 /* ===================================
@@ -189,7 +209,20 @@ video{
   color:#c9a55a;
   cursor:pointer;
   z-index:1001;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
   transition:var(--transition);
+}
+
+.welcome-page #menu-toggle:active{
+  transform:scale(0.85);
+  opacity:0.7;
+}
+
+.welcome-page #menu-toggle:focus-visible{
+  outline:2px solid var(--primary);
+  outline-offset:2px;
+  border-radius:8px;
 }
 
 .welcome-page #menu-toggle[aria-expanded="true"]{
@@ -227,9 +260,11 @@ video{
   transition:var(--transition);
 }
 
-.welcome-page .hero-title:hover{
-  color:transparent;
-  -webkit-text-stroke:1px #fff;
+@media (hover:hover) and (pointer:fine){
+  .welcome-page .hero-title:hover{
+    color:transparent;
+    -webkit-text-stroke:1px #fff;
+  }
 }
 
 .welcome-page .hero-subtitle{
@@ -258,13 +293,27 @@ video{
   box-shadow:var(--shadow);
   opacity:0;
   animation:welcomeFadeUp 0.6s forwards 1s;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
   transition:var(--transition);
 }
 
-.welcome-page .login-btn:hover{
-  transform:translateY(-6px);
-  background:linear-gradient(45deg, var(--secondary), var(--primary));
-  box-shadow:0 0 15px rgba(255,39,112,0.5), 0 0 25px rgba(241,104,58,0.4);
+.welcome-page .login-btn:active{
+  transform:scale(0.95);
+  opacity:0.9;
+}
+
+.welcome-page .login-btn:focus-visible{
+  outline:2px solid var(--primary);
+  outline-offset:3px;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .welcome-page .login-btn:hover{
+    transform:translateY(-6px);
+    background:linear-gradient(45deg, var(--secondary), var(--primary));
+    box-shadow:0 0 15px rgba(255,39,112,0.5), 0 0 25px rgba(241,104,58,0.4);
+  }
 }
 
 /* ===================================
@@ -303,7 +352,13 @@ video{
   color:#fff;
   background:var(--dark);
   box-shadow:var(--shadow);
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
   transition:var(--transition);
+}
+
+.welcome-page #fab-btn:active{
+  transform:scale(0.9);
 }
 
 .welcome-page #fab-btn.active{
@@ -341,12 +396,25 @@ video{
   color:#fff;
   font-size:18px;
   background:rgba(0,0,0,0.82);
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
   transition:var(--transition);
 }
 
-.welcome-page .fab-options a:hover{
-  background:var(--primary);
-  transform:translateX(-6px);
+.welcome-page .fab-options a:active{
+  transform:scale(0.85);
+}
+
+.welcome-page .fab-options a:focus-visible{
+  outline:2px solid var(--primary);
+  outline-offset:2px;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .welcome-page .fab-options a:hover{
+    background:var(--primary);
+    transform:translateX(-6px);
+  }
 }
 
 /* ===================================
@@ -451,7 +519,6 @@ video{
 
   .welcome-page .nav-links.nav-open{
     top:5px;
-    background-color:#ff2770;
   }
 
   .welcome-page .brand-name{
