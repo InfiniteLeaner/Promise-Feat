@@ -211,7 +211,7 @@ video{
   z-index:1001;
   touch-action:manipulation;
   -webkit-tap-highlight-color:transparent;
-  transition:var(--transition);
+  transition:transform 0.3s ease, opacity 0.3s ease;
 }
 
 .welcome-page #menu-toggle:active{
@@ -418,7 +418,8 @@ video{
 }
 
 /* ===================================
-   TABLET
+   TABLET (≤768px)
+   Shows hamburger + slide-in nav
 =================================== */
 @media screen and (max-width:768px){
 
@@ -482,14 +483,6 @@ video{
   .welcome-page .nav-links.nav-open li:nth-child(4){ transition-delay:0.24s; }
   .welcome-page .nav-links.nav-open li:nth-child(5){ transition-delay:0.30s; }
 
-  .welcome-page #menu-toggle{
-    transition:transform 200ms ease, color 200ms ease;
-  }
-
-  .welcome-page #menu-toggle[aria-expanded="true"]{
-    transform:rotate(90deg) scale(1.02);
-  }
-
   .welcome-page .hero-content{
     max-width:300px;
   }
@@ -501,7 +494,7 @@ video{
 }
 
 /* ===================================
-   MOBILE
+   MOBILE (≤425px)
 =================================== */
 @media screen and (max-width:425px){
 
@@ -565,7 +558,7 @@ video{
 }
 
 /* ===================================
-   SMALL DEVICES
+   SMALL DEVICES (≤375px)
 =================================== */
 @media screen and (max-width:375px){
 
@@ -579,14 +572,13 @@ video{
   }
 
   .welcome-page .hero-content{
-    max-width:390px;
+    max-width:100%;
     padding:20px;
   }
 
   .welcome-page .hero-title{
     font-size:1.6rem;
-    width:100%;
-    max-width:20ch;
+    max-width:280px;
     line-height:1.22;
     padding-inline:0.35rem;
   }
@@ -602,39 +594,5 @@ video{
 
   .welcome-page .nav-links{
     width:200px;
-  }
-}
-
-/* ===================================
-   EXTRA SMALL DEVICES
-=================================== */
-@media screen and (max-width:320px){
-
-  .welcome-page .logo{
-    width:65px;
-    padding:4px;
-  }
-
-  .welcome-page header{
-    padding:6px 15px;
-  }
-
-  .welcome-page .hero-content{
-    padding:20px 10px;
-  }
-
-  .welcome-page .hero-title{
-    font-size:1.45rem;
-    max-width:16ch;
-    padding-inline:0.2rem;
-  }
-
-  .welcome-page .hero-subtitle{
-    font-size:0.8rem;
-  }
-
-  .welcome-page .login-btn{
-    width:100%;
-    padding:15px;
   }
 }
