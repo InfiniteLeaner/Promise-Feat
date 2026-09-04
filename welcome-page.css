@@ -300,7 +300,8 @@ video{
 
 .welcome-page .login-btn:active{
   transform:scale(0.95);
-  opacity:0.9;
+  background:linear-gradient(45deg, var(--secondary), var(--primary));
+  box-shadow:0 0 15px rgba(255,39,112,0.5), 0 0 25px rgba(241,104,58,0.4);
 }
 
 .welcome-page .login-btn:focus-visible{
