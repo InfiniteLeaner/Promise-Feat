@@ -6,24 +6,30 @@ const navLinks = document.querySelector(".nav-links");
 
 if (menuToggle && navLinks) {
 
-  const toggleMenu = () => {
-    navLinks.classList.toggle("nav-open");
+  const menuIcon = menuToggle.querySelector("i");
 
-    // Change icon
-    if (menuToggle.classList.contains("bx-menu")) {
-      menuToggle.classList.replace("bx-menu", "bx-x");
+  const closeMenu = () => {
+    navLinks.classList.remove("nav-open");
+    menuIcon.classList.replace("bx-x", "bx-menu");
+    menuToggle.setAttribute("aria-expanded", false);
+  };
+
+  const toggleMenu = () => {
+    const isOpen = navLinks.classList.toggle("nav-open");
+    menuToggle.setAttribute("aria-expanded", isOpen);
+
+    if (menuIcon.classList.contains("bx-menu")) {
+      menuIcon.classList.replace("bx-menu", "bx-x");
     } else {
-      menuToggle.classList.replace("bx-x", "bx-menu");
+      menuIcon.classList.replace("bx-x", "bx-menu");
     }
   };
 
-  // Click menu icon
   menuToggle.addEventListener("click", (e) => {
     e.stopPropagation();
     toggleMenu();
   });
 
-  // Keyboard accessibility
   menuToggle.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -31,21 +37,13 @@ if (menuToggle && navLinks) {
     }
   });
 
-  // Close menu when clicking links
   document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("nav-open");
-      menuToggle.classList.remove("bx-x");
-      menuToggle.classList.add("bx-menu");
-    });
+    link.addEventListener("click", closeMenu);
   });
 
-  // Close when clicking outside
   document.addEventListener("click", (e) => {
     if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-      navLinks.classList.remove("nav-open");
-      menuToggle.classList.remove("bx-x");
-      menuToggle.classList.add("bx-menu");
+      closeMenu();
     }
   });
 }
