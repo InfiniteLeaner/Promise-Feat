@@ -70,21 +70,3 @@ if (fabBtn && fabOptions) {
     }
   });
 }
-
-
-// ===============================
-// OPTIONAL GREETING
-// ===============================
-const greetingEl = document.getElementById("greeting");
-
-if (greetingEl) {
-  const hour = new Date().getHours();
-
-  if (hour < 12) {
-    greetingEl.textContent = "Good Morning! Welcome to Promise Feats.";
-  } else if (hour < 18) {
-    greetingEl.textContent = "Good Afternoon! Welcome to Promise Feats.";
-  } else {
-    greetingEl.textContent = "Good Evening! Welcome to Promise Feats.";
-  }
-}
