@@ -1,47 +1,18 @@
 /* ===== PROMISE FEATS — AUTH SCRIPT ===== */
 
 (function () {
-  const loginForm    = document.getElementById('login-form');
-  const registerForm = document.getElementById('register-form');
-  const tabLogin     = document.getElementById('tab-login');
-  const tabRegister  = document.getElementById('tab-register');
-  const tabs         = document.querySelector('.tabs');
+  const pageWrapper = document.getElementById('page-wrapper');
+  const goToRegister = document.getElementById('go-to-register');
+  const goToLogin    = document.getElementById('go-to-login');
 
-  /* ----- TAB SWITCHING ----- */
-  function showLogin() {
-    loginForm.classList.add('active');
-    registerForm.classList.remove('active');
-    tabLogin.classList.add('active');
-    tabRegister.classList.remove('active');
-    tabLogin.setAttribute('aria-selected', 'true');
-    tabRegister.setAttribute('aria-selected', 'false');
-    tabs.classList.remove('on-register');
-  }
-
-  function showRegister() {
-    registerForm.classList.add('active');
-    loginForm.classList.remove('active');
-    tabRegister.classList.add('active');
-    tabLogin.classList.remove('active');
-    tabRegister.setAttribute('aria-selected', 'true');
-    tabLogin.setAttribute('aria-selected', 'false');
-    tabs.classList.add('on-register');
-  }
-
-  tabLogin?.addEventListener('click', showLogin);
-  tabRegister?.addEventListener('click', showRegister);
-
-  /* text-link buttons inside forms (switch prompts) */
-  document.querySelectorAll('.text-link').forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (btn.dataset.show === 'register') showRegister();
-      else showLogin();
-    });
+  /* ----- PANEL SWITCHING ----- */
+  goToLogin?.addEventListener('click', () => {
+    pageWrapper?.classList.add('show-login');
   });
 
-  /* Legacy IDs (kept for compatibility) */
-  document.getElementById('go-to-register')?.addEventListener('click', showRegister);
-  document.getElementById('go-to-login')?.addEventListener('click', showLogin);
+  goToRegister?.addEventListener('click', () => {
+    pageWrapper?.classList.remove('show-login');
+  });
 
   /* ----- PASSWORD TOGGLE ----- */
   function bindEye(inputId, eyeIconId) {
@@ -51,12 +22,12 @@
     eye.closest('.eye-btn')?.addEventListener('click', () => {
       const show = input.type === 'password';
       input.type = show ? 'text' : 'password';
-      eye.classList.toggle('bx-hide',  !show);
-      eye.classList.toggle('bx-show',   show);
+      eye.classList.toggle('bx-hide', !show);
+      eye.classList.toggle('bx-show', show);
     });
   }
 
-  bindEye('login-pw',    'login-eye');
+  bindEye('login-pw', 'login-eye');
   bindEye('register-pw', 'register-eye');
 
   /* ----- FORM SUBMIT (prevent default, console log) ----- */

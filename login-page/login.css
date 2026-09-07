@@ -5,7 +5,7 @@
 :root {
   --primary: #f1683a;
   --primary-dark: #c94e22;
-  --gold:    #c9a55a;
+  --gold: #c9a55a;
   --bg: #0a0a0f;
   --surface: #13131a;
   --border: rgba(255,255,255,0.09);
@@ -62,9 +62,21 @@ header {
 .logo-link {
   display: flex;
   align-items: center;
+  gap: 0.7rem;
   flex-shrink: 0;
   text-decoration: none;
   margin-right: 6px;
+  color: #fff;
+}
+
+.brand-name {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #c9a55a, #e2c27a, #c9a55a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
 }
 
 .logo-img {
@@ -164,8 +176,8 @@ nav {
 
 .buynow-btn:hover {
   background: rgba(255, 255, 255, 0.508);
-  border: 1.8px solid rgba(255,255,255,0.2); }
-
+  border: 1.8px solid rgba(255,255,255,0.2);
+}
 
 .login-btn {
   padding: 8px 18px;
@@ -183,7 +195,7 @@ nav {
 
 .login-btn:hover {
   background: var(--primary-dark);
-  border: 1px solid white; 
+  border: 1px solid white;
   box-shadow: 2px 3px 7px var(--primary);
 }
 
@@ -224,195 +236,113 @@ nav {
   flex: 1;
   min-height: calc(100vh - 70px);
   margin-top: 70px;
+  overflow: hidden;
+  position: relative;
 }
 
-/* ===== BRAND PANEL ===== */
-.brand-panel {
+/* ===== BRAND SIDE (hidden on mobile, orange on tablet/PC) ===== */
+.brand-side { display: none; }
+
+.auth-stage {
   flex: 1;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: calc(100vh - 70px);
+}
+
+/* ===== AUTH PANELS ===== */
+.auth-panel {
+  min-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 48px 44px;
   position: relative;
+  overflow: hidden;
+}
+
+/* SIGN IN — hidden behind register by default, revealed on slide */
+.login-panel {
   background: linear-gradient(145deg, #1a0a00 0%, #3d1a08 40%, #0a0505 100%);
-  overflow: visible;
-  padding: 40px;
   z-index: 1;
 }
 
-.brand-glow {
+.login-panel::before {
+  content: "";
   position: absolute;
-  width: 500px; height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(241,104,58,0.3) 0%, transparent 70%);
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(241,104,58,0.3) 0%, transparent 70%);
   pointer-events: none;
+  z-index: 0;
   animation: pulse 5s ease-in-out infinite;
 }
 
+/* SIGN UP — visible by default, covers login, slides left when revealing login */
+.register-panel {
+  background: linear-gradient(145deg, #1a0a00 0%, #3d1a08 40%, #0a0505 100%);
+  z-index: 2;
+  position: absolute;
+  inset: 0;
+  transition: transform 0.5s var(--ease);
+}
+
+.register-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  animation: pulse 5s ease-in-out infinite;
+}
+
+/* When "Sign in" clicked — slide register panel left to reveal login behind */
+.page-wrapper.show-login .register-panel {
+  transform: translateX(-100%);
+}
+
 @keyframes pulse {
-  0%, 100% { transform: translate(-50%,-50%) scale(1); opacity:0.8; }
-  50% { transform: translate(-50%,-50%) scale(1.12); opacity:1; }
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.12); opacity: 1; }
 }
 
-.brand-inner {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  max-width: 340px;
-  padding-right: 30px;
-}
-
-.brand-logo {
-  width: 120px; height: 120px;
-  object-fit: contain;
-  border-radius: 50%;
-  border: 3px solid rgba(241,104,58,0.5);
-  box-shadow: 0 0 40px rgba(241,104,58,0.3);
-  margin: 0 auto 20px;
-  display: block;
+.panel-inner {
   position: relative;
   z-index: 2;
+  width: 100%;
+  max-width: 380px;
+}
+
+.panel-logo {
+  width: 80px; height: 80px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid rgba(241,104,58,0.4);
+  box-shadow: 0 0 30px rgba(241,104,58,0.25);
+  margin: 0 auto 24px;
+  display: block;
   animation: floatLogo 4s ease-in-out infinite;
 }
 
 @keyframes floatLogo {
   0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-8px) scale(1.03); }
+  50% { transform: translateY(-6px) scale(1.03); }
 }
 
-.brand-name {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.5px;
-  margin-bottom: 6px;
-}
-
-.brand-tagline {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--primary);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-.brand-desc {
-  font-size: 14px;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.7;
-  margin-bottom: 36px;
-}
-
-.brand-stats {
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-}
-
-.stat { text-align: center; }
-
-.stat-num {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--primary);
-  line-height: 1;
-}
-
-.stat-label {
-  display: block;
-  font-size: 11px;
-  color: rgba(255,255,255,0.45);
-  margin-top: 4px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* ===== FORM PANEL ===== */
-.form-panel {
-  width: 100%;
-  max-width: 460px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 48px 44px;
-  background: var(--surface);
-  border-left: 1px solid var(--border);
-  overflow-y: auto;
-  margin-left: -60px;
-  position: relative;
-  z-index: 2;
-}
-
-/* ===== TABS ===== */
-.tabs {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  background: rgba(255,255,255,0.05);
-  border-radius: 12px;
-  padding: 4px;
-  position: relative;
-  margin-bottom: 36px;
-  overflow: hidden;
-}
-
-.tab {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  background: transparent;
-  color: var(--muted);
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 9px;
-  cursor: pointer;
-  position: relative;
-  z-index: 1;
-  transition: color 0.25s ease;
-}
-
-.tab.active { color: #fff; }
-
-.tab-indicator {
-  position: absolute;
-  top: 4px; left: 4px;
-  width: calc(50% - 4px);
-  height: calc(100% - 8px);
-  background: var(--primary);
-  border-radius: 9px;
-  transition: transform 0.3s var(--ease);
-  z-index: 0;
-}
-
-.tabs.on-register .tab-indicator {
-  transform: translateX(calc(100% + 4px));
-}
-
-/* ===== AUTH FORM ===== */
-.auth-form {
-  display: none;
-  flex-direction: column;
-  gap: 0;
-}
-
-.auth-form.active { display: flex; }
-
-.form-header { margin-bottom: 28px; }
-
-.form-header h2 {
-  font-size: 1.65rem;
+.panel-title {
+  font-size: 1.75rem;
   font-weight: 700;
   color: var(--text);
+  text-align: center;
   margin-bottom: 6px;
 }
 
-.form-header p {
+.panel-subtitle {
   font-size: 14px;
   color: var(--muted);
+  text-align: center;
+  margin-bottom: 32px;
 }
 
 /* ===== FIELDS ===== */
@@ -523,6 +453,12 @@ nav {
   transition: opacity 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
   box-shadow: 0 4px 20px rgba(241,104,58,0.35);
   margin-bottom: 20px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cta-btn:active {
+  transform: scale(0.97);
 }
 
 .cta-btn:hover {
@@ -555,6 +491,20 @@ nav {
 }
 
 .text-link:hover { opacity: 0.75; }
+
+/* ===== BACK LINK ===== */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back-link:hover { color: var(--text); }
 
 /* ===== FOOTER ===== */
 footer {
@@ -593,21 +543,7 @@ footer {
 
 .footer-socials a:hover { background: var(--gold); color: #d54f0c; border-color: var(--gold); }
 
-/* ===== BACK LINK ===== */
-.back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 28px;
-  font-size: 13px;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.back-link:hover { color: var(--text); }
-
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE (TABLET) ===== */
 @media (max-width: 820px) {
   #menu-toggle { display: flex; }
 
@@ -658,24 +594,182 @@ footer {
   .nav-overlay { display: block; }
   .search { display: none; }
 
-  .brand-panel { display: none; }
-
-  .page-wrapper {
-    align-items: flex-start;
-    min-height: calc(100vh - 70px);
+  /* MOBILE: panels stack full-width, register slides to reveal login */
+  .auth-panel {
+    padding: 48px 28px;
   }
 
-  .form-panel {
-    max-width: 100%;
-    min-height: calc(100vh - 70px);
-    border-left: none;
-    padding: 48px 28px;
-    justify-content: center;
-    margin-left: 0;
+  .panel-inner {
+    z-index: 2;
   }
 }
 
 @media (max-width: 480px) {
-  .form-panel { padding: 36px 20px; }
-  .form-header h2 { font-size: 1.4rem; }
+  .auth-panel { padding: 36px 20px; }
+  .panel-title { font-size: 1.4rem; }
+}
+
+/* ===== TABLET / PC: brand side panel ===== */
+@media (min-width: 821px) {
+  .page-wrapper {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .brand-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 0 0 54%;
+    max-width: none;
+    min-height: calc(100vh - 70px);
+    padding: 56px 44px 40px;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    background: linear-gradient(145deg, #1a0a00 0%, #3d1a08 40%, #0a0505 100%);
+  }
+
+  /* soft decorative circles */
+  .brand-side::before,
+  .brand-side::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .brand-side::before {
+    width: 420px; height: 420px;
+    top: -140px; left: -140px;
+    background: rgba(255,255,255,0.12);
+  }
+
+  .brand-side::after {
+    width: 340px; height: 340px;
+    bottom: -120px; right: -120px;
+    background: rgba(0,0,0,0.12);
+  }
+
+  .brand-side-glow {
+    position: absolute;
+    width: 480px; height: 480px;
+    top: 44%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(241,104,58,0.3) 0%, transparent 65%);
+    pointer-events: none;
+    animation: brandGlow 5s ease-in-out infinite;
+  }
+
+  @keyframes brandGlow {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+    50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+  }
+
+  .brand-side-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 340px;
+  }
+
+  .brand-side-logo {
+    width: 132px; height: 132px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+    border: 3px solid rgba(241,104,58,0.55);
+    box-shadow: 0 0 40px rgba(241,104,58,0.35), 0 12px 30px rgba(0,0,0,0.4);
+    margin-bottom: 22px;
+    display: block;
+    animation: brandLogoFloat 3.6s ease-in-out infinite;
+  }
+
+  @keyframes brandLogoFloat {
+    0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+    50% { transform: translateY(-10px) scale(1.04) rotate(-1.5deg); }
+  }
+
+  .brand-side-title {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #fff;
+    margin-bottom: 6px;
+    text-shadow: 0 2px 14px rgba(0,0,0,0.25);
+  }
+
+  .brand-side-tagline {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 14px;
+  }
+
+  .brand-side-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .brand-back-link {
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+    padding-top: 44px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 22px;
+    border: 1.5px solid rgba(255,255,255,0.7);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: background 0.25s ease, transform 0.2s ease;
+  }
+
+  .brand-back-link:hover {
+    background: rgba(255,255,255,0.25);
+    transform: translateY(-2px);
+  }
+
+  .auth-stage { flex: 1; background: #0e0e13; }
+
+  /* desktop: create/sign-in side is black/ash, mobile keeps current colour */
+  .login-panel,
+  .register-panel {
+    background: #0e0e13;
+  }
+
+  .login-panel::before,
+  .register-panel::before {
+    display: none;
+  }
+
+  /* avoid duplicate logo + back link inside forms on desktop */
+  .auth-panel .back-link { display: none; }
+  .auth-panel .panel-logo { display: none; }
+}
+
+/* tablet narrowing */
+@media (min-width: 821px) and (max-width: 1100px) {
+  .brand-side {
+    flex-basis: 53%;
+    padding: 44px 28px 32px;
+  }
+
+  .brand-side-logo { width: 108px; height: 108px; }
+  .brand-side-title { font-size: 1.6rem; }
 }

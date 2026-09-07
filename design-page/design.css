@@ -78,9 +78,21 @@ header {
 .logo-link {
   display: flex;
   align-items: center;
+  gap: 0.7rem;
   flex-shrink: 0;
   text-decoration: none;
   margin-right: 6px;
+  color: #fff;
+}
+
+.brand-name {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #c9a55a, #e2c27a, #c9a55a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
 }
 
 .logo-img {

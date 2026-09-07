@@ -18,6 +18,7 @@
   
         <a href="../index.html" class="logo-link">
           <img class="logo-img" src="../media/images/logo/PF.icon-remove.bg.png" alt="Promise Feats">
+          <span class="brand-name">Promise Feat</span>
         </a>
 
         <nav>
@@ -53,145 +54,113 @@
     </header>
     <div class="nav-overlay" id="nav-overlay"></div>
 
-    <div class="page-wrapper">
-    
-      <!-- BRAND PANEL -->
-      <aside class="brand-panel" aria-hidden="true">
-        <div class="brand-inner">
-          <img src="../media/images/logo/PF.icon-remove.bg.png" alt="Promise Feats" class="brand-logo">
-          <h1 class="brand-name">Promise Feats</h1>
-          <p class="brand-tagline">Premium Footwear Collection</p>
-          <p class="brand-desc">Step into style. Handcrafted footwear designed for the bold and the visionary.</p>
-          <div class="brand-stats">
-            <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Designs</span></div>
-            <div class="stat"><span class="stat-num">10K+</span><span class="stat-label">Customers</span></div>
-            <div class="stat"><span class="stat-num">5★</span><span class="stat-label">Rated</span></div>
-          </div>
+    <div class="page-wrapper" id="page-wrapper">
+
+      <!-- ORANGE BRAND SIDE (tablet / PC only) -->
+      <aside class="brand-side" aria-label="Promise Feats brand panel">
+        <div class="brand-side-glow"></div>
+        <div class="brand-side-inner">
+          <img src="../media/images/logo/PF.icon-remove.bg.png" alt="Promise Feats" class="brand-side-logo">
+          <h2 class="brand-side-title">Promise Feats</h2>
+          <p class="brand-side-tagline">Premium Footwear Collection</p>
+          <p class="brand-side-desc">Step into style. Handcrafted footwear designed for the bold and the visionary.</p>
         </div>
-        <div class="brand-glow" aria-hidden="true"></div>
-      </aside>
-    
-      <!-- FORM PANEL -->
-      <main class="form-panel">
-    
-        <!-- TABS -->
-          <div class="tabs">
-            <button class="tab active" id="tab-login" role="tab" aria-selected="true">Sign In</button>
-            <button class="tab" id="tab-register" role="tab" aria-selected="false">Sign Up</button>
-            <div class="tab-indicator"></div>
-          </div>
-    
-        <!-- LOGIN FORM -->
-        <form id="login-form" class="auth-form active" novalidate="">
-          <div class="form-header">
-            <h2>Welcome back</h2>
-            <p>Sign in to your account</p>
-          </div>
-    
-          <div class="fields">
-            <label class="field">
-              <i class="bx bx-user"></i>
-              <input type="text" name="username" placeholder="Username" autocomplete="username" required="">
-            </label>
-            <label class="field">
-              <i class="bx bx-lock-alt"></i>
-              <input type="password" id="login-pw" name="password" placeholder="Password" autocomplete="current-password" required="">
-              <button type="button" class="eye-btn" aria-label="Toggle password">
-                <i class="bx bx-hide" id="login-eye"></i>
-              </button>
-            </label>
-          </div>
-    
-          <div class="form-extras">
-            <label class="remember-me">
-              <input type="checkbox"> <span>Remember me</span>
-            </label>
-            <a href="../login-page/login#" class="forgot-link">Forgot password?</a>
-          </div>
-    
-          <button type="submit" class="cta-btn">Sign In <i class="bx bx-right-arrow-alt"></i></button>
-    
-          <p class="switch-prompt">No account? <button type="button" class="text-link" data-show="register">Create one</button></p>
-        </form>
-    
-        <!-- REGISTER FORM -->
-        <form id="register-form" class="auth-form" novalidate="">
-          <div class="form-header">
-            <h2>Create account</h2>
-            <p>Join the Promise Feats family</p>
-          </div>
-    
-          <div class="fields">
-            <label class="field">
-              <i class="bx bx-user"></i>
-              <input type="text" name="username" placeholder="Username" autocomplete="username" required="">
-            </label>
-            <label class="field">
-              <i class="bx bx-envelope"></i>
-              <input type="email" name="email" placeholder="Email address" autocomplete="email" required="">
-            </label>
-            <label class="field">
-              <i class="bx bx-lock-alt"></i>
-              <input type="password" id="register-pw" name="password" placeholder="Password" autocomplete="new-password" required="">
-              <button type="button" class="eye-btn" aria-label="Toggle password">
-                <i class="bx bx-hide" id="register-eye"></i>
-              </button>
-            </label>
-          </div>
-    
-          <button type="submit" class="cta-btn">Create Account <i class="bx bx-right-arrow-alt"></i></button>
-    
-          <p class="switch-prompt">Have an account? <button type="button" class="text-link" data-show="login">Sign in</button></p>
-        </form>
-    
-        <a href="../home-page/home-page.html" class="back-link">
+        <a href="../home-page/home-page.html" class="brand-back-link">
           <i class="bx bx-arrow-back"></i> Back to site
         </a>
-    
-      </main>
-    
+      </aside>
+
+      <div class="auth-stage">
+      <!-- SIGN IN PANEL (hidden behind register by default) -->
+      <section class="auth-panel login-panel">
+        <div class="panel-inner">
+          <img src="../media/images/logo/PF.icon-remove.bg.png" alt="Promise Feats" class="panel-logo">
+          <h1 class="panel-title">Welcome back</h1>
+          <p class="panel-subtitle">Sign in to your account</p>
+
+          <form id="login-form" class="auth-form" novalidate>
+            <div class="fields">
+              <label class="field">
+                <i class="bx bx-user"></i>
+                <input type="text" name="username" placeholder="Username" autocomplete="username" required>
+              </label>
+              <label class="field">
+                <i class="bx bx-lock-alt"></i>
+                <input type="password" id="login-pw" name="password" placeholder="Password" autocomplete="current-password" required>
+                <button type="button" class="eye-btn" aria-label="Toggle password">
+                  <i class="bx bx-hide" id="login-eye"></i>
+                </button>
+              </label>
+            </div>
+
+            <div class="form-extras">
+              <label class="remember-me">
+                <input type="checkbox"> <span>Remember me</span>
+              </label>
+              <a href="#" class="forgot-link">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="cta-btn">Sign In <i class="bx bx-right-arrow-alt"></i></button>
+          </form>
+
+          <p class="switch-prompt">No account? <button type="button" class="text-link" id="go-to-register">Create one</button></p>
+
+          <a href="../home-page/home-page.html" class="back-link">
+            <i class="bx bx-arrow-back"></i> Back to site
+          </a>
+        </div>
+      </section>
+
+      <!-- SIGN UP PANEL (visible by default, covers login) -->
+      <section class="auth-panel register-panel">
+        <div class="panel-inner">
+          <h1 class="panel-title">Create account</h1>
+          <p class="panel-subtitle">Join the Promise Feats family</p>
+
+          <form id="register-form" class="auth-form" novalidate>
+            <div class="fields">
+              <label class="field">
+                <i class="bx bx-user"></i>
+                <input type="text" name="username" placeholder="Username" autocomplete="username" required>
+              </label>
+              <label class="field">
+                <i class="bx bx-envelope"></i>
+                <input type="email" name="email" placeholder="Email address" autocomplete="email" required>
+              </label>
+              <label class="field">
+                <i class="bx bx-lock-alt"></i>
+                <input type="password" id="register-pw" name="password" placeholder="Password" autocomplete="new-password" required>
+                <button type="button" class="eye-btn" aria-label="Toggle password">
+                  <i class="bx bx-hide" id="register-eye"></i>
+                </button>
+              </label>
+            </div>
+
+            <button type="submit" class="cta-btn">Create Account <i class="bx bx-right-arrow-alt"></i></button>
+          </form>
+
+          <p class="switch-prompt">Already have an account? <button type="button" class="text-link" id="go-to-login">Sign in</button></p>
+
+          <a href="../home-page/home-page.html" class="back-link">
+            <i class="bx bx-arrow-back"></i> Back to site
+          </a>
+        </div>
+      </section>
+      </div><!-- /.auth-stage -->
+
     </div>
 
     <footer>
-
         <div class="footer-inner">
-
-            <img
-                src="../media/images/logo/PF.icon-remove.bg.png"
-                alt="Promise Feats"
-                class="footer-logo">
-
-            <p>
-                © 2026 Promise Feats.
-                All rights reserved.
-            </p>
-
+            <img src="../media/images/logo/PF.icon-remove.bg.png" alt="Promise Feats" class="footer-logo">
+            <p>&copy; 2026 Promise Feats. All rights reserved.</p>
             <div class="footer-socials">
-
-                <a
-                    href="https://web.facebook.com/profile.php?id=100070929678953"
-                    target="_blank">
-                    <i class="bx bxl-facebook"></i>
-                </a>
-
-                <a
-                    href="https://www.instagram.com/promisefeat/"
-                    target="_blank">
-                    <i class="bx bxl-instagram"></i>
-                </a>
-
-                <a href="https://x.com/promisefeat" target="_blank">
-                  <i class="bx bxl-twitter"></i>
-                </a>
-
-                <a href="https://t.co/CE7tc7u11G" target="_blank">
-                  <i class="bx bxl-whatsapp"></i>
-                </a>
-
+                <a href="https://web.facebook.com/profile.php?id=100070929678953" target="_blank"><i class="bx bxl-facebook"></i></a>
+                <a href="https://www.instagram.com/promisefeat/" target="_blank"><i class="bx bxl-instagram"></i></a>
+                <a href="https://x.com/promisefeat" target="_blank"><i class="bx bxl-twitter"></i></a>
+                <a href="https://t.co/CE7tc7u11G" target="_blank"><i class="bx bxl-whatsapp"></i></a>
             </div>
-
         </div>
-
     </footer>
 
   <script src="./login.js"></script>
