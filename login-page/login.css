@@ -61,15 +61,25 @@ header {
   color: #c9a55a;
   cursor: pointer;
   padding: 8px 12px;
-  background: none;
-  border: none;
+  background: linear-gradient(135deg, rgba(201,165,90,0.15), rgba(241,104,58,0.1));
+  border: 1px solid rgba(201,165,90,0.3);
+  border-radius: 12px;
   line-height: 1;
   min-height: 44px;
   position: relative;
   box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-#menu-toggle:hover { color: var(--gold-lt); }
+#menu-toggle:hover { 
+  color: var(--gold-lt); 
+  background: linear-gradient(135deg, rgba(201,165,90,0.25), rgba(241,104,58,0.18));
+  border-color: rgba(201,165,90,0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(201,165,90,0.2);
+}
 #menu-toggle:active { transform: scale(0.98); }
 
 /* Cart icon + badge inside menu toggle (shown when menu open) - LEFT side */
@@ -91,7 +101,7 @@ header {
   color: #fff;
   font-size: 10px;
   font-weight: 700;
-  display: flex; align-items: center; justify_content: center;
+  display: flex; align-items: center; justify-content: center;
   padding: 0 4px;
 }
 
@@ -99,6 +109,7 @@ header {
 #menu-toggle #menu-icon {
   flex-shrink: 0;
   font-size: 28px;
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), color 0.3s ease;
 }
 
 /* Cart badge overlay on hamburger (shown when menu closed) */
@@ -112,15 +123,83 @@ header {
   color: #fff;
   font-size: 10px;
   font-weight: 700;
-  display: flex; align-items: center; justify_content: center;
+  display: flex; align-items: center; justify-content: center;
   padding: 0 4px;
   pointer-events: none;
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
 
 /* When menu is open: show cart icon, hide badge overlay, swap icon to close */
 #menu-toggle.menu-open .menu-cart { display: inline-flex; }
 #menu-toggle.menu-open .cart-badge-overlay { display: none; }
-#menu-toggle.menu-open #menu-icon::before { content: "\ea25"; } /* bx-x */
+
+/* Beautiful animated close icon */
+#menu-toggle.menu-open #menu-icon {
+  font-size: 0; /* hide the boxicon */
+  position: relative;
+  width: 28px;
+  height: 28px;
+}
+
+#menu-toggle.menu-open #menu-icon::before,
+#menu-toggle.menu-open #menu-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), background 0.3s ease;
+}
+
+#menu-toggle.menu-open #menu-icon::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#menu-toggle.menu-open #menu-icon::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+#menu-toggle.menu-open:hover #menu-icon::before,
+#menu-toggle.menu-open:hover #menu-icon::after {
+  background: var(--gold);
+}
+
+#menu-toggle.menu-open #menu-icon::before {
+  animation: closeTopIn 0.3s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+
+#menu-toggle.menu-open #menu-icon::after {
+  animation: closeBottomIn 0.3s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+
+@keyframes closeTopIn {
+  0% { transform: translate(-50%, -50%) rotate(0deg) scale(0); opacity: 0; }
+  100% { transform: translate(-50%, -50%) rotate(45deg) scale(1); opacity: 1; }
+}
+
+@keyframes closeBottomIn {
+  0% { transform: translate(-50%, -50%) rotate(0deg) scale(0); opacity: 0; }
+  100% { transform: translate(-50%, -50%) rotate(-45deg) scale(1); opacity: 1; }
+}
+
+/* Hamburger icon animation when closing */
+#menu-toggle:not(.menu-open) #menu-icon {
+  animation: hamburgerIn 0.3s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+
+@keyframes hamburgerIn {
+  0% { transform: rotate(90deg) scale(0); opacity: 0; }
+  100% { transform: rotate(0deg) scale(1); opacity: 1; }
+}
 #menu-toggle.menu-open .menu-cart { display: inline-flex; }
 #menu-toggle.menu-open .cart-badge-overlay { display: none; }
 #menu-toggle.menu-open #menu-icon::before { content: "\ea25"; } /* bx-x */
