@@ -31,14 +31,16 @@
           <span class="brand-name">Promise Feat</span>
         </a>
 
-        <!-- Mobile: cart icon + badge inside the hamburger button (desktop uses .nav-actions .icon-cart) -->
+        <!-- Mobile: hamburger menu toggle -->
         <button type="button" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-          <span class="menu-cart" id="menu-cart" role="button" tabindex="0" aria-label="Open cart">
-            <i class="bx bxs-shopping-bag" aria-hidden="true"></i>
-            <span class="cart-count" id="cart-count-mobile">0</span>
-          </span>
           <i class="bx bx-menu" id="menu-icon" aria-hidden="true"></i>
         </button>
+
+        <!-- Mobile: cart icon + badge (shown only when menu is open) -->
+        <div class="menu-cart" id="menu-cart" role="button" tabindex="0" aria-label="Open cart">
+          <i class="bx bxs-shopping-bag" aria-hidden="true"></i>
+          <span class="cart-count" id="cart-count-mobile">0</span>
+        </div>
 
           <ul class="nav-links">
 

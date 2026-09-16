@@ -59,29 +59,32 @@ header {
   gap: 0.75rem;
 }
 
-/* Mobile: cart icon + badge sit inside #menu-toggle (no wrapper needed) */
+/* Mobile: cart icon + badge shown to the right of hamburger when menu is open */
 .menu-cart {
-  display: none; /* hidden by default on mobile; shown while the menu drawer is open */
+  display: none; /* hidden by default on mobile; shown when menu is open */
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .menu-cart i { font-size: 18px; color: #fff; }
 
 /* show the cart icon only while the menu drawer is open */
-#menu-toggle.menu-open .menu-cart { display: inline-flex; }
+#menu-toggle.menu-open + .menu-cart { display: inline-flex; }
 
 #menu-toggle {
   display: none;
   align-items: center;
+  justify-content: center;
   font-size: 26px;
   color: #c9a55a;
   cursor: pointer;
   padding: 6px;
   background: none;
   border: none;
-  flex-shrink: 0;
   line-height: 1;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .logo-link {
@@ -635,13 +638,12 @@ footer {
       gap: 8px;
     }
 
-    .icon-cart { display: none; }
+.icon-cart { display: none; }
 
     #menu-toggle {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 8px;
         order: 10;
         position: relative;
         z-index: 960;
@@ -652,6 +654,22 @@ footer {
         min-height: 44px;
         flex-shrink: 0;
     }
+
+    .menu-cart {
+      display: none; /* hidden by default; shown when menu is open */
+      align-items: center;
+      justify-content: center;
+      order: 11;
+      position: relative;
+      z-index: 960;
+      margin-left: 8px;
+      padding: 6px;
+      min-width: 44px;
+      min-height: 44px;
+      flex-shrink: 0;
+    }
+
+    #menu-toggle.menu-open + .menu-cart { display: inline-flex; }
 
     .nav-links {
         position: fixed;
