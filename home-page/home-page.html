@@ -3,7 +3,9 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Promise Feats — quality footwear, premium designs and exceptional services." />
+  <meta name="theme-color" content="#0e0e0e" />
   <title>Promise Feats</title>
 
   <!-- CSS -->
@@ -25,17 +27,23 @@
 
 <!-- ================= HEADER ================= -->
 <header>
+  <nav>
   <div class="container">
-    <nav>
+    <a href="../index.html" class="logo-link">
+      <img class="logo-img" src="../media/images/logo/PF.icon-remove.bg.png" alt="Promise Feats Logo">
+      <span class="brand-name">Promise Feat</span>
+    </a>
 
-      <a href="../index.html" class="logo-link">
-        <img class="logo-img" src="../media/images/logo/PF.icon-remove.bg.png" alt="Promise Feats Logo">
-        <span class="brand-name">Promise Feat</span>
-      </a>
+    <!-- Mobile: cart icon + badge inside the hamburger button (desktop uses .nav-actions .icon-cart) -->
+    <button type="button" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="menu-cart" id="menu-cart" role="button" tabindex="0" aria-label="Open cart">
+        <i class="bx bxs-shopping-bag" aria-hidden="true"></i>
+        <span class="cart-count" id="cart-count-mobile">0</span>
+      </span>
+      <i class="bx bx-menu" id="menu-icon" aria-hidden="true"></i>
+    </button>
 
-      <i class="bx bx-menu" id="menu-toggle"></i>
-
-      <ul class="nav-links">
+      <ul class="nav-links" id="primary-nav">
 
         <li><a href="../home-page/home-page.html">Home</a></li>
         <li><a href="../store-page/store.html">Store</a></li>
@@ -52,9 +60,9 @@
       <div class="nav-actions">
 
         <div class="search">
-          <input class="srch" type="search" placeholder="Type here">
-          <button class="srch-btn">
-            Search <i class="bx bx-search-alt-2"></i>
+          <input class="srch" type="search" placeholder="Type here" aria-label="Search products">
+          <button class="srch-btn" type="button">
+            Search <i class="bx bx-search-alt-2" aria-hidden="true"></i>
           </button>
         </div>
 
@@ -67,29 +75,27 @@
         </a>
 
         <div class="icon-cart">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
-            <path stroke="currentColor" stroke-width="2" d="M6 15a2 2 0 1 0 0 4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4Zm-9-4h10l2-7H3"></path>
-          </svg>
+          <i class="bx bxs-shopping-bag" aria-hidden="true"></i>
           <span id="cart-count">0</span>
         </div>
 
       </div>
-    </nav>
   </div>
+  </nav>
 </header>
 
 <div class="nav-overlay" id="nav-overlay"></div>
 
 <!-- ================= CAROUSEL ================= -->
-<section class="carousel">
+<section class="carousel" aria-roledescription="carousel" aria-label="Featured products">
 
   <div class="list">
 
     <div class="item">
-      <img src="../media/images/background images/promise-feat-white-background.webp" alt="White Background Hero">
+      <img src="../media/images/background images/promise-feat-white-background.webp" alt="White Background Hero" fetchpriority="high" draggable="false">
       <div class="content">
         <div class="author">KC.Prince</div>
-        <div class="title">Promise Feats</div>
+        <div class="title">Promise Feats<span class="title-bar" aria-hidden="true"></span></div>
         <div class="topic">Foot Wears</div>
         <div class="des">Best Outfits, Quality and Trustworthy</div>
         <div class="buttons">
@@ -100,10 +106,10 @@
     </div>
 
     <div class="item">
-      <img src="../media/images/background images/promise-feat-black-background.webp" alt="Black Background Hero">
+      <img src="../media/images/background images/promise-feat-black-background.webp" alt="Black Background Hero" loading="lazy" draggable="false">
       <div class="content">
         <div class="author">KC.Prince</div>
-        <div class="title">Promise Feats</div>
+        <div class="title">Promise Feats<span class="title-bar" aria-hidden="true"></span></div>
         <div class="topic">Foot Wears</div>
         <div class="des">Best Outfits, Quality and Trustworthy</div>
         <div class="buttons">
@@ -116,19 +122,35 @@
   </div>
 
   <!-- THUMBNAILS -->
-  <div class="thumbnail">
+  <div class="thumbnail" role="tablist" aria-label="Choose slide">
 
-    <div class="item"><img src="../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.14.jpg" alt="Black Shoe 1"></div>
-    <div class="item"><img src="../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.14.webp" alt="Brown Shoe 1"></div>
-    <div class="item"><img src="../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.13.jpg" alt="Black Shoe 2"></div>
-    <div class="item"><img src="../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.13.webp" alt="Brown Shoe 2"></div>
+    <div class="thumbnail-track">
+
+      <div class="item" role="tab" tabindex="0" aria-label="Show slide 1">
+        <img src="../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.14.jpg" alt="Black Shoe 1" loading="lazy">
+        <button type="button" class="thumb-add" data-id="black-sneaker-11" data-name="Black Minimalist Sneaker" data-price="50000" aria-label="Add Black Minimalist Sneaker to cart"><i class="bx bx-plus"></i></button>
+      </div>
+      <div class="item" role="tab" tabindex="0" aria-label="Show slide 2">
+        <img src="../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.14.webp" alt="Brown Shoe 1" loading="lazy">
+        <button type="button" class="thumb-add" data-id="brown-casual-2" data-name="Brown Casual Leather Shoe" data-price="34000" aria-label="Add Brown Casual Leather Shoe to cart"><i class="bx bx-plus"></i></button>
+      </div>
+      <div class="item" role="tab" tabindex="0" aria-label="Show slide 3">
+        <img src="../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.13.jpg" alt="Black Shoe 2" loading="lazy">
+        <button type="button" class="thumb-add" data-id="black-sneaker-10" data-name="Black Minimalist Sneaker" data-price="20000" aria-label="Add Black Minimalist Sneaker to cart"><i class="bx bx-plus"></i></button>
+      </div>
+      <div class="item" role="tab" tabindex="0" aria-label="Show slide 4">
+        <img src="../media/images/promise-feat-footwears/brown-leather-shoes/brown-leather-img.13.webp" alt="Brown Shoe 2" loading="lazy">
+        <button type="button" class="thumb-add" data-id="brown-casual-3" data-name="Brown Casual Leather Shoe" data-price="49000" aria-label="Add Brown Casual Leather Shoe to cart"><i class="bx bx-plus"></i></button>
+      </div>
+
+    </div>
 
   </div>
 
   <!-- ARROWS -->
   <div class="arrows">
-    <button id="prev">❮</button>
-    <button id="next">❯</button>
+    <button id="prev" aria-label="Previous slide">❮</button>
+    <button id="next" aria-label="Next slide">❯</button>
   </div>
 
 </section>
@@ -177,6 +199,7 @@
     </footer>
 
 <!-- JS -->
+<script src="../cart.js"></script>
 <script src="./home-page.js"></script>
 
 </body>

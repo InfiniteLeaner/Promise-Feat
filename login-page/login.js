@@ -41,25 +41,31 @@
 
   /* ----- NAV HAMBURGER ----- */
   const menuToggle = document.getElementById('menu-toggle');
+  const menuIcon = document.getElementById('menu-icon');
   const navLinks   = document.querySelector('.nav-links');
   const navOverlay = document.getElementById('nav-overlay');
 
   function openNav() {
     navLinks?.classList.add('nav-open');
-    menuToggle?.classList.replace('bx-menu', 'bx-x');
+    menuIcon?.classList.replace('bx-menu', 'bx-x');
+    menuToggle?.classList.add('menu-open');
     if (navOverlay) { navOverlay.style.display = 'block'; requestAnimationFrame(() => navOverlay.classList.add('visible')); }
     document.body.style.overflow = 'hidden';
   }
 
   function closeNav() {
     navLinks?.classList.remove('nav-open');
-    menuToggle?.classList.replace('bx-x', 'bx-menu');
+    menuIcon?.classList.replace('bx-x', 'bx-menu');
+    menuToggle?.classList.remove('menu-open');
     navOverlay?.classList.remove('visible');
     setTimeout(() => { if (navOverlay) navOverlay.style.display = 'none'; }, 340);
     document.body.style.overflow = '';
   }
 
-  menuToggle?.addEventListener('click', () => navLinks?.classList.contains('nav-open') ? closeNav() : openNav());
+  menuToggle?.addEventListener('click', (e) => {
+    if (e.target.closest('.menu-cart')) return; // cart button opens the cart, not the menu
+    navLinks?.classList.contains('nav-open') ? closeNav() : openNav();
+  });
   navOverlay?.addEventListener('click', closeNav);
   document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', closeNav));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });

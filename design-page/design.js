@@ -9,26 +9,36 @@
 	// GLOBAL MOBILE NAVIGATION
 	// =========================
 	const menuToggle = document.getElementById("menu-toggle");
+	const menuIcon = document.getElementById("menu-icon");
 	const navLinks = document.querySelector(".nav-links");
+	const navOverlay = document.getElementById("nav-overlay");
 
 	if (menuToggle && navLinks) {
 
 		const closeMenu = () => {
 			navLinks.classList.remove("nav-open");
-			menuToggle.classList.remove("bx-x");
-			menuToggle.classList.add("bx-menu");
+			menuIcon.classList.remove("bx-x");
+			menuIcon.classList.add("bx-menu");
+			menuToggle.classList.remove("menu-open");
 			menuToggle.setAttribute("aria-expanded", "false");
+			navOverlay?.classList.remove("visible");
+			if (navOverlay) setTimeout(() => { if (!navLinks.classList.contains("nav-open")) navOverlay.style.display = "none"; }, 340);
+			document.body.style.overflow = "";
 		};
 
 		const openMenu = () => {
 			navLinks.classList.add("nav-open");
-			menuToggle.classList.remove("bx-menu");
-			menuToggle.classList.add("bx-x");
+			menuIcon.classList.remove("bx-menu");
+			menuIcon.classList.add("bx-x");
+			menuToggle.classList.add("menu-open");
 			menuToggle.setAttribute("aria-expanded", "true");
+			if (navOverlay) { navOverlay.style.display = "block"; requestAnimationFrame(() => navOverlay.classList.add("visible")); }
+			document.body.style.overflow = "hidden";
 		};
 
 		const toggleMenu = (e) => {
 			e?.stopPropagation();
+			if (e?.target?.closest?.(".menu-cart")) return; // cart button opens the cart, not the menu
 
 			if (navLinks.classList.contains("nav-open")) {
 				closeMenu();
@@ -46,6 +56,11 @@
 				e.preventDefault();
 				toggleMenu(e);
 			}
+		});
+
+		// Close on Escape
+		document.addEventListener("keydown", (e) => {
+			if (e.key === "Escape") closeMenu();
 		});
 
 		// Close when clicking nav links
@@ -276,22 +291,27 @@
 	// =========================
 	// CART
 	// =========================
-	let cartCount = 0;
+	const addToCartBtn = document.getElementById("add-to-cart");
 
-	const cartCounter =
-		document.getElementById("cart-count");
+	addToCartBtn?.addEventListener("click", () => {
+		const name =
+			document.getElementById("shoe-name")?.value.trim() ||
+			"Custom Shoe";
+		const qty = Math.max(
+			1,
+			Number(document.getElementById("qty")?.value) || 1
+		);
+		const size =
+			document.getElementById("selected-size")?.textContent || "40";
 
-	if (cartCounter) {
-
-		document.addEventListener("click", (e) => {
-
-			if (
-				e.target.classList.contains("add-to-cart")
-			) {
-				cartCount++;
-				cartCounter.textContent = cartCount;
-			}
+		window.addToCart({
+			id: "custom-shoe",
+			name: `${name} (Size ${size})`,
+			price: 85000,
+			image:
+				"../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.14.jpg",
+			qty,
 		});
-	}
+	});
 
 })();

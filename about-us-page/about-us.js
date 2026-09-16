@@ -2,7 +2,6 @@
   "use strict";
 
   let products = [];
-  let cart = JSON.parse(localStorage.getItem("pf-cart") || "[]");
 
   let activeFilter = "all";
   let activeSort = "default";
@@ -12,7 +11,6 @@
   const searchInput = document.getElementById("search-input");
   const sortSelect = document.getElementById("sort-select");
   const filterButtons = document.querySelectorAll(".filter-tab");
-  const cartCount = document.getElementById("cart-count");
 
   async function loadProducts() {
     try {
@@ -24,7 +22,7 @@
       products = data.products || data;
 
       renderProducts();
-      updateCartCount();
+      window.syncCartBadge?.();
 
     } catch (error) {
       console.error(error);
@@ -140,16 +138,7 @@
     const product = products.find(p => p.id === productId);
     if (!product) return;
 
-    cart.push(product);
-    localStorage.setItem("pf-cart", JSON.stringify(cart));
-
-    updateCartCount();
-  }
-
-  function updateCartCount() {
-    if (cartCount) {
-      cartCount.textContent = cart.length;
-    }
+    window.addToCart(product);
   }
 
   filterButtons.forEach(btn => {
@@ -168,6 +157,37 @@
   });
 
   searchInput?.addEventListener("input", renderProducts);
+
+  /* ----- NAV HAMBURGER (same as login-page) ----- */
+  const menuToggle = document.getElementById('menu-toggle');
+  const menuIcon = document.getElementById('menu-icon');
+  const navLinks = document.querySelector('.nav-links');
+  const navOverlay = document.getElementById('nav-overlay');
+
+  function openNav() {
+    navLinks?.classList.add('nav-open');
+    menuIcon?.classList.replace('bx-menu', 'bx-x');
+    menuToggle?.classList.add('menu-open');
+    if (navOverlay) { navOverlay.style.display = 'block'; requestAnimationFrame(() => navOverlay.classList.add('visible')); }
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeNav() {
+    navLinks?.classList.remove('nav-open');
+    menuIcon?.classList.replace('bx-x', 'bx-menu');
+    menuToggle?.classList.remove('menu-open');
+    navOverlay?.classList.remove('visible');
+    setTimeout(() => { if (navOverlay) navOverlay.style.display = 'none'; }, 340);
+    document.body.style.overflow = '';
+  }
+
+  menuToggle?.addEventListener('click', (e) => {
+    if (e.target.closest('.menu-cart')) return; // cart button opens the cart, not the menu
+    navLinks?.classList.contains('nav-open') ? closeNav() : openNav();
+  });
+  navOverlay?.addEventListener('click', closeNav);
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', closeNav));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
 
   loadProducts();
 })();

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="margin:0">
+  <pre id="out">START</pre>
+  <iframe id="f" src="/home-page/home-page.html" style="width:100%;height:844px;border:0"></iframe>
+  <script>
+    const f = document.getElementById("f");
+    f.onload = () => {
+      const doc = f.contentDocument;
+      const w = doc.defaultView;
+      const carousel = doc.querySelector(".carousel");
+      const content = doc.querySelector(".carousel .content");
+      const thumb = doc.querySelector(".thumbnail");
+      const item = doc.querySelector(".thumbnail .item");
+      const arrows = doc.querySelector(".arrows");
+      const r = (el) => { const b = el.getBoundingClientRect(); return { l: +b.left.toFixed(1), t: +b.top.toFixed(1), r: +b.right.toFixed(1), b: +b.bottom.toFixed(1), w: +b.width.toFixed(1), h: +b.height.toFixed(1) }; };
+      const info = {
+        vw: w.innerWidth, vh: w.innerHeight,
+        carousel: r(carousel),
+        content: r(content),
+        thumb: r(thumb),
+        item: r(item),
+        arrows: r(arrows),
+        contentVsThumb: {
+          horizOverlap: !(content.getBoundingClientRect().right <= thumb.getBoundingClientRect().left || content.getBoundingClientRect().left >= thumb.getBoundingClientRect().right),
+          vertOverlap: !(content.getBoundingClientRect().bottom <= thumb.getBoundingClientRect().top || content.getBoundingClientRect().top >= thumb.getBoundingClientRect().bottom)
+        },
+        bodyOverflowX: doc.body.scrollWidth - doc.body.clientWidth
+      };
+      document.getElementById("out").textContent = JSON.stringify(info);
+    };
+  </script>
+</body>
+</html>

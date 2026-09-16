@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Promise Feats | About Us</title>
   <link rel="stylesheet" href="../shared-ui.css" />
   <link rel="stylesheet" href="./about-us.css" />
@@ -13,15 +13,21 @@
 </head>
 <body>
     <header>
+      <nav>
       <div class="container">
-        <nav>
+        <a href="../index.html" class="logo-link">
+          <img class="logo-img" src="../media/images/logo/PF.icon-remove.bg.png" alt="Promise Feats Logo">
+          <span class="brand-name">Promise Feat</span>
+        </a>
 
-          <a href="../index.html" class="logo-link">
-            <img class="logo-img" src="../media/images/logo/PF.icon-remove.bg.png" alt="Promise Feats Logo">
-            <span class="brand-name">Promise Feat</span>
-          </a>
-        
-            <i class="bx bx-menu" id="menu-toggle"></i>
+        <!-- Mobile: cart icon + badge inside the hamburger button (desktop uses .nav-actions .icon-cart) -->
+        <button type="button" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span class="menu-cart" id="menu-cart" role="button" tabindex="0" aria-label="Open cart">
+            <i class="bx bxs-shopping-bag" aria-hidden="true"></i>
+            <span class="cart-count" id="cart-count-mobile">0</span>
+          </span>
+          <i class="bx bx-menu" id="menu-icon" aria-hidden="true"></i>
+        </button>
 
           <ul class="nav-links">
 
@@ -55,15 +61,13 @@
             </a>
 
             <div class="icon-cart">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
-                <path stroke="currentColor" stroke-width="2" d="M6 15a2 2 0 1 0 0 4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4Zm-9-4h10l2-7H3"></path>
-              </svg>
+              <i class="bx bxs-shopping-bag" aria-hidden="true"></i>
               <span id="cart-count">0</span>
             </div>
 
           </div>
-        </nav>
       </div>
+      </nav>
     </header>
     <div class="nav-overlay" id="nav-overlay"></div>
 
@@ -150,6 +154,7 @@
 
     </footer>
 
+  <script src="../cart.js"></script>
   <script src="./about-us.js"></script>
 </body>
 </html>
