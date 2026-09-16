@@ -59,35 +59,80 @@ header {
   gap: 0.75rem;
 }
 
-/* Mobile: cart icon + badge shown to the left of hamburger when menu is open */
-.menu-cart {
-  display: none; /* hidden by default on mobile; shown when menu is open */
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  order: 10;
-  margin-right: 8px;
-}
-
-.menu-cart i { font-size: 18px; color: #fff; }
-
-/* show the cart icon only while the menu drawer is open */
-#menu-toggle.menu-open + .menu-cart { display: inline-flex; }
-
+/* Mobile: hamburger menu toggle with integrated cart - full width */
 #menu-toggle {
   display: none;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
   font-size: 26px;
   color: #c9a55a;
   cursor: pointer;
-  padding: 6px;
+  padding: 8px 12px;
   background: none;
   border: none;
   line-height: 1;
-  min-width: 44px;
   min-height: 44px;
+  position: relative;
+  box-sizing: border-box;
 }
+
+#menu-toggle:hover { color: var(--gold-lt); }
+#menu-toggle:active { transform: scale(0.98); }
+
+/* Cart icon + badge inside menu toggle (shown when menu open) - LEFT side */
+#menu-toggle .menu-cart {
+  display: none;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+#menu-toggle .menu-cart i { font-size: 22px; color: #fff; }
+
+#menu-toggle .menu-cart .cart-count {
+  position: static;
+  min-width: 18px; height: 18px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex; align-items: center; justify_content: center;
+  padding: 0 4px;
+}
+
+/* Hamburger/Close icon - RIGHT side */
+#menu-toggle #menu-icon {
+  flex-shrink: 0;
+  font-size: 28px;
+}
+
+/* Cart badge overlay on hamburger (shown when menu closed) */
+#menu-toggle .cart-badge-overlay {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  min-width: 18px; height: 18px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex; align-items: center; justify_content: center;
+  padding: 0 4px;
+  pointer-events: none;
+}
+
+/* When menu is open: show cart icon, hide badge overlay, swap icon to close */
+#menu-toggle.menu-open .menu-cart { display: inline-flex; }
+#menu-toggle.menu-open .cart-badge-overlay { display: none; }
+#menu-toggle.menu-open #menu-icon::before { content: "\ea25"; } /* bx-x */
+#menu-toggle.menu-open .menu-cart { display: inline-flex; }
+#menu-toggle.menu-open .cart-badge-overlay { display: none; }
+#menu-toggle.menu-open #menu-icon::before { content: "\ea25"; } /* bx-x */
 
 .logo-link {
   display: flex;
@@ -627,11 +672,12 @@ footer {
       padding-left: 0;
     }
 
+    /* shrink nav so logo stays left, menu toggle spans full width on right */
     nav {
       width: auto;
       flex: 1;
       margin-left: auto;
-      justify-content: flex-start;
+      justify-content: flex-end;
       gap: 8px;
     }
 
@@ -642,45 +688,21 @@ footer {
 
 .icon-cart { display: none; }
 
-    .menu-cart {
-      display: none; /* hidden by default; shown when menu is open */
-      align-items: center;
-      justify-content: center;
-      order: 1;
-      position: relative;
-      z-index: 960;
-      margin-right: 8px;
-      padding: 6px;
-      min-width: 44px;
-      min-height: 44px;
-      flex-shrink: 0;
-    }
-
     #menu-toggle {
         display: flex;
         align-items: center;
-        justify-content: center;
-        order: 2;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 100%;
         position: relative;
         z-index: 960;
-        margin-left: 4px;
+        margin-left: 0;
         font-size: 28px;
-        padding: 6px;
-        min-width: 44px;
+        padding: 8px 12px;
         min-height: 44px;
         flex-shrink: 0;
+        box-sizing: border-box;
     }
-
-    .nav-links {
-      order: 3;
-      margin-left: auto;
-    }
-
-    .nav-actions {
-      order: 4;
-    }
-
-    #menu-toggle.menu-open + .menu-cart { display: inline-flex; }
 
     .nav-links {
         position: fixed;

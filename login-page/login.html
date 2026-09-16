@@ -22,16 +22,18 @@
             <span class="brand-name">Promise Feat</span>
           </a>
         
-          <!-- Mobile: hamburger menu toggle -->
+          <!-- Mobile: hamburger menu toggle with integrated cart badge -->
           <button type="button" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <!-- Cart icon with badge (visible when menu open) -->
+            <span class="menu-cart" id="menu-cart" aria-hidden="true">
+              <i class="bx bxs-shopping-bag" aria-hidden="true"></i>
+              <span class="cart-count" id="cart-count-mobile">0</span>
+            </span>
+            <!-- Hamburger/Close icon -->
             <i class="bx bx-menu" id="menu-icon" aria-hidden="true"></i>
+            <!-- Cart badge overlay (visible when menu closed) -->
+            <span class="cart-badge-overlay" id="cart-badge-overlay" aria-hidden="true">0</span>
           </button>
-
-          <!-- Mobile: cart icon + badge (shown only when menu is open) -->
-          <div class="menu-cart" id="menu-cart" role="button" tabindex="0" aria-label="Open cart">
-            <i class="bx bxs-shopping-bag" aria-hidden="true"></i>
-            <span class="cart-count" id="cart-count-mobile">0</span>
-          </div>
 
           <ul class="nav-links">
 
