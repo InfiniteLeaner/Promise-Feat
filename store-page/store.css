@@ -59,11 +59,11 @@ header {
   align-items: center;
   justify-content: space-between;
   width: auto;
-  min-width: 44px;
+  min-width: 72px;
   font-size: 26px;
   color: #c9a55a;
   cursor: pointer;
-  padding: 8px 4px;
+  padding: 8px 8px;
   background: none;
   border: none;
   border-radius: 0;
@@ -80,9 +80,9 @@ header {
 }
 #menu-toggle:active { transform: scale(0.95); }
 
-/* Cart icon + badge inside menu toggle (shown when menu open) - LEFT side */
+/* Cart icon + badge - LEFT side (always visible) */
 #menu-toggle .menu-cart {
-  display: none;
+  display: inline-flex;
   align-items: center;
   justify-content: flex-start;
   gap: 6px;
@@ -110,21 +110,9 @@ header {
   transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), color 0.3s ease;
 }
 
-/* Cart badge overlay on hamburger (shown when menu closed) */
+/* Cart badge overlay on hamburger - REMOVED (cart icon always visible) */
 #menu-toggle .cart-badge-overlay {
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  min-width: 18px; height: 18px;
-  border-radius: 999px;
-  background: var(--primary);
-  color: #fff;
-  font-size: 10px;
-  font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
-  padding: 0 4px;
-  pointer-events: none;
-  animation: badgePulse 2s ease-in-out infinite;
+  display: none;
 }
 
 @keyframes badgePulse {
@@ -132,11 +120,7 @@ header {
   50% { transform: scale(1.1); }
 }
 
-/* When menu is open: show cart icon, hide badge overlay, swap icon to close */
-#menu-toggle.menu-open .menu-cart { display: inline-flex; }
-#menu-toggle.menu-open .cart-badge-overlay { display: none; }
-
-/* Beautiful animated close icon */
+/* When menu is open: swap icon to close */
 #menu-toggle.menu-open #menu-icon {
   font-size: 0; /* hide the boxicon */
   position: relative;
