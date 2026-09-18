@@ -45,16 +45,19 @@
         <li><a href="../store-page/store.html">Store</a></li>
         <li><a href="../design-page/design.html">Design</a></li>
         <li><a href="../about-us-page/about-us.html">About-Us</a></li>
-            <li class="drawer-actions">
-              <a href="../store-page/store.html">
-                <button class="buynow-btn" type="button">Buy Now</button>
-              </a>
-            </li>
-            <li class="drawer-actions">
-              <a href="../login-page/login.html">
-                <button class="login-btn" type="button">Login</button>
-              </a>
-            </li>
+        <!-- Drawer calls-to-action: top row beside cart/close on wide
+             compact screens, stacked below the links on narrow phones
+             (see .drawer-cta-row in home-page.css) -->
+        <li class="drawer-actions">
+          <div class="drawer-cta-row">
+            <a href="../store-page/store.html">
+              <button class="buynow-btn" type="button">Buy Now</button>
+            </a>
+            <a href="../login-page/login.html">
+              <button class="login-btn" type="button">Login</button>
+            </a>
+          </div>
+        </li>
 
       </ul>
 
@@ -102,8 +105,8 @@
       <div class="content">
         <div class="author">KC.Prince</div>
         <div class="title">Promise Feats<span class="title-bar" aria-hidden="true"></span></div>
-        <div class="topic">Foot Wears</div>
-        <div class="des">Best Outfits, Quality and Trustworthy</div>
+        <div class="topic">Footwear</div>
+        <div class="des">Exceptional outfits, quality you can trust.</div>
         <div class="buttons">
           <button class="See-more">SEE MORE</button>
           <button class="Subscribe">SUBSCRIBE</button>
@@ -116,8 +119,8 @@
       <div class="content">
         <div class="author">KC.Prince</div>
         <div class="title">Promise Feats<span class="title-bar" aria-hidden="true"></span></div>
-        <div class="topic">Foot Wears</div>
-        <div class="des">Best Outfits, Quality and Trustworthy</div>
+        <div class="topic">Footwear</div>
+        <div class="des">Exceptional outfits, quality you can trust.</div>
         <div class="buttons">
           <button class="See-more">SEE MORE</button>
           <button class="Subscribe">SUBSCRIBE</button>
@@ -180,21 +183,21 @@
 
                 <a
                     href="https://web.facebook.com/profile.php?id=100070929678953"
-                    target="_blank">
+                    target="_blank" rel="noopener" aria-label="Promise Feats on Facebook">
                     <i class="bx bxl-facebook"></i>
                 </a>
 
                 <a
                     href="https://www.instagram.com/promisefeat/"
-                    target="_blank">
+                    target="_blank" rel="noopener" aria-label="Promise Feats on Instagram">
                     <i class="bx bxl-instagram"></i>
                 </a>
 
-                <a href="https://x.com/promisefeat" target="_blank">
+                <a href="https://x.com/promisefeat" target="_blank" rel="noopener" aria-label="Promise Feats on X">
                   <i class="bx bxl-twitter"></i>
                 </a>
 
-                <a href="https://t.co/CE7tc7u11G" target="_blank">
+                <a href="https://t.co/CE7tc7u11G" target="_blank" rel="noopener" aria-label="Chat with Promise Feats on WhatsApp">
                   <ion-icon name="logo-whatsapp"></ion-icon>
                 </a>
 

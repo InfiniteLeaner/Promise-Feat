@@ -1287,6 +1287,14 @@ footer {
   .nav-overlay { display: block; }
   .search { display: none; }
 
+  /* While the drawer is open, fade the header's own pills out so they
+     can't ghost through the drawer's translucent top. Layout is kept. */
+  .nav-actions a.desktop-only { transition: opacity 0.25s ease, visibility 0.25s ease; }
+  .container:has(#menu-toggle[aria-expanded="true"]) .nav-actions a.desktop-only {
+    opacity: 0;
+    visibility: hidden;
+  }
+
   .product-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .catalog { padding: 60px 4% 80px; }
   .catalog-header { flex-direction: column; align-items: flex-start; }

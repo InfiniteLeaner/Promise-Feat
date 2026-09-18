@@ -772,6 +772,7 @@ footer {
   .nav-links { gap: 10px; }
   .nav-links li a { padding: 6px 8px; }
   .nav-actions { gap: 8px; }
+  .search { display: none; }
 }
 
 /* --- Tablet narrowing (same as login-page 821–1100px) --- */
@@ -826,7 +827,7 @@ footer {
       position: relative;
       z-index: 960;
       margin-left: 0;
-      font-size: 28px;
+      font-size: 22px;
       padding: 8px 4px;
       min-height: 44px;
       flex-shrink: 0;
@@ -836,7 +837,8 @@ footer {
     /* compact badge visible above the hamburger */
     .compact-badge { display: flex; }
 
-    /* cart row inside the open compact menu (top-left, exact opposite of close icon) */
+    /* cart pinned to the drawer's top-left, vertically centered on the
+       same line as the close (X) top-right */
     .nav-links .compact-menu-cart {
       display: flex;
       align-items: center;
@@ -849,7 +851,7 @@ footer {
       font-size: 20px;
       flex-shrink: 0;
       position: absolute;
-      top: 12px;
+      top: 24px;
       left: 12px;
     }
     .compact-menu-cart i { font-size: 24px; color: var(--text); position: relative; }
@@ -911,11 +913,14 @@ footer {
     .nav-links.nav-open li:nth-child(4) { transition-delay: 0.24s; }
     .nav-links.nav-open li:nth-child(5) { transition-delay: 0.30s; }
     .nav-links.nav-open li:nth-child(6) { transition-delay: 0.36s; }
-    .nav-links.nav-open li:nth-child(7) { transition-delay: 0.42s; }
 
+    /* Drawer calls-to-action. Narrow phones: stacked full-width rows
+       below the links. Wide compact screens: lifted into the drawer's
+       top row — CART [BUY NOW] [LOGIN] … [X] (see 600–820px tier). */
     .drawer-actions { display: flex; width: 100%; }
-    .drawer-actions a { display: flex; width: 100%; text-decoration: none; }
-    .drawer-actions button { width: 100%; padding: 10px; }
+    .drawer-cta-row { display: flex; flex-direction: column; width: 100%; gap: 10px; }
+    .drawer-cta-row a { display: flex; width: 100%; text-decoration: none; }
+    .drawer-cta-row button { width: 100%; padding: 10px; }
 
     .nav-actions { display: flex; }
     .search { display: none; }
@@ -932,9 +937,10 @@ footer {
 
     .nav-links li a {
       display: block;
-      padding: 10px 12px;
+      padding: 12px;
       font-size: 16px;
       border-radius: 12px;
+      text-align: center;
       width: 100%; }
 
     .nav-links li a:hover,
@@ -943,15 +949,53 @@ footer {
       outline: none;
     }
 
-    .nav-overlay { display: block; visibility: hidden; }
-    .nav-overlay.visible { visibility: visible; }
-
     .desktop-only { display: inline-flex; }
     .search { display: none; }
+
+    /* While the drawer is open, fade the header's own pills out: the
+       drawer top is translucent, so they'd ghost through behind the
+       drawer's CTA row. Layout is kept (no shifting). */
+    .nav-actions a.desktop-only { transition: opacity 0.25s ease, visibility 0.25s ease; }
+    .container:has(#menu-toggle[aria-expanded="true"]) .nav-actions a.desktop-only {
+      opacity: 0;
+      visibility: hidden;
+    }
 
     .carousel .content { max-width: min(480px, 54%); }
     .thumbnail { max-width: 44vw; width: calc(3 * clamp(66px, 10vw, 92px) + 2 * var(--thumb-gap)); }
     .thumbnail .item { width: clamp(66px, 10vw, 92px); height: clamp(180px, 34vh, 260px); }
+}
+
+/* --- Wide compact (600–820px): the 50vw drawer is roomy enough to hold
+   CART + BUY NOW + LOGIN + CLOSE in one top row. The close (X) lives in
+   the page header above the drawer's top-right, the cart is pinned to the
+   drawer's top-left, and the two CTAs center between them. Below 600px
+   the drawer is too narrow, so the CTAs stay stacked under the links. --- */
+@media screen and (min-width: 600px) and (max-width: 820px) {
+    /* The slide-in transform would also turn this li into the row's
+       containing block — drop it here (fade still animates) so the row
+       anchors to the drawer panel itself. */
+    .nav-links li.drawer-actions { transform: none; }
+    .drawer-actions { width: auto; }
+    .drawer-cta-row {
+      position: absolute;
+      top: 28px;
+      left: 78px;
+      right: 76px;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      width: auto;
+    }
+    /* kill the in-flow drawer link padding so anchors shrink-wrap the buttons */
+    .nav-links li.drawer-actions .drawer-cta-row a { width: auto; padding: 0; display: flex; }
+    .drawer-cta-row button {
+      width: auto;
+      white-space: nowrap;
+      padding: 8px 10px;
+      font-size: 12px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -978,7 +1022,6 @@ footer {
       linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0) 70%),
       linear-gradient(to right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.08) 100%);
   }
-  .social_media_links { display: none; }
 }
 
 @media screen and (max-width: 480px) {
@@ -995,7 +1038,14 @@ footer {
 
   .logo-img { width: 44px; }
   .brand-name { font-size: 1rem; }
-  #menu-toggle { font-size: 26px; padding: 4px; }
+  #menu-toggle { font-size: 20px; padding: 4px; }
+
+  /* Small phones: header pills (Buy Now / Login) no longer fit next to the
+     logo + hamburger — hide them here. Both live inside the open drawer
+     (.drawer-actions), and the cart count rides above the hamburger, so
+     nothing is lost. */
+  .nav-actions .buynow-wrap,
+  .nav-actions .login-btn { display: none; }
 
   .carousel { min-height: 540px; }
 
@@ -1034,7 +1084,7 @@ footer {
 @media screen and (max-width: 360px) {
   .brand-name { font-size: 0.95rem; }
   .logo-link { gap: 0.45rem; }
-  #menu-toggle { min-width: 44px; min-height: 44px; font-size: 24px; }
+  #menu-toggle { min-width: 44px; min-height: 44px; font-size: 20px; }
   .carousel .buttons button { flex: 1 1 100%; }
 }
 

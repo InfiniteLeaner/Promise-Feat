@@ -784,6 +784,96 @@ footer{
 }
 
 /* =========================
+   SOCIAL FAB (same floating social menu as the welcome page;
+   wired by the existing fab-btn/fab-options handlers in design.js)
+========================= */
+.fab-container{
+  position:fixed;
+  right:18px;
+  bottom:24px;
+  z-index:1200;
+}
+
+#fab-btn{
+  width:48px;
+  height:48px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:none;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:24px;
+  color:#fff;
+  background:#111;
+  box-shadow:0 8px 25px rgba(0,0,0,0.35);
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+  transition:0.3s ease;
+}
+
+#fab-btn:active{ transform:scale(0.9); }
+
+#fab-btn.active{
+  transform:rotate(45deg) scale(1.08);
+  background:var(--primary);
+}
+
+.fab-options{
+  position:absolute;
+  right:4px;
+  bottom:58px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(15px);
+  transition:opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fab-options.active{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
+}
+
+.fab-options a{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  color:#fff;
+  font-size:18px;
+  background:rgba(0,0,0,0.82);
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+  transition:0.3s ease;
+}
+
+.fab-options a:active{ transform:scale(0.85); }
+
+.fab-options a:focus-visible{
+  outline:2px solid var(--primary);
+  outline-offset:2px;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .fab-options a:hover{
+    background:var(--primary);
+    transform:translateX(-6px);
+  }
+}
+
+@media screen and (max-width:425px){
+  #fab-btn{ width:42px; height:42px; font-size:21px; }
+  .fab-options a{ width:36px; height:36px; font-size:16px; }
+}
+
+/* =========================
    MOBILE RESPONSIVE
 ========================= */
 
@@ -946,6 +1036,14 @@ footer{
   .desktop-only { display: inline-flex; }
   .nav-overlay { display: block; }
   .search { display: none; }
+
+  /* While the drawer is open, fade the header's own pills out so they
+     can't ghost through the drawer's translucent top. Layout is kept. */
+  .nav-actions a.desktop-only { transition: opacity 0.25s ease, visibility 0.25s ease; }
+  .container:has(#menu-toggle[aria-expanded="true"]) .nav-actions a.desktop-only {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 @media(max-width:600px){

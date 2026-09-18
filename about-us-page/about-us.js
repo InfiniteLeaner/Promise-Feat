@@ -168,6 +168,7 @@
     navLinks?.classList.add('nav-open');
     menuIcon?.classList.replace('bx-menu', 'bx-x');
     menuToggle?.classList.add('menu-open');
+    menuToggle?.setAttribute('aria-expanded', 'true');
     if (navOverlay) { navOverlay.style.display = 'block'; requestAnimationFrame(() => navOverlay.classList.add('visible')); }
     document.body.style.overflow = 'hidden';
   }
@@ -176,6 +177,7 @@
     navLinks?.classList.remove('nav-open');
     menuIcon?.classList.replace('bx-x', 'bx-menu');
     menuToggle?.classList.remove('menu-open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
     navOverlay?.classList.remove('visible');
     setTimeout(() => { if (navOverlay) navOverlay.style.display = 'none'; }, 340);
     document.body.style.overflow = '';
