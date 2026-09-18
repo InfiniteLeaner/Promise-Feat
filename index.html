@@ -7,13 +7,13 @@
 
     <title>Promise Feats</title>
 
-    <meta name="description" content="Shop quality products and services at Promise Feats. Explore our store, designs, and more with secure checkout and responsive browsing.">
+    <meta name="description" content="Promise Feats — luxury footwear shaped by presence, precision, and timeless style. Discover handcrafted shoes for those who step beyond ordinary.">
 
-    <meta name="keywords" content="Promise Feats, luxury shoes, footwear, fashion, online store, premium shoes, men's shoes, women's shoes">
+    <meta name="keywords" content="Promise Feats, luxury footwear, handcrafted shoes, premium shoes, designer shoes, men's luxury shoes, women's luxury shoes">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Promise Feats">
-    <meta property="og:description" content="Your destination for quality products and services.">
+    <meta property="og:title" content="Promise Feats — Luxury Footwear">
+    <meta property="og:description" content="Footwear shaped by presence, precision, and timeless style. Step beyond ordinary.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://promise-feat.pages.dev">
     <meta property="og:image" content="./media/images/logo/PF.icon-remove.bg.png">
@@ -31,8 +31,9 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-    <!-- Preload Video -->
-    <link rel="preload" href="./media/videos/seasonal-ads/thank-you-for-an-absolutely-beautiful-2025..mp4" as="video" type="video/mp4">
+    <!-- Fonts (preconnect speeds up the Poppins @import in welcome-page.css) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
 <body>
@@ -40,55 +41,87 @@
 <div class="welcome-page">
 
     <!-- BACKGROUND VIDEO -->
-    <video class="background-video" autoplay muted loop playsinline
+    <video class="background-video" autoplay muted loop playsinline preload="auto"
+     disablepictureinpicture aria-hidden="true" tabindex="-1"
+     poster="./media/images/background images/promise-feat-black-background.webp"
      src="./media/videos/seasonal-ads/thank-you-for-an-absolutely-beautiful-2025..mp4" type="video/mp4">
     </video>
 
     <!-- HEADER -->
     <header>
         <nav>
-            <!-- LOGO -->
-            <a href="./index.html" class="logo-link">
-                <img src="./media/images/logo/PF.icon-remove.bg.png" alt="Promise Feats Logo" class="logo">
+            <div class="container">
+                <!-- LOGO -->
+                <a href="./index.html" class="logo-link">
+                    <img src="./media/images/logo/PF.icon-remove.bg.png" alt="Promise Feats Logo" class="logo-img">
+                    <span class="brand-name">
+                        Promise Feat
+                    </span>
+                </a>
 
-                <span class="brand-name">
-                    Promise Feat
-                </span>
-            </a>
+                <!-- Hamburger / Close toggle (compact badge floats above) -->
+                <button type="button" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                  <span class="compact-badge" id="compact-badge" aria-hidden="true">0</span>
+                  <i class="bx bx-menu" id="menu-icon" aria-hidden="true"></i>
+                </button>
 
-            <!-- MOBILE MENU BUTTON -->
-            <button id="menu-toggle" aria-label="Toggle Navigation" aria-expanded="false">
-                <i class="bx bx-menu"></i>
-            </button>
+                <!-- NAVIGATION -->
+                <ul class="nav-links">
+                    <!-- Compact-mode: cart + count inside the open menu -->
+                    <li class="compact-menu-cart" id="compact-menu-cart" role="button" tabindex="0" aria-label="Open cart">
+                      <i class="bx bxs-shopping-bag" aria-hidden="true">
+                        <span class="compact-menu-cart-count" id="compact-menu-cart-count">0</span>
+                      </i>
+                    </li>
+                    <li>
+                      <a href="./home-page/home-page.html">
+                        Home
+                      </a>
+                    </li>
 
-            <!-- NAVIGATION -->
-            <ul class="nav-links">
-                <li>
-                  <a href="./home-page/home-page.html">
-                    Home
-                  </a>
-                </li>
+                    <li>
+                      <a href="./store-page/store.html">
+                        Collection
+                      </a>
+                    </li>
 
-                <li>
-                  <a href="./store-page/store.html">
-                    Store
-                  </a>
-                </li>
+                    <li>
+                      <a href="./design-page/design.html">
+                        Design
+                      </a>
+                    </li>
 
-                <li>
-                  <a href="./design-page/design.html">
-                    Design
-                  </a>
-                </li>
+                    <li>
+                      <a href="./about-us-page/about-us.html">
+                        Our Story
+                      </a>
+                    </li>
+                </ul>
 
-                <li>
-                  <a href="./about-us-page/about-us.html">
-                     About-Us
-                  </a>
-                </li>
-            </ul>
+                <div class="nav-actions">
+                    <div class="search">
+                      <input class="srch" type="search" placeholder="Search collection" aria-label="Search collection">
+                      <button class="srch-btn">
+                        Search <i class="bx bx-search-alt-2"></i>
+                      </button>
+                    </div>
+
+                    <a href="./store-page/store.html" class="desktop-only buynow-wrap">
+                      <button class="buynow-btn">Shop Collection</button>
+                    </a>
+
+                    <a href="./login-page/login.html" class="desktop-only">
+                      <button class="login-btn">Sign In</button>
+                    </a>
+
+                    <div class="icon-cart">
+                      <i class="bx bxs-shopping-bag" aria-hidden="true"></i>
+                      <span id="cart-count">0</span>
+                    </div>
+                </div>
+            </div>
         </nav>
-
+        <div class="nav-overlay" id="nav-overlay"></div>
     </header>
 
     <!-- HERO SECTION -->
@@ -96,20 +129,21 @@
 
         <div class="hero-content">
 
+            <p class="hero-eyebrow">Luxury Footwear</p>
+
             <h1 class="hero-title">
-                Welcome To Promise Feats
+                Step Beyond Ordinary
             </h1>
 
             <p class="hero-subtitle">
-                Your destination for quality products, luxury footwear,
-                premium designs, and exceptional services.
+                Footwear shaped by presence, precision, and timeless style.
             </p>
 
             <a
                 href="./login-page/login.html"
                 class="login-btn"
             >
-                Get Started!
+                Begin Your Journey
             </a>
 
         </div>
@@ -167,6 +201,7 @@
 </div>
 
 <!-- JavaScript -->
+<script src="./cart.js"></script>
 <script src="./welcome-page.js"></script>
 
 </body>

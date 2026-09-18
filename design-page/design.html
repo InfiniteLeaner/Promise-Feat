@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Promise Feats | Design Studio</title>
-  <link rel="stylesheet" href="../shared-ui.css" />
   <link rel="stylesheet" href="./design.css" />
   <link rel="icon" href="../media/images/logo/PF.icon-remove.bg.png" />
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
@@ -22,29 +21,33 @@
           <span class="brand-name">Promise Feat</span>
         </a>
 
-        <!-- Mobile: hamburger menu toggle with integrated cart badge -->
+        <!-- Hamburger / Close toggle (compact badge floats above) -->
         <button type="button" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-          <!-- Cart icon with badge (visible when menu open) -->
-          <span class="menu-cart" id="menu-cart" aria-hidden="true">
-            <i class="bx bxs-shopping-bag" aria-hidden="true"></i>
-            <span class="cart-count" id="cart-count-mobile">0</span>
-          </span>
-          <!-- Hamburger/Close icon -->
+          <span class="compact-badge" id="compact-badge" aria-hidden="true">0</span>
           <i class="bx bx-menu" id="menu-icon" aria-hidden="true"></i>
-          <!-- Cart badge overlay (visible when menu closed) -->
-          <span class="cart-badge-overlay" id="cart-badge-overlay" aria-hidden="true">0</span>
         </button>
 
           <ul class="nav-links">
+            <!-- Compact-mode: cart + count inside the open menu -->
+            <li class="compact-menu-cart" id="compact-menu-cart" role="button" tabindex="0" aria-label="Open cart">
+              <i class="bx bxs-shopping-bag" aria-hidden="true">
+                <span class="compact-menu-cart-count" id="compact-menu-cart-count">0</span>
+              </i>
+            </li>
 
             <li><a href="../home-page/home-page.html">Home</a></li>
             <li><a href="../store-page/store.html">Store</a></li>
             <li><a href="../design-page/design.html">Design</a></li>
             <li><a href="../about-us-page/about-us.html">About-Us</a></li>
-
-            <li class="nav-mobile-actions">
-              <a href="../store-page/store.html" class="buynow-wrap"><button class="buynow-btn">Buy Now</button></a>
-              <a href="../login-page/login.html"><button class="login-btn">Login</button></a>
+            <li class="drawer-actions">
+              <a href="../store-page/store.html">
+                <button class="buynow-btn" type="button">Buy Now</button>
+              </a>
+            </li>
+            <li class="drawer-actions">
+              <a href="../login-page/login.html">
+                <button class="login-btn" type="button">Login</button>
+              </a>
             </li>
 
           </ul>
@@ -79,6 +82,7 @@
 
   <main>
     <section class="hero-text">
+      <p class="studio-eyebrow">Design Studio</p>
       <h1>Design Your Own Shoe</h1>
       <p>
         Create your custom premium shoe with real-time 3D preview,
@@ -127,10 +131,10 @@
 
         <h3>Colors</h3>
         <div class="colors">
-          <button class="color-btn active" data-color="#000000"></button>
-          <button class="color-btn" data-color="#d33"></button>
-          <button class="color-btn" data-color="#3366ff"></button>
-          <button class="color-btn" data-color="#ffffff"></button>
+          <button class="color-btn active" data-color="#000000" data-name="Black" aria-label="Black"></button>
+          <button class="color-btn" data-color="#d33" data-name="Crimson" aria-label="Crimson"></button>
+          <button class="color-btn" data-color="#3366ff" data-name="Royal Blue" aria-label="Royal Blue"></button>
+          <button class="color-btn" data-color="#ffffff" data-name="White" aria-label="White"></button>
         </div>
 
         <h3>Sizes</h3>
@@ -148,29 +152,42 @@
           </div>
           <button class="add-btn" id="add-to-cart">Add To Cart</button>
         </div>
+
+        <p class="selection-summary" id="selection-summary" aria-live="polite"></p>
       </aside>
     </section>
   </main>
 
   <footer>
-    <div class="fab-container">
-      <div class="fab-options" id="fab-options">
-        <a target="_blank" href="https://web.facebook.com/profile.php?id=100070929678953" class="fab-item" aria-label="Facebook">
-          <ion-icon name="logo-facebook"></ion-icon>
+    <div class="footer-inner">
+      <img
+        src="../media/images/logo/PF.icon-remove.bg.png"
+        alt="Promise Feats"
+        class="footer-logo">
+      <p>
+        © 2026 Promise Feats.
+        All rights reserved.
+      </p>
+      <div class="footer-socials">
+        <a
+          href="https://web.facebook.com/profile.php?id=100070929678953"
+          target="_blank"
+          aria-label="Facebook">
+          <i class="bx bxl-facebook"></i>
         </a>
-        <a target="_blank" href="https://x.com/promisefeat" class="fab-item" aria-label="Twitter">
-          <ion-icon name="logo-twitter"></ion-icon>
+        <a
+          href="https://www.instagram.com/promisefeat/"
+          target="_blank"
+          aria-label="Instagram">
+          <i class="bx bxl-instagram"></i>
         </a>
-        <a target="_blank" href="https://www.instagram.com/promisefeat/" class="fab-item" aria-label="Instagram">
-          <ion-icon name="logo-instagram"></ion-icon>
+        <a href="https://x.com/promisefeat" target="_blank" aria-label="Twitter">
+          <i class="bx bxl-twitter"></i>
         </a>
-        <a target="_blank" href="https://t.co/CE7tc7u11G" title="WhatsApp">
-          <ion-icon name="logo-whatsapp"></ion-icon>
+        <a href="https://t.co/CE7tc7u11G" target="_blank" aria-label="WhatsApp">
+          <i class="bx bxl-whatsapp"></i>
         </a>
       </div>
-      <button id="fab-btn" aria-label="Open Social Menu">
-        <i class="bx bx-plus"></i>
-      </button>
     </div>
   </footer>
 

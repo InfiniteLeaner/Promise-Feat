@@ -187,7 +187,9 @@
   /* ---------- badge ---------- */
   function syncBadge() {
     const qty = totalQty(getCart());
-    document.querySelectorAll("#cart-count, .cart-count").forEach(el => {
+    document.querySelectorAll(
+      "#cart-count, .cart-count, .compact-badge, .compact-menu-cart-count"
+    ).forEach(el => {
       el.textContent = qty;
     });
   }
@@ -260,9 +262,10 @@
     render();
   });
 
-  /* open the drawer when the cart icon is clicked (desktop .icon-cart or mobile .menu-cart) */
+  /* open the drawer when a cart icon is clicked
+     (desktop .icon-cart, legacy .menu-cart, or compact .compact-menu-cart) */
   document.addEventListener("click", (e) => {
-    if (e.target.closest(".icon-cart, .menu-cart")) openCart();
+    if (e.target.closest(".icon-cart, .menu-cart, .compact-menu-cart")) openCart();
   });
 
   closeBtn?.addEventListener("click", closeCart);
@@ -276,7 +279,7 @@
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeCart();
-    if ((e.key === "Enter" || e.key === " ") && e.target.closest(".menu-cart")) {
+    if ((e.key === "Enter" || e.key === " ") && e.target.closest(".menu-cart, .compact-menu-cart")) {
       e.preventDefault();
       openCart();
     }

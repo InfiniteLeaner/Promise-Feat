@@ -3,6 +3,7 @@
 // ===============================
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.querySelector(".nav-links");
+const navOverlay = document.getElementById("nav-overlay");
 
 if (menuToggle && navLinks) {
 
@@ -11,12 +12,20 @@ if (menuToggle && navLinks) {
   const closeMenu = () => {
     navLinks.classList.remove("nav-open");
     menuIcon.classList.replace("bx-x", "bx-menu");
-    menuToggle.setAttribute("aria-expanded", false);
+    menuToggle.classList.remove("menu-open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Toggle menu");
+    navOverlay?.classList.remove("visible");
+    document.body.style.overflow = "";
   };
 
   const toggleMenu = () => {
     const isOpen = navLinks.classList.toggle("nav-open");
-    menuToggle.setAttribute("aria-expanded", isOpen);
+    menuToggle.classList.toggle("menu-open", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Toggle menu");
+    navOverlay?.classList.toggle("visible", isOpen);
+    document.body.style.overflow = isOpen ? "hidden" : "";
 
     if (menuIcon.classList.contains("bx-menu")) {
       menuIcon.classList.replace("bx-menu", "bx-x");
@@ -30,15 +39,17 @@ if (menuToggle && navLinks) {
     toggleMenu();
   });
 
-  menuToggle.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      toggleMenu();
-    }
-  });
-
   document.querySelectorAll(".nav-links a").forEach(link => {
     link.addEventListener("click", closeMenu);
+  });
+
+  navOverlay?.addEventListener("click", closeMenu);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && navLinks.classList.contains("nav-open")) {
+      closeMenu();
+      menuToggle.focus();
+    }
   });
 
   document.addEventListener("click", (e) => {

@@ -38,7 +38,6 @@
 
 		const toggleMenu = (e) => {
 			e?.stopPropagation();
-			if (e?.target?.closest?.(".menu-cart")) return; // cart button opens the cart, not the menu
 
 			if (navLinks.classList.contains("nav-open")) {
 				closeMenu();
@@ -303,15 +302,65 @@
 		);
 		const size =
 			document.getElementById("selected-size")?.textContent || "40";
+		const part =
+			document.querySelector(".part-btn.active")?.textContent.trim() || "Body";
+		const colorBtn = document.querySelector(".color-btn.active");
+		const colorName = colorBtn?.dataset.name || colorBtn?.dataset.color || "Black";
 
 		window.addToCart({
 			id: "custom-shoe",
-			name: `${name} (Size ${size})`,
+			name: `${name} (Size ${size}, ${part}/${colorName})`,
 			price: 85000,
 			image:
 				"../media/images/promise-feat-footwears/black-leather-shoes/black-leather-img.14.jpg",
 			qty,
 		});
 	});
+
+	// =========================
+	// DESIGN STUDIO CONTROLS
+	// =========================
+	const CUSTOM_PRICE = 85000;
+	const summaryEl = document.getElementById("selection-summary");
+	const sizeEl = document.getElementById("selected-size");
+
+	const formatNaira = (n) => "\u20A6" + Number(n || 0).toLocaleString();
+
+	// Paint each color swatch from its data-color so the option is visible.
+	document.querySelectorAll(".color-btn").forEach((btn) => {
+		if (btn.dataset.color) btn.style.background = btn.dataset.color;
+		if (!btn.getAttribute("aria-label")) btn.setAttribute("aria-label", btn.dataset.name || btn.dataset.color || "Color");
+	});
+
+	const activeLabel = (selector) => document.querySelector(selector + ".active")?.textContent.trim() || "";
+	const activeColorName = () => {
+		const btn = document.querySelector(".color-btn.active");
+		return btn?.dataset.name || btn?.dataset.color || "Black";
+	};
+
+	const updateSummary = () => {
+		const sizeBtn = document.querySelector(".size-btn.active");
+		if (sizeEl && sizeBtn) sizeEl.textContent = sizeBtn.dataset.size || sizeBtn.textContent.trim();
+		if (summaryEl) {
+			const part = activeLabel(".part-btn") || "Body";
+			summaryEl.innerHTML = `${part} &bull; ${activeColorName()} &bull; Size ${sizeEl?.textContent.trim() || "40"} &mdash; <strong>${formatNaira(CUSTOM_PRICE)}</strong>`;
+		}
+	};
+
+	const wireGroup = (selector) => {
+		const btns = document.querySelectorAll(selector);
+		btns.forEach((btn) => {
+			btn.addEventListener("click", () => {
+				btns.forEach((b) => b.classList.remove("active"));
+				btn.classList.add("active");
+				updateSummary();
+			});
+		});
+	};
+
+	wireGroup(".part-btn");
+	wireGroup(".color-btn");
+	wireGroup(".size-btn");
+	updateSummary();
 
 })();

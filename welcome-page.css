@@ -115,6 +115,15 @@ video{
   gap:1rem;
 }
 
+.welcome-page .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  width:100%;
+  min-width:0;
+}
+
 /* ===================================
    LOGO
 =================================== */
@@ -133,7 +142,7 @@ video{
   opacity:0.8;
 }
 
-.welcome-page .logo{
+.welcome-page .logo-img{
   width:clamp(54px, 6vw, 76px);
   aspect-ratio:1;
   object-fit:contain;
@@ -209,15 +218,22 @@ video{
   font-size:26px;
   color:#c9a55a;
   cursor:pointer;
+  position:relative;
   z-index:1001;
   touch-action:manipulation;
   -webkit-tap-highlight-color:transparent;
-  transition:transform 0.3s ease, opacity 0.3s ease;
+  transition:transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+}
+
+/* Menu bar: golden by default, white on hover, black while clicked */
+.welcome-page #menu-toggle:hover{
+  color:#fff;
 }
 
 .welcome-page #menu-toggle:active{
   transform:scale(0.85);
   opacity:0.7;
+  color:#000;
 }
 
 .welcome-page #menu-toggle:focus-visible{
@@ -226,9 +242,61 @@ video{
   border-radius:8px;
 }
 
-.welcome-page #menu-toggle[aria-expanded="true"]{
+.welcome-page #menu-icon{
+  transition:transform 0.3s ease;
+}
+
+/* Only the hamburger icon rotates when the menu opens - the toggle (and badge) stay put */
+.welcome-page #menu-toggle[aria-expanded="true"] #menu-icon{
   transform:rotate(90deg) scale(1.05);
 }
+
+/* Compact badge - cart count floating above the hamburger (compact mode only) */
+.welcome-page .compact-badge{
+  position:absolute;
+  top:3px;
+  left:24px;
+  min-width:18px;
+  height:18px;
+  border-radius:999px;
+  background:var(--primary);
+  color:#fff;
+  font-size:10px;
+  font-weight:700;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:0 4px;
+  pointer-events:none;
+  z-index:2;
+  white-space:nowrap;
+}
+
+/* Hide the compact badge while the menu is open (cart moves into the menu) */
+.welcome-page #menu-toggle[aria-expanded="true"] .compact-badge,
+.welcome-page #menu-toggle.menu-open .compact-badge{
+  display:none;
+}
+
+/* Cart row inside the open compact menu - hidden on wide screens */
+.welcome-page .compact-menu-cart{
+  display:none;
+}
+
+/* Dim + scroll-lock overlay behind the open compact menu */
+.welcome-page .nav-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  z-index:900;
+  opacity:0;
+  transition:opacity 0.32s ease;
+}
+
+.welcome-page .nav-overlay.visible{ opacity:1; }
 
 /* ===================================
    HERO SECTION
@@ -249,11 +317,26 @@ video{
   max-width:800px;
 }
 
+.welcome-page .hero-eyebrow{
+  margin:0 0 14px;
+  font-size:clamp(0.7rem, 1.8vw, 0.85rem);
+  font-weight:600;
+  letter-spacing:0.35em;
+  text-transform:uppercase;
+  color:#c9a55a;
+  text-shadow:0 2px 12px rgba(201,165,90,0.45);
+  opacity:0;
+  animation:welcomeFadeUp 0.8s forwards 0.5s;
+}
+
 .welcome-page .hero-title{
+  margin:0;
   font-size:clamp(2rem, 7vw, 4.5rem);
   font-weight:700;
+  letter-spacing:-0.01em;
   max-width:768px;
   line-height:1.15;
+  text-wrap:balance;
   color:#fff;
   text-shadow:0 0 20px rgba(201,165,90,0.6), 0 0 40px rgba(201,165,90,0.3);
   opacity:0;
@@ -269,34 +352,43 @@ video{
 }
 
 .welcome-page .hero-subtitle{
-  margin-top:14px;
+  margin:14px 0 0;
   font-size:clamp(0.95rem, 2vw, 1.15rem);
-  max-width:700px;
+  line-height:1.6;
+  max-width:36ch;
+  text-wrap:pretty;
   opacity:0;
   animation:welcomeFadeUp 0.8s forwards 0.9s;
 }
 
 /* ===================================
    LOGIN BUTTON
+   (base = shared button look used in header + hero;
+   spacing + entrance live on the hero CTA only so the
+   header button is never pushed down or faded out)
 =================================== */
 .welcome-page .login-btn{
-  margin-top:28px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
   text-decoration:none;
   color:#fff;
   font-weight:600;
+  letter-spacing:0.04em;
   padding:14px 30px;
   border-radius:999px;
   background:var(--glass);
   backdrop-filter:blur(10px);
   box-shadow:var(--shadow);
-  opacity:0;
-  animation:welcomeFadeUp 0.6s forwards 1s;
   touch-action:manipulation;
   -webkit-tap-highlight-color:transparent;
   transition:var(--transition);
+}
+
+.welcome-page .hero-content .login-btn{
+  margin-top:28px;
+  opacity:0;
+  animation:welcomeFadeUp 0.6s forwards 1s;
 }
 
 .welcome-page .login-btn:active{
@@ -316,19 +408,6 @@ video{
     background:linear-gradient(45deg, var(--secondary), var(--primary));
     box-shadow:0 0 15px rgba(255,39,112,0.5), 0 0 25px rgba(241,104,58,0.4);
   }
-}
-
-/* ===================================
-   FOOTER
-=================================== */
-.welcome-page footer{
-  position:relative;
-  z-index:2;
-  width:100%;
-  text-align:center;
-  padding:10px;
-  font-size:14px;
-  opacity:0.85;
 }
 
 /* ===================================
@@ -425,7 +504,7 @@ video{
 =================================== */
 @media screen and (max-width:768px){
 
-  .welcome-page .logo{
+  .welcome-page .logo-img{
     width:70px;
   }
 
@@ -433,20 +512,74 @@ video{
     display:flex;
   }
 
+  /* compact badge visible above the hamburger */
+  .welcome-page .compact-badge{
+    display:flex;
+  }
+
+  /* cart row inside the open compact menu — directly opposite the close icon:
+     close (X) sits top-right in the header, so cart sits top-left of the
+     panel on the exact same horizontal line (centers aligned) */
+  .welcome-page .compact-menu-cart{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 14px;
+    margin-bottom:8px;
+    cursor:pointer;
+    color:#fff;
+    font-size:20px;
+    position:absolute;
+    top:22px;
+    left:12px;
+    width:auto;
+  }
+  .welcome-page .compact-menu-cart i{
+    font-size:24px;
+    color:#fff;
+    position:relative;
+  }
+  .welcome-page .compact-menu-cart:hover{
+    color:var(--primary);
+  }
+  .welcome-page .compact-menu-cart-count{
+    position:absolute;
+    top:-10px;
+    right:-8px;
+    min-width:16px;
+    height:16px;
+    border-radius:999px;
+    background:var(--primary);
+    color:#fff;
+    font-size:10px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 4px;
+  }
+
   .welcome-page header{
     padding:6px 1rem;
+  }
+
+  /* hide desktop-only actions (search, buy now, login, cart icon) in compact mode -
+     the compact menu provides Buy Now + Login, and the badge/menu-cart provide cart access */
+  .welcome-page .nav-actions{
+    display:none;
   }
 
   .welcome-page .nav-links{
     position:fixed;
     top:0;
     right:0;
-    height:40vh;
+    height: 48vh;
     width:50vw;
     flex-direction:column;
     align-items:center;
     justify-content:center;
     gap:18px;
+    padding-top:60px;
     background:linear-gradient(180deg, rgba(97,93,93,0.263), rgba(0,0,0,0.94));
     box-shadow:var(--shadow);
     border-radius:60px 0 30px 50px;
@@ -455,7 +588,11 @@ video{
     opacity:0;
     pointer-events:none;
     will-change:transform, opacity;
+    z-index:950;
   }
+
+  .welcome-page .nav-overlay{ display:block; visibility:hidden; }
+  .welcome-page .nav-overlay.visible{ visibility:visible; }
 
   .welcome-page .nav-links.nav-open{
     transform:translateX(0);
@@ -516,11 +653,16 @@ video{
     top:5px;
   }
 
+  /* keep cart center on the same line as the close (X) when the panel shifts */
+  .welcome-page .compact-menu-cart{
+    top:19px;
+  }
+
   .welcome-page .brand-name{
     font-size:0.95rem;
   }
 
-  .welcome-page .logo{
+  .welcome-page .logo-img{
     width:60px;
   }
 
@@ -564,7 +706,7 @@ video{
 =================================== */
 @media screen and (max-width:375px){
 
-  .welcome-page .logo{
+  .welcome-page .logo-img{
     width:50px;
     padding:4px;
   }

@@ -14,3 +14,5 @@ npm-debug.log*
 # Cloudflare Pages build output (if any)
 dist/
 build/
+# Playwright MCP artifacts
+.playwright-mcp/

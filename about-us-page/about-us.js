@@ -182,7 +182,6 @@
   }
 
   menuToggle?.addEventListener('click', (e) => {
-    if (e.target.closest('.menu-cart')) return; // cart button opens the cart, not the menu
     navLinks?.classList.contains('nav-open') ? closeNav() : openNav();
   });
   navOverlay?.addEventListener('click', closeNav);
