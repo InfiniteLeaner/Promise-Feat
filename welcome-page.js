@@ -95,15 +95,24 @@ const loginEye = document.getElementById("login-eye");
 const loginPw = document.getElementById("login-pw");
 
 let heroAnimationDone = false;
+let loginPanelShown = false;
 
 // Check if hero animation is complete (after all welcomeFadeUp animations)
 const HERO_ANIMATION_DURATION = 1600; // 1s delay + 0.6s animation for button = 1.6s
+const AUTO_SHOW_DELAY = 3000; // 3 seconds after hero animation completes
 
 function checkHeroAnimationComplete() {
   if (!heroAnimationDone) {
     heroAnimationDone = true;
     // Hero animation is done, button is now interactive
     beginJourneyBtn.style.pointerEvents = "auto";
+    
+    // Auto-show login panel after 3 seconds
+    setTimeout(() => {
+      if (!loginPanelShown) {
+        showLoginPanel();
+      }
+    }, AUTO_SHOW_DELAY);
   }
 }
 
@@ -111,6 +120,9 @@ function checkHeroAnimationComplete() {
 setTimeout(checkHeroAnimationComplete, HERO_ANIMATION_DURATION);
 
 function showLoginPanel() {
+  if (loginPanelShown) return;
+  loginPanelShown = true;
+  
   // Animate hero content out
   heroContent.style.transition = "opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)";
   heroContent.style.opacity = "0";
@@ -134,6 +146,7 @@ function showLoginPanel() {
 function hideLoginPanel() {
   loginPanelSection.style.display = "none";
   document.body.style.overflow = "";
+  loginPanelShown = false;
   
   // Animate hero content back in
   heroContent.style.transition = "opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)";
