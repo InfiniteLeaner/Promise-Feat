@@ -752,7 +752,7 @@ video{
   z-index: 500;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 20px;
   pointer-events: none;
 }
@@ -764,7 +764,7 @@ video{
 .welcome-page .login-panel-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   opacity: 0;
@@ -778,22 +778,24 @@ video{
 .welcome-page .login-panel-container {
   width: 100%;
   max-width: 420px;
-  transform: translateX(100%);
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0;
+  transform: scale(0.9) translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .welcome-page .login-panel-section.active .login-panel-container {
-  transform: translateX(0);
+  opacity: 1;
+  transform: scale(1) translateY(0);
 }
 
 .welcome-page .login-panel-inner {
-  background: rgba(17, 17, 17, 0.95);
+  background: rgba(17, 17, 17, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(201, 165, 90, 0.3);
+  border: 1px solid rgba(201, 165, 90, 0.2);
   border-radius: 24px;
   padding: 40px 32px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 165, 90, 0.1) inset;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(201, 165, 90, 0.08) inset;
 }
 
 .welcome-page .panel-logo {

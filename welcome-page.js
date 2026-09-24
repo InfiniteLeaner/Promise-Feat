@@ -129,26 +129,26 @@ function showLoginPanel() {
   heroContent.style.transform = "translateY(-30px)";
   heroContent.style.pointerEvents = "none";
 
-  // Show login panel - slide in from right
+  // Show login panel - fade in to center
   loginPanelSection.style.display = "flex";
   document.body.style.overflow = "hidden";
   
-  // Force reflow then add active class for slide animation
+  // Force reflow then add active class for fade-in animation
   loginPanelSection.offsetHeight;
   loginPanelSection.classList.add("active");
   
-  // Focus first input after slide animation
+  // Focus first input after animation
   setTimeout(() => {
     const usernameInput = loginForm?.querySelector('input[name="username"]');
     usernameInput?.focus();
-  }, 400);
+  }, 300);
 }
 
 function hideLoginPanel() {
   loginPanelSection.classList.remove("active");
   loginPanelShown = false;
   
-  // Wait for slide out animation, then hide
+  // Wait for fade out animation, then hide
   setTimeout(() => {
     loginPanelSection.style.display = "none";
     document.body.style.overflow = "";
