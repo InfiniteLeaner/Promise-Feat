@@ -162,11 +162,14 @@ document.addEventListener("keydown", (e) => {
 
 // Toggle password visibility
 if (loginEye && loginPw) {
+  const eyeIcon = loginEye.querySelector('i');
   loginEye.addEventListener("click", () => {
     const type = loginPw.type === "password" ? "text" : "password";
     loginPw.type = type;
-    loginEye.classList.toggle("bx-hide", type === "password");
-    loginEye.classList.toggle("bx-show", type === "text");
+    if (eyeIcon) {
+      eyeIcon.classList.toggle("bx-hide", type === "password");
+      eyeIcon.classList.toggle("bx-show", type === "text");
+    }
   });
 }
 
