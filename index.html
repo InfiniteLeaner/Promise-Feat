@@ -105,7 +105,7 @@
     <!-- HERO SECTION -->
     <main id="main-content">
 
-        <div class="hero-content">
+        <div class="hero-content" id="hero-content">
 
             <p class="hero-eyebrow">Luxury Footwear</p>
 
@@ -117,14 +117,74 @@
                 Your destination for quality products, luxury footwear, premium designs, and timeless style.
             </p>
 
-            <a
-                href="./login-page/login.html"
+            <button
+                id="begin-journey-btn"
                 class="login-btn"
+                type="button"
             >
                 Begin Your Journey
-            </a>
+            </button>
 
         </div>
+
+        <!-- COLLECTIONS SECTION (hidden initially, revealed after hero animation) -->
+        <section class="collections-section" id="collections-section" aria-label="Our Collections" style="display: none;">
+            <div class="collections-header">
+                <h2 class="collections-title">Our Footwear Collection</h2>
+                <p class="collections-subtitle">Handcrafted leather footwear for those who walk with purpose.</p>
+            </div>
+            <div class="filter-tabs" role="tablist" aria-label="Filter by category">
+                <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
+                <button class="filter-tab" data-filter="black" role="tab" aria-selected="false">Black Leather</button>
+                <button class="filter-tab" data-filter="brown" role="tab" aria-selected="false">Brown Leather</button>
+            </div>
+            <div id="product-grid" class="product-grid">
+                <div class="loading-products">Loading Products...</div>
+            </div>
+        </section>
+
+        <!-- LOGIN PANEL (hidden initially, shown after collections) -->
+        <section class="login-panel-section" id="login-panel-section" aria-label="Sign In" style="display: none;">
+            <div class="login-panel-overlay"></div>
+            <div class="login-panel-container">
+                <div class="login-panel-inner">
+                    <img src="./media/images/logo/PF.icon-remove.bg.png" alt="Promise Feats" class="panel-logo">
+                    <h1 class="panel-title">Welcome back</h1>
+                    <p class="panel-subtitle">Sign in to your account</p>
+
+                    <form id="login-form" class="auth-form" novalidate>
+                        <div class="fields">
+                            <label class="field">
+                                <i class="bx bx-user"></i>
+                                <input type="text" name="username" placeholder="Username" autocomplete="username" required>
+                            </label>
+                            <label class="field">
+                                <i class="bx bx-lock-alt"></i>
+                                <input type="password" id="login-pw" name="password" placeholder="Password" autocomplete="current-password" required>
+                                <button type="button" class="eye-btn" aria-label="Toggle password">
+                                    <i class="bx bx-hide" id="login-eye"></i>
+                                </button>
+                            </label>
+                        </div>
+
+                        <div class="form-extras">
+                            <label class="remember-me">
+                                <input type="checkbox"> <span>Remember me</span>
+                            </label>
+                            <a href="#" class="forgot-link">Forgot password?</a>
+                        </div>
+
+                        <button type="submit" class="cta-btn">Sign In <i class="bx bx-right-arrow-alt"></i></button>
+                    </form>
+
+                    <p class="switch-prompt">No account? <button type="button" class="text-link" id="go-to-register">Create one</button></p>
+
+                    <button type="button" class="back-link" id="back-to-welcome">
+                        <i class="bx bx-arrow-back"></i> Back to Welcome
+                    </button>
+                </div>
+            </div>
+        </section>
 
     </main>
 
