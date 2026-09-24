@@ -81,3 +81,116 @@ if (fabBtn && fabOptions) {
     }
   });
 }
+
+
+// ===============================
+// HERO TO LOGIN PANEL TRANSITION
+// ===============================
+const heroContent = document.getElementById("hero-content");
+const beginJourneyBtn = document.getElementById("begin-journey-btn");
+const loginPanelSection = document.getElementById("login-panel-section");
+const backToWelcomeBtn = document.getElementById("back-to-welcome");
+const loginForm = document.getElementById("login-form");
+const loginEye = document.getElementById("login-eye");
+const loginPw = document.getElementById("login-pw");
+
+let heroAnimationDone = false;
+
+// Check if hero animation is complete (after all welcomeFadeUp animations)
+const HERO_ANIMATION_DURATION = 1600; // 1s delay + 0.6s animation for button = 1.6s
+
+function checkHeroAnimationComplete() {
+  if (!heroAnimationDone) {
+    heroAnimationDone = true;
+    // Hero animation is done, button is now interactive
+    beginJourneyBtn.style.pointerEvents = "auto";
+  }
+}
+
+// Start checking after the last animation delay
+setTimeout(checkHeroAnimationComplete, HERO_ANIMATION_DURATION);
+
+function showLoginPanel() {
+  // Animate hero content out
+  heroContent.style.transition = "opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)";
+  heroContent.style.opacity = "0";
+  heroContent.style.transform = "translateY(-40px)";
+  heroContent.style.pointerEvents = "none";
+
+  // Show login panel after hero starts fading
+  setTimeout(() => {
+    loginPanelSection.style.display = "flex";
+    document.body.style.overflow = "hidden";
+    
+    // Trigger reflow for animation
+    loginPanelSection.offsetHeight;
+    
+    // Focus first input for accessibility
+    const usernameInput = loginForm?.querySelector('input[name="username"]');
+    usernameInput?.focus();
+  }, 200);
+}
+
+function hideLoginPanel() {
+  loginPanelSection.style.display = "none";
+  document.body.style.overflow = "";
+  
+  // Animate hero content back in
+  heroContent.style.transition = "opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)";
+  heroContent.style.opacity = "1";
+  heroContent.style.transform = "translateY(0)";
+  heroContent.style.pointerEvents = "auto";
+}
+
+if (beginJourneyBtn && loginPanelSection) {
+  beginJourneyBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    showLoginPanel();
+  });
+}
+
+if (backToWelcomeBtn) {
+  backToWelcomeBtn.addEventListener("click", hideLoginPanel);
+}
+
+// Close login panel on Escape key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && loginPanelSection.style.display === "flex") {
+    hideLoginPanel();
+  }
+});
+
+// Toggle password visibility
+if (loginEye && loginPw) {
+  loginEye.addEventListener("click", () => {
+    const type = loginPw.type === "password" ? "text" : "password";
+    loginPw.type = type;
+    loginEye.classList.toggle("bx-hide", type === "password");
+    loginEye.classList.toggle("bx-show", type === "text");
+  });
+}
+
+// Handle login form submission
+if (loginForm) {
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = new FormData(loginForm);
+    const username = formData.get("username");
+    const password = formData.get("password");
+    
+    // TODO: Add actual authentication logic
+    console.log("Login attempt:", { username, password });
+    
+    // For now, just show success and go back
+    alert(`Welcome back, ${username}!`);
+    hideLoginPanel();
+  });
+}
+
+// Register link handler
+const goToRegister = document.getElementById("go-to-register");
+if (goToRegister) {
+  goToRegister.addEventListener("click", () => {
+    alert("Registration feature coming soon!");
+  });
+}

@@ -741,3 +741,276 @@ video{
     width:200px;
   }
 }
+
+/* ===================================
+   LOGIN PANEL SECTION
+   Appears after hero animation completes
+=================================== */
+.welcome-page .login-panel-section {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.welcome-page .login-panel-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: -1;
+}
+
+.welcome-page .login-panel-container {
+  width: 100%;
+  max-width: 420px;
+  animation: loginPanelFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes loginPanelFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome-page .login-panel-inner {
+  background: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 165, 90, 0.3);
+  border-radius: 24px;
+  padding: 40px 32px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 165, 90, 0.1) inset;
+}
+
+.welcome-page .panel-logo {
+  width: 70px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  margin: 0 auto 20px;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
+}
+
+.welcome-page .panel-title {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #c9a55a, #e2c27a, #c9a55a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.welcome-page .panel-subtitle {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 32px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.welcome-page .auth-form .fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.welcome-page .field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.welcome-page .field i {
+  position: absolute;
+  left: 16px;
+  font-size: 18px;
+  color: var(--muted);
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+.welcome-page .field:focus-within i {
+  color: var(--gold);
+}
+
+.welcome-page .field input {
+  width: 100%;
+  padding: 14px 16px 14px 48px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font-size: 15px;
+  font-family: 'Poppins', Arial, sans-serif;
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.welcome-page .field input::placeholder {
+  color: var(--muted);
+}
+
+.welcome-page .field input:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(201, 165, 90, 0.15);
+}
+
+.welcome-page .eye-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.3s ease;
+}
+
+.welcome-page .eye-btn:hover {
+  color: var(--gold);
+}
+
+.welcome-page .form-extras {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 13px;
+}
+
+.welcome-page .remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.welcome-page .remember-me input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--gold);
+}
+
+.welcome-page .forgot-link {
+  color: var(--gold);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.welcome-page .forgot-link:hover {
+  opacity: 0.7;
+}
+
+.welcome-page .cta-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', Arial, sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  box-shadow: 0 4px 18px rgba(241, 104, 58, 0.45), 0 0 24px rgba(201, 165, 90, 0.28);
+}
+
+.welcome-page .cta-btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(241, 104, 58, 0.55), 0 0 32px rgba(201, 165, 90, 0.35);
+}
+
+.welcome-page .cta-btn:active {
+  transform: scale(0.98);
+}
+
+.welcome-page .switch-prompt {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.welcome-page .text-link {
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: inherit;
+  transition: opacity 0.3s ease;
+}
+
+.welcome-page .text-link:hover {
+  opacity: 0.7;
+}
+
+.welcome-page .back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: 'Poppins', Arial, sans-serif;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.welcome-page .back-link:hover {
+  color: var(--gold);
+  background: rgba(201, 165, 90, 0.1);
+}
+
+@media screen and (max-width: 480px) {
+  .welcome-page .login-panel-inner {
+    padding: 32px 24px;
+    border-radius: 20px;
+  }
+  
+  .welcome-page .panel-logo {
+    width: 60px;
+  }
+  
+  .welcome-page .form-extras {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .welcome-page .login-panel-container {
+    max-width: 100%;
+  }
+  
+  .welcome-page .login-panel-inner {
+    padding: 28px 20px;
+  }
+}
