@@ -442,65 +442,14 @@ video{
   color:#fff;
   font-weight:600;
   letter-spacing:0.04em;
-  padding:16px 36px;
+  padding:14px 30px;
   border-radius:999px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark), var(--secondary));
-  background-size: 200% 200%;
+  background:var(--glass);
   backdrop-filter:blur(10px);
-  box-shadow: 
-    0 4px 20px rgba(241, 104, 58, 0.4),
-    0 0 0 1px rgba(201, 165, 90, 0.2) inset,
-    0 2px 8px rgba(0, 0, 0, 0.3),
-    0 0 30px rgba(241, 104, 58, 0.6);
+  box-shadow:var(--shadow);
   touch-action:manipulation;
   -webkit-tap-highlight-color:transparent;
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.welcome-page .login-btn::after {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: inherit;
-  background: radial-gradient(ellipse at center, rgba(241, 104, 58, 0.4) 0%, transparent 70%);
-  animation: loginBtnGlow 3s ease-in-out infinite;
-  pointer-events: none;
-  z-index: -1;
-}
-
-@keyframes loginBtnGlow {
-  0%, 100% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.15);
-  }
-}
-
-.welcome-page .login-btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--secondary), var(--primary), var(--primary-dark));
-  background-size: 200% 200%;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  border-radius: inherit;
-}
-
-.welcome-page .login-btn span {
-  position: relative;
-  z-index: 1;
-}
-
-.welcome-page .login-btn i {
-  position: relative;
-  z-index: 1;
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:var(--transition);
 }
 
 .welcome-page .hero-content .login-btn{
@@ -510,40 +459,22 @@ video{
 }
 
 .welcome-page .login-btn:active{
-  transform:scale(0.96);
-  box-shadow: 
-    0 2px 10px rgba(241, 104, 58, 0.5),
-    0 0 0 1px rgba(201, 165, 90, 0.3) inset;
+  transform:scale(0.95);
+  background:linear-gradient(45deg, var(--secondary), var(--primary));
+  box-shadow:0 0 15px rgba(255,39,112,0.5), 0 0 25px rgba(241,104,58,0.4);
 }
 
 .welcome-page .login-btn:focus-visible{
-  outline:2px solid var(--gold);
+  outline:2px solid var(--primary);
   outline-offset:3px;
 }
 
 @media (hover:hover) and (pointer:fine){
   .welcome-page .login-btn:hover{
-    transform:translateY(-4px) scale(1.02);
-    box-shadow: 
-      0 12px 32px rgba(241, 104, 58, 0.5),
-      0 0 0 1px rgba(201, 165, 90, 0.3) inset,
-      0 0 40px rgba(241, 104, 58, 0.3),
-      0 0 60px rgba(241, 104, 58, 0.7);
+    transform:translateY(-6px);
+    background:linear-gradient(45deg, var(--secondary), var(--primary));
+    box-shadow:0 0 15px rgba(255,39,112,0.5), 0 0 25px rgba(241,104,58,0.4);
   }
-  
-  .welcome-page .login-btn:hover::before {
-    opacity: 1;
-    animation: gradientShift 3s ease infinite;
-  }
-  
-  .welcome-page .login-btn:hover i {
-    transform: translateX(4px);
-  }
-}
-
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
 }
 
 /* ===================================
