@@ -994,7 +994,7 @@ video{
 
 .welcome-page .field input {
   width: 100%;
-  padding: 16px 18px 16px 54px;
+  padding: 16px 68px 16px 54px;
   border-radius: 14px;
   border: 1px solid rgba(201, 165, 90, 0.15);
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
@@ -1349,6 +1349,17 @@ video{
     gap: 12px;
     align-items: flex-start;
   }
+  
+  .welcome-page .eye-btn {
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  
+  .welcome-page .field input {
+    padding-right: 60px;
+  }
 }
 
 @media screen and (max-width: 375px) {
@@ -1358,5 +1369,16 @@ video{
   
   .welcome-page .login-panel-inner {
     padding: 28px 20px;
+  }
+  
+  .welcome-page .eye-btn {
+    right: 8px;
+    width: 38px;
+    height: 38px;
+    font-size: 17px;
+  }
+  
+  .welcome-page .field input {
+    padding-right: 54px;
   }
 }
