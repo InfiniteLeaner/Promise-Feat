@@ -99,20 +99,12 @@ let loginPanelShown = false;
 
 // Check if hero animation is complete (after all welcomeFadeUp animations)
 const HERO_ANIMATION_DURATION = 1600; // 1s delay + 0.6s animation for button = 1.6s
-const AUTO_SHOW_DELAY = 3000; // 3 seconds after hero animation completes
 
 function checkHeroAnimationComplete() {
   if (!heroAnimationDone) {
     heroAnimationDone = true;
     // Hero animation is done, button is now interactive
     beginJourneyBtn.style.pointerEvents = "auto";
-    
-    // Auto-show login panel after 3 seconds
-    setTimeout(() => {
-      if (!loginPanelShown) {
-        showLoginPanel();
-      }
-    }, AUTO_SHOW_DELAY);
   }
 }
 
