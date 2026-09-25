@@ -150,8 +150,9 @@
                             <label class="field">
                                 <i class="bx bx-lock-alt" aria-hidden="true"></i>
                                 <input type="password" id="login-pw" name="password" placeholder=" " autocomplete="current-password" required aria-describedby="password-error">
-                                <button type="button" class="eye-btn" id="login-eye" aria-label="Toggle password">
-                                    <i class="bx bx-hide"></i>
+                                <button type="button" class="eye-btn" id="login-eye" aria-label="Toggle password" aria-pressed="false">
+                                    <i class="bx bx-hide" aria-hidden="true"></i>
+                                    <i class="bx bx-show" aria-hidden="true"></i>
                                 </button>
                                 <label for="login-pw">Password</label>
                                 <span class="error-message" id="password-error" aria-live="polite"></span>

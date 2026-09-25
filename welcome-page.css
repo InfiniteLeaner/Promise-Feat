@@ -1050,21 +1050,22 @@ video{
 
 .welcome-page .eye-btn {
   position: absolute;
-  right: 12px;
-  width: 40px;
-  height: 40px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.05);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
   border: 1px solid rgba(201, 165, 90, 0.2);
-  border-radius: 50%;
+  border-radius: 12px;
   color: var(--muted);
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
   overflow: hidden;
+  z-index: 2;
 }
 
 .welcome-page .eye-btn::before {
@@ -1084,9 +1085,10 @@ video{
 }
 
 .welcome-page .eye-btn:hover {
-  color: #fff;
-  border-color: transparent;
-  transform: scale(1.1);
+  color: var(--gold);
+  border-color: var(--gold);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(241, 104, 58, 0.25);
 }
 
 .welcome-page .eye-btn:hover::before {
@@ -1094,7 +1096,7 @@ video{
 }
 
 .welcome-page .eye-btn:hover i {
-  transform: rotate(15deg) scale(1.1);
+  transform: scale(1.15);
 }
 
 .welcome-page .eye-btn:active {
@@ -1104,6 +1106,23 @@ video{
 .welcome-page .eye-btn:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 2px;
+}
+
+/* Icon states - hide/show */
+.welcome-page .eye-btn i.bx-hide {
+  display: block;
+}
+
+.welcome-page .eye-btn i.bx-show {
+  display: none;
+}
+
+.welcome-page .eye-btn[aria-pressed="true"] i.bx-hide {
+  display: none;
+}
+
+.welcome-page .eye-btn[aria-pressed="true"] i.bx-show {
+  display: block;
 }
 
 /* Error message styles */
