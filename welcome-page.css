@@ -873,11 +873,11 @@ video{
 .welcome-page .login-panel-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   opacity: 0;
-  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .welcome-page .login-panel-section.active .login-panel-overlay {
@@ -886,10 +886,10 @@ video{
 
 .welcome-page .login-panel-container {
   width: 100%;
-  max-width: 420px;
+  max-width: 440px;
   opacity: 0;
-  transform: scale(0.9) translateY(20px);
-  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: scale(0.92) translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .welcome-page .login-panel-section.active .login-panel-container {
@@ -898,48 +898,77 @@ video{
 }
 
 .welcome-page .login-panel-inner {
-  background: rgba(17, 17, 17, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(201, 165, 90, 0.2);
-  border-radius: 24px;
-  padding: 40px 32px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(201, 165, 90, 0.08) inset;
+  position: relative;
+  background: linear-gradient(145deg, rgba(17, 17, 17, 0.9), rgba(25, 25, 25, 0.85));
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 28px;
+  padding: 48px 40px;
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(201, 165, 90, 0.15) inset,
+    0 0 60px rgba(241, 104, 58, 0.08);
+  overflow: hidden;
+}
+
+.welcome-page .login-panel-inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #f1683a, #ff2770, #c9a55a, transparent);
+  background-size: 200% 100%;
+  animation: borderGlow 4s ease infinite;
+}
+
+@keyframes borderGlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .welcome-page .panel-logo {
-  width: 70px;
+  width: 72px;
   aspect-ratio: 1;
   object-fit: contain;
-  margin: 0 auto 20px;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
+  margin: 0 auto 24px;
+  filter: drop-shadow(0 8px 20px rgba(241, 104, 58, 0.3));
+  animation: logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
 }
 
 .welcome-page .panel-title {
   font-family: 'Poppins', Arial, sans-serif;
-  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
   font-weight: 700;
   text-align: center;
   margin-bottom: 8px;
-  background: linear-gradient(135deg, #c9a55a, #e2c27a, #c9a55a);
+  background: linear-gradient(135deg, #fff 0%, #e2c27a 50%, #c9a55a 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
 }
 
 .welcome-page .panel-subtitle {
   text-align: center;
   color: var(--muted);
-  margin-bottom: 32px;
+  margin-bottom: 40px;
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 .welcome-page .auth-form .fields {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: 20px;
+  gap: 20px;
+  margin-bottom: 24px;
 }
 
 .welcome-page .field {
@@ -950,38 +979,73 @@ video{
 
 .welcome-page .field i {
   position: absolute;
-  left: 16px;
-  font-size: 18px;
+  left: 18px;
+  font-size: 19px;
   color: var(--muted);
   pointer-events: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 2;
 }
 
 .welcome-page .field:focus-within i {
   color: var(--gold);
+  transform: scale(1.15);
 }
 
 .welcome-page .field input {
   width: 100%;
-  padding: 14px 16px 14px 48px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.04);
+  padding: 16px 18px 16px 54px;
+  border-radius: 14px;
+  border: 1px solid rgba(201, 165, 90, 0.15);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
   color: var(--text);
   font-size: 15px;
   font-family: 'Poppins', Arial, sans-serif;
-  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .welcome-page .field input::placeholder {
+  color: transparent;
+  transition: color 0.3s ease;
+}
+
+.welcome-page .field input:not(:placeholder-shown)::placeholder {
   color: var(--muted);
 }
 
 .welcome-page .field input:focus {
   outline: none;
   border-color: var(--gold);
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 0 3px rgba(201, 165, 90, 0.15);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+  box-shadow: 
+    0 0 0 3px rgba(201, 165, 90, 0.15),
+    0 8px 24px rgba(241, 104, 58, 0.1);
+  transform: translateY(-2px);
+}
+
+.welcome-page .field label {
+  position: absolute;
+  left: 54px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 15px;
+  font-family: 'Poppins', Arial, sans-serif;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  background: transparent;
+  padding: 0 4px;
+}
+
+.welcome-page .field:focus-within label,
+.welcome-page .field input:not(:placeholder-shown) + label {
+  top: 0;
+  left: 48px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .welcome-page .eye-btn {

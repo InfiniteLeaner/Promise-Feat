@@ -113,11 +113,7 @@
 
         <div class="hero-content" id="hero-content">
 
-            <p class="hero-greeting" id="hero-greeting" aria-live="polite"></p>
-
-            <h1 class="hero-title">
-                Promise Feats
-            </h1>
+            <p class="hero-greeting" id="hero-greeting" aria-live="polite">{username}</p>
 
             <p class="hero-subtitle">
                 Your destination for quality products, luxury footwear, premium designs, and timeless style.
@@ -140,22 +136,23 @@
             <div class="login-panel-container">
                 <div class="login-panel-inner">
                     <img src="./media/images/logo/PF.icon-remove.bg.png" alt="Promise Feats" class="panel-logo">
-                    <h1 class="panel-title">Welcome back</h1>
                     <p class="panel-subtitle">Sign in to your account</p>
 
                     <form id="login-form" class="auth-form" novalidate>
                         <div class="fields">
                             <label class="field">
                                 <i class="bx bx-user" aria-hidden="true"></i>
-                                <input type="text" name="username" id="login-username" placeholder="Username" autocomplete="username" required aria-describedby="username-error">
+                                <input type="text" name="username" id="login-username" placeholder=" " autocomplete="username" required aria-describedby="username-error">
+                                <label for="login-username">Username</label>
                                 <span class="error-message" id="username-error" aria-live="polite"></span>
                             </label>
                             <label class="field">
                                 <i class="bx bx-lock-alt" aria-hidden="true"></i>
-                                <input type="password" id="login-pw" name="password" placeholder="Password" autocomplete="current-password" required aria-describedby="password-error">
+                                <input type="password" id="login-pw" name="password" placeholder=" " autocomplete="current-password" required aria-describedby="password-error">
                                 <button type="button" class="eye-btn" id="login-eye" aria-label="Toggle password">
                                     <i class="bx bx-hide"></i>
                                 </button>
+                                <label for="login-pw">Password</label>
                                 <span class="error-message" id="password-error" aria-live="polite"></span>
                             </label>
                         </div>
