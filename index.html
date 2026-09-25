@@ -21,6 +21,11 @@
     <!-- Favicon -->
     <link rel="icon" href="./media/images/logo/PF.icon-remove.bg.png" type="image/png">
 
+    <!-- Preload critical assets -->
+    <link rel="preload" as="image" href="./media/images/logo/PF.icon-remove.bg.png">
+    <link rel="preload" as="video" href="./media/videos/seasonal-ads/thank-you-for-an-absolutely-beautiful-2025..mp4" type="video/mp4">
+    <link rel="preload" as="image" href="./media/images/background images/promise-feat-black-background.webp">
+
     <!-- CSS -->
     <link rel="stylesheet" href="./welcome-page.css">
 
@@ -38,10 +43,12 @@
 
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <div class="welcome-page">
 
     <!-- BACKGROUND VIDEO -->
-    <video class="background-video" autoplay muted loop playsinline preload="auto"
+    <video class="background-video" autoplay muted loop playsinline preload="metadata"
      disablepictureinpicture aria-hidden="true" tabindex="-1"
      poster="./media/images/background images/promise-feat-black-background.webp"
      src="./media/videos/seasonal-ads/thank-you-for-an-absolutely-beautiful-2025..mp4" type="video/mp4">
@@ -81,7 +88,7 @@
 
                     <li>
                       <a href="./store-page/store.html">
-                        Collection
+                        Store
                       </a>
                     </li>
 
@@ -107,7 +114,7 @@
 
         <div class="hero-content" id="hero-content">
 
-            <p class="hero-eyebrow">Luxury Footwear</p>
+            <p class="hero-greeting" id="hero-greeting" aria-live="polite"></p>
 
             <h1 class="hero-title">
                 Promise Feats
@@ -139,21 +146,23 @@
                     <form id="login-form" class="auth-form" novalidate>
                         <div class="fields">
                             <label class="field">
-                                <i class="bx bx-user"></i>
-                                <input type="text" name="username" placeholder="Username" autocomplete="username" required>
+                                <i class="bx bx-user" aria-hidden="true"></i>
+                                <input type="text" name="username" id="login-username" placeholder="Username" autocomplete="username" required aria-describedby="username-error">
+                                <span class="error-message" id="username-error" aria-live="polite"></span>
                             </label>
                             <label class="field">
-                                <i class="bx bx-lock-alt"></i>
-                                <input type="password" id="login-pw" name="password" placeholder="Password" autocomplete="current-password" required>
+                                <i class="bx bx-lock-alt" aria-hidden="true"></i>
+                                <input type="password" id="login-pw" name="password" placeholder="Password" autocomplete="current-password" required aria-describedby="password-error">
                                 <button type="button" class="eye-btn" id="login-eye" aria-label="Toggle password">
                                     <i class="bx bx-hide"></i>
                                 </button>
+                                <span class="error-message" id="password-error" aria-live="polite"></span>
                             </label>
                         </div>
 
                         <div class="form-extras">
                             <label class="remember-me">
-                                <input type="checkbox"> <span>Remember me</span>
+                                <input type="checkbox" id="remember-me"> <span>Remember me</span>
                             </label>
                             <a href="#" class="forgot-link">Forgot password?</a>
                         </div>

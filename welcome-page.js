@@ -194,15 +194,54 @@ if (loginEye && loginPw) {
 
 // Handle login form submission
 if (loginForm) {
+  const usernameInput = document.getElementById("login-username");
+  const passwordInput = document.getElementById("login-pw");
+  const usernameError = document.getElementById("username-error");
+  const passwordError = document.getElementById("password-error");
+
+  function showError(input, errorEl, message) {
+    input.setAttribute("aria-invalid", "true");
+    errorEl.textContent = message;
+  }
+
+  function clearError(input, errorEl) {
+    input.setAttribute("aria-invalid", "false");
+    errorEl.textContent = "";
+  }
+
+  // Clear errors on input
+  usernameInput?.addEventListener("input", () => clearError(usernameInput, usernameError));
+  passwordInput?.addEventListener("input", () => clearError(passwordInput, passwordError));
+
   loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
+    let isValid = true;
+
     const formData = new FormData(loginForm);
     const username = formData.get("username");
     const password = formData.get("password");
-    
+
+    // Validate username
+    if (!username || username.trim().length < 3) {
+      showError(usernameInput, usernameError, "Username must be at least 3 characters");
+      isValid = false;
+    } else {
+      clearError(usernameInput, usernameError);
+    }
+
+    // Validate password
+    if (!password || password.length < 6) {
+      showError(passwordInput, passwordError, "Password must be at least 6 characters");
+      isValid = false;
+    } else {
+      clearError(passwordInput, passwordError);
+    }
+
+    if (!isValid) return;
+
     // TODO: Add actual authentication logic
     console.log("Login attempt:", { username, password });
-    
+
     // For now, just show success and go back
     alert(`Welcome back, ${username}!`);
     hideLoginPanel();
@@ -216,3 +255,37 @@ if (goToRegister) {
     alert("Registration feature coming soon!");
   });
 }
+
+// ===============================
+// TIME-BASED GREETING
+// ===============================
+function getTimeBasedGreeting() {
+  const hour = new Date().getHours();
+
+  if (hour >= 5 && hour < 12) {
+    return { greeting: "Good morning", emoji: "🌅", timeOfDay: "morning" };
+  } else if (hour >= 12 && hour < 17) {
+    return { greeting: "Good afternoon", emoji: "☀️", timeOfDay: "afternoon" };
+  } else if (hour >= 17 && hour < 21) {
+    return { greeting: "Good evening", emoji: "🌆", timeOfDay: "evening" };
+  } else {
+    return { greeting: "Good night", emoji: "🌙", timeOfDay: "night" };
+  }
+}
+
+function updateHeroGreeting() {
+  const greetingEl = document.getElementById("hero-greeting");
+  if (!greetingEl) return;
+
+  const { greeting, emoji, timeOfDay } = getTimeBasedGreeting();
+  greetingEl.textContent = `${greeting} ${emoji}`;
+  greetingEl.dataset.timeOfDay = timeOfDay;
+}
+
+// Initialize greeting on load
+document.addEventListener("DOMContentLoaded", () => {
+  updateHeroGreeting();
+
+  // Update greeting every minute (in case user keeps page open across time boundaries)
+  setInterval(updateHeroGreeting, 60000);
+});

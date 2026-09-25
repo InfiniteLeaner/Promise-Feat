@@ -20,6 +20,54 @@ body{
 }
 
 /* ===================================
+   ACCESSIBILITY
+=================================== */
+/* Focus visible for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #c9a55a;
+  outline-offset: 2px;
+}
+
+/* Skip link for screen readers */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  background: #c9a55a;
+  color: #111;
+  font-weight: 600;
+  border-radius: 8px;
+  z-index: 9999;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 16px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary: #ff8c00;
+    --secondary: #ff0066;
+    --glass: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* ===================================
    ROOT COLORS
 =================================== */
 :root{
@@ -328,6 +376,24 @@ video{
   opacity:0;
   animation:welcomeFadeUp 0.8s forwards 0.5s;
 }
+
+.welcome-page .hero-greeting{
+  margin:0 0 14px;
+  font-size:clamp(1rem, 2.5vw, 1.3rem);
+  font-weight:500;
+  color:#c9a55a;
+  text-shadow:0 2px 12px rgba(201,165,90,0.45);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  opacity:0;
+  animation:welcomeFadeUp 0.8s forwards 0.3s;
+}
+
+.welcome-page .hero-greeting[data-time-of-day="morning"] { color: #ffd700; }
+.welcome-page .hero-greeting[data-time-of-day="afternoon"] { color: #ff8c00; }
+.welcome-page .hero-greeting[data-time-of-day="evening"] { color: #ff6b6b; }
+.welcome-page .hero-greeting[data-time-of-day="night"] { color: #a855f7; }
 
 .welcome-page .hero-title{
   margin:0;
@@ -889,6 +955,27 @@ video{
 
 .welcome-page .eye-btn:hover {
   color: var(--gold);
+}
+
+/* Error message styles */
+.welcome-page .error-message {
+  position: absolute;
+  bottom: -20px;
+  left: 48px;
+  font-size: 12px;
+  color: #ff6b6b;
+  min-height: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.welcome-page .field input[aria-invalid="true"] {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.15);
+}
+
+.welcome-page .field input[aria-invalid="true"] + .error-message {
+  opacity: 1;
 }
 
 .welcome-page .form-extras {
